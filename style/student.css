@@ -1,0 +1,643 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8FAFC;
+    color: #1E293B;
+
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 236px;
+    min-height: 100vh;
+
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.sidebar-content {
+    padding: 24px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    height: 72px;
+
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.page-intro {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.page-intro h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.page-intro-p {
+    font-size: 15px;
+    color: #64748B;
+}
+
+
+/* =========================
+   HEADER ACTIONS
+========================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+
+    color: #64748B;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.3s;
+}
+
+.icon-button:hover {
+    background-color: #F1F5F9;
+}
+.avatar {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(#64748B);
+    color: var(#F1F5F9);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+}
+
+/* =========================
+   STUDENT BODY
+========================= */
+
+.student-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 32px;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.students-filters {
+    display: flex;
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    position: relative;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.search-box i {
+    position: absolute;
+
+    left: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #94A3B8;
+}
+
+.student-search {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 16px 0 40px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+
+    outline: none;
+
+    color: #1E293B;
+
+    transition:
+        background-color 0.3s,
+        border-color 0.3s,
+        color 0.3s;
+}
+
+.student-search::placeholder {
+    color: #94A3B8;
+}
+
+
+/* =========================
+   COURSE FILTER
+========================= */
+.add-student{
+    width: 130px;
+    height: 42px;  
+    padding: 0 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+}
+.course-filter {
+    width: 130px;
+    height: 42px;
+
+    padding: 0 12px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+
+    color: #334155;
+
+    outline: none;
+
+    transition:
+        background-color 0.3s,
+        border-color 0.3s,
+        color 0.3s;
+}
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    width: 100%;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.students-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.students-table th {
+    height: 48px;
+
+    padding: 0 20px;
+
+    text-align: left;
+
+    background-color: #F8FAFC;
+
+    color: #64748B;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+.students-table td {
+    height: 72px;
+
+    padding: 0 20px;
+
+    border-top: 1px solid #E2E8F0;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s,
+        color 0.3s;
+}
+
+.students-table tbody tr:hover {
+    background-color: #F8FAFC;
+}
+
+
+/* =========================
+   STUDENT INFO
+========================= */
+
+.student-info {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    font-weight: 500;
+}
+
+.student-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 180px;
+}
+
+.progress-bar {
+    width: 120px;
+    height: 7px;
+
+    background-color: #E2E8F0;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-bar span {
+    display: block;
+
+    height: 100%;
+
+    background-color: #FF7900;
+
+    border-radius: 10px;
+}
+
+.progress-value {
+    color: #64748B;
+    font-size: 13px;
+}
+
+
+/* =========================
+   GRADE
+========================= */
+
+.grade {
+    font-weight: bold;
+}
+
+
+/* =================================================
+   TABLET
+   769px - 1024px
+================================================= */
+
+@media (max-width: 1024px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .topbar {
+        padding: 0 24px;
+    }
+
+    .student-body {
+        padding: 24px;
+    }
+
+    .students-filters {
+        gap: 12px;
+    }
+
+    .course-filter {
+        width: 160px;
+    }
+}
+
+
+/* =================================================
+   MOBILE
+   481px - 768px
+================================================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        display: none;
+    }
+
+
+    /* Topbar */
+
+    .topbar {
+        height: auto;
+        min-height: 72px;
+
+        padding: 16px 20px;
+    }
+
+    .page-intro {
+        margin-top: 0;
+    }
+
+    .page-intro h2 {
+        font-size: 20px;
+    }
+
+    .page-intro-p {
+        font-size: 13px;
+    }
+
+
+    /* Header */
+
+    .header-actions {
+        gap: 8px;
+    }
+
+
+    /* Body */
+
+    .student-body {
+        padding: 20px;
+    }
+
+
+    /* Filters */
+
+    .students-filters {
+        flex-direction: column;
+
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .student-search {
+        height: 44px;
+    }
+
+    .course-filter {
+        width: 100%;
+        height: 44px;
+    }
+
+
+    /* Table */
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .students-table {
+        min-width: 650px;
+    }
+}
+
+
+/* =================================================
+   SMALL MOBILE
+   480px and below
+================================================= */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        padding: 14px 16px;
+    }
+
+    .page-intro h2 {
+        font-size: 18px;
+    }
+
+    .page-intro-p {
+        font-size: 12px;
+    }
+
+
+    /* Header */
+
+    .header-actions {
+        gap: 2px;
+    }
+
+    .icon-button {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    /* Body */
+
+    .student-body {
+        padding: 16px;
+    }
+
+
+    /* Filters */
+
+    .students-filters {
+        margin-bottom: 16px;
+    }
+
+    .student-search,
+    .course-filter {
+        height: 42px;
+    }
+}
+
+
+/* =================================================
+   DARK MODE
+================================================= */
+
+body.dark-mode {
+    background-color: #0F172A;
+    color: #E2E8F0;
+}
+
+
+/* Sidebar */
+
+body.dark-mode .sidebar {
+    background-color: #111827;
+    border-color: #1E293B;
+}
+
+
+/* Topbar */
+
+body.dark-mode .topbar {
+    background-color: #111827;
+    border-color: #1E293B;
+}
+
+
+/* Page Text */
+
+body.dark-mode .page-intro-p {
+    color: #94A3B8;
+}
+
+
+/* Header Buttons */
+
+body.dark-mode .icon-button {
+    color: #CBD5E1;
+}
+
+body.dark-mode .icon-button:hover {
+    background-color: #1E293B;
+}
+
+
+/* Search */
+
+body.dark-mode .student-search {
+    background-color: #111827;
+    border-color: #334155;
+    color: #E2E8F0;
+}
+
+body.dark-mode .student-search::placeholder {
+    color: #64748B;
+}
+
+
+/* Select */
+
+body.dark-mode .course-filter {
+    background-color: #111827;
+    border-color: #334155;
+    color: #E2E8F0;
+}
+
+
+/* Table */
+
+body.dark-mode .table-container {
+    background-color: #111827;
+    border-color: #1E293B;
+}
+
+body.dark-mode .students-table th {
+    background-color: #1E293B;
+    color: #94A3B8;
+}
+
+body.dark-mode .students-table td {
+    border-color: #1E293B;
+}
+
+body.dark-mode .students-table tbody tr:hover {
+    background-color: #1E293B;
+}
+
+
+/* Progress */
+
+body.dark-mode .progress-bar {
+    background-color: #334155;
+}
+
+body.dark-mode .progress-value {
+    color: #94A3B8;
+}
