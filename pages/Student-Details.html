@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.1.0/dist/progressbar.min.js"></script>
+    <script src="../script/Student-Details.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../style/Student-Details.css">
+</head>
+
+<body>
+
+    <div class="page">
+        <header style="display: flex; flex-direction: row;" class="header">
+
+            <div class="logo">
+                Students Directory
+            </div>
+
+            <div class="header-right">
+
+                <button style="background-color: white;border: 0;"><i class="fa-solid fa-sun"></i></button>
+
+                <div class="user-profile">
+                    <div class="user-avatar">SJ</div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <main class="main-container">
+            <div style="display: flex; justify-content: space-between;" class="breadcrumb">
+                <div>
+                </div>
+                <div>
+                <div class="actions">
+                    <button class="btn btn-secondary">
+                        Back to Students
+                    </button>
+
+                    <button class="btn btn-primary">
+                        ✎ Edit Student
+                    </button>
+                </div>
+                </div>
+            </div>
+            <section class="student-details">
+                <div class="student-info">
+
+                    <div class="student-main">
+
+                        <div class="student-avatar">
+                            LC
+                        </div>
+
+                        <div class="student-name">
+                            <div class="name-row">
+                                <h2>Liam Carter</h2>
+                                <span class="risk-badge">At Risk</span>
+                            </div>
+
+                            <p>
+                                Student ID: STU-2049 · Registered Module: Algebra II
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-email">
+                        <span>Email Address</span>
+                        <strong>liam.carter@example.com</strong>
+                    </div>
+
+
+                    <div class="enrollment">
+                        <span>Enrollment Date</span>
+                        <strong>Sep 14, 2023</strong>
+                    </div>
+
+                </div>
+                <div class="student-content">
+                    <div class="progress-section">
+                        <div class="progress-card">
+
+                            <h3>Grade Progress</h3>
+
+                            <div class="progress-row">
+
+                                <div class="progress-bar">
+                                    <div
+                                        class="progress-fill grade"
+                                        style="width: 68.2%;">
+                                        <div id="containerGrade"></div>
+                                    </div>
+                                </div>
+
+                                <strong>68.2%</strong>
+
+                            </div>
+
+                            <p>
+                                This grade is currently 1.8% below the minimum
+                                target passing grade (70.0%).
+                            </p>
+
+                        </div>
+
+
+                        <!-- Attendance -->
+                        <div class="progress-card">
+
+                            <h3>Attendance Record</h3>
+
+                            <div class="progress-row">
+
+                                <div class="progress-bar">
+                                    <div
+                                        class="progress-fill attendance"
+                                        style="width: 74.5%;">
+                                        <div id="containerGrade"></div>
+                                    </div>
+                                </div>
+
+                                <strong>74.5%</strong>
+
+                            </div>
+
+                            <p>
+                                Liam has been absent for 4 sessions out of 16
+                                in total during this semester cycle.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Right Side -->
+                    <div class="history-card">
+
+                        <h3>Grade History</h3>
+
+                        <div class="history-list">
+
+                            <div class="history-item">
+
+                                <div>
+                                    <strong>Quiz 2: Quadratic Equations</strong>
+                                    <span>Oct 28, 2023</span>
+                                </div>
+
+                                <div class="grade danger">
+                                    55%
+                                    <i></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="history-item">
+
+                                <div>
+                                    <strong>Homework 3: Graphing Systems</strong>
+                                    <span>Oct 15, 2023</span>
+                                </div>
+
+                                <div class="grade success">
+                                    80%
+                                    <i></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="history-item">
+
+                                <div>
+                                    <strong>Midterm Exam 1</strong>
+                                    <span>Oct 02, 2023</span>
+                                </div>
+
+                                <div class="grade warning">
+                                    62%
+                                    <i></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="history-item">
+
+                                <div>
+                                    <strong>Quiz 1: Linear Formulas</strong>
+                                    <span>Sept 20, 2023</span>
+                                </div>
+
+                                <div class="grade success">
+                                    75%
+                                    <i></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.1.0/dist/progressbar.min.js"></script>
+    <script src="../script/Student-Details.js"></script>
+</body>
+</html>
