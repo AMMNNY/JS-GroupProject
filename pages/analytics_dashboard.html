@@ -1,388 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Dashboard</title>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../style/analytics_dashboard.css">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-</head>
-<body>
-
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="heading-group">
-                <h1>Dashboard</h1>
-                <p>Explore trends across performance, completion, and attendance.</p>
-            </div>
-            <div class="header-actions">
-                <!-- Nigth Mode Icon -->
-                <button class="night-mode" aria-label="NightMode">
-                    <i class="fa-solid fa-sun"></i>
-                </button>
-                <!-- Avatar -->
-                <div class="avatar" aria-label="User profile">
-                    AM
-                </div>
+<!-- Dashboard content; shared libraries and styles are loaded by index.html. -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="heading-group">
+            <h1>Dashboard</h1>
+            <p>Explore trends across performance, completion, and attendance.</p>
+        </div>
+        <div class="header-actions">
+            <!-- Nigth Mode Icon -->
+            <button class="night-mode" aria-label="NightMode">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+            <!-- Avatar -->
+            <div class="avatar" aria-label="User profile">
+                AM
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main class="dashboard">
-
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-            <!-- Course Filter -->
-            <div class="filter-control">
-                <select id="courseFilter">
-                    <option value="all">All courses</option>
-                    <option value="math">Mathematics</option>
-                    <option value="science">Science</option>
-                    <option value="history">History</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-
-            <!-- Time Filter -->
-            <div class="filter-control filter-control-wide">
-                <select id="timeFilter">
-                    <option value="12w">Last 12 weeks</option>
-                    <option value="4w">Last 4 weeks</option>
-                    <option value="6m">Last 6 months</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-
-            <!-- Cohort Filter -->
-            <div class="filter-control">
-                <select id="cohortFilter">
-                    <option value="all">All cohorts</option>
-                    <option value="2026-a">2026 Cohort A</option>
-                    <option value="2026-b">2026 Cohort B</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
+<div class="analytics-dashboard">
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <!-- Course Filter -->
+        <div class="filter-control">
+            <select id="courseFilter">
+                <option value="all">All courses</option>
+                <option value="math">Mathematics</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+            </select>
+            <div class="filter-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
         </div>
 
-        <!-- Top Metric Cards Grid -->
-        <div class="metrics-grid">
-            <!-- Performance score card -->
-            <div class="metric-card">
-                <div class="metric-top">
-                    <div>
-                        <span class="metric-label">Performance score</span>
-                        <div class="metric-value">81.4</div>
-                    </div>
-                    <div class="metric-icon icon-orange">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                </div>
-                <div class="metric-change">
-                    <i class="fa-solid fa-arrow-up-right"></i>
-                    <span>5.2%</span>
-                    <span class="change-context">from last month</span>
-                </div>
-            </div>
-
-            <!-- Completion rate card -->
-            <div class="metric-card">
-                <div class="metric-top">
-                    <div>
-                        <span class="metric-label">Completion rate</span>
-                        <div class="metric-value">76.8%</div>
-                    </div>
-                    <div class="metric-icon icon-green">
-                        <i class="fa-regular fa-circle-check"></i>
-                    </div>
-                </div>
-                <div class="metric-change">
-                    <i class="fa-solid fa-arrow-up-right"></i>
-                    <span>6.1%</span>
-                    <span class="change-context">from last month</span>
-                </div>
-            </div>
-
-            <!-- Attendance rate card -->
-            <div class="metric-card">
-                <div class="metric-top">
-                    <div>
-                        <span class="metric-label">Attendance rate</span>
-                        <div class="metric-value">92.6%</div>
-                    </div>
-                    <div class="metric-icon icon-blue">
-                        <i class="fa-regular fa-calendar-check"></i>
-                    </div>
-                </div>
-                <div class="metric-change">
-                    <i class="fa-solid fa-arrow-up-right"></i>
-                    <span>1.8%</span>
-                    <span class="change-context">from last month</span>
-                </div>
+        <!-- Time Filter -->
+        <div class="filter-control filter-control-wide">
+            <select id="timeFilter">
+                <option value="12w">Last 12 weeks</option>
+                <option value="4w">Last 4 weeks</option>
+                <option value="6m">Last 6 months</option>
+            </select>
+            <div class="filter-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
         </div>
 
-        <!-- Middle Section Grid -->
-        <div class="analysis-grid">
-            <!-- Performance Over Time (2 Cols) -->
-            <div class="panel performance-panel">
-                <div class="panel-heading performance-heading">
-                    <div>
-                        <h2>Performance over time</h2>
-                        <p>Average score by week</p>
-                    </div>
-                    <!-- Cohort Toggles -->
-                    <div class="cohort-toggle">
-                        <button id="btnCurrentCohort" class="is-active" aria-pressed="true">Current cohort</button>
-                        <button id="btnPreviousCohort" aria-pressed="false">Previous cohort</button>
-                    </div>
-                </div>
-
-                <!-- Chart Container -->
-                <div class="chart-container performance-chart-container">
-                    <canvas id="performanceChart"></canvas>
-                </div>
+        <!-- Cohort Filter -->
+        <div class="filter-control">
+            <select id="cohortFilter">
+                <option value="all">All cohorts</option>
+                <option value="2026-a">2026 Cohort A</option>
+                <option value="2026-b">2026 Cohort B</option>
+            </select>
+            <div class="filter-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
+        </div>
+    </div>
 
-            <!-- Course Completion (1 Col) -->
-            <div class="panel completion-panel">
+    <!-- Top Metric Cards Grid -->
+    <div class="metrics-grid">
+        <!-- Performance score card -->
+        <div class="metric-card">
+            <div class="metric-top">
                 <div>
-                    <div class="panel-heading">
-                        <h2>Course completion</h2>
-                        <p>All active enrollments</p>
+                    <span class="metric-label">Performance score</span>
+                    <div class="metric-value">81.4</div>
+                </div>
+                <div class="metric-icon icon-orange">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+            </div>
+            <div class="metric-change">
+                <i class="fa-solid fa-arrow-up-right"></i>
+                <span>5.2%</span>
+                <span class="change-context">from last month</span>
+            </div>
+        </div>
+
+        <!-- Completion rate card -->
+        <div class="metric-card">
+            <div class="metric-top">
+                <div>
+                    <span class="metric-label">Completion rate</span>
+                    <div class="metric-value">76.8%</div>
+                </div>
+                <div class="metric-icon icon-green">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+            </div>
+            <div class="metric-change">
+                <i class="fa-solid fa-arrow-up-right"></i>
+                <span>6.1%</span>
+                <span class="change-context">from last month</span>
+            </div>
+        </div>
+
+        <!-- Attendance rate card -->
+        <div class="metric-card">
+            <div class="metric-top">
+                <div>
+                    <span class="metric-label">Attendance rate</span>
+                    <div class="metric-value">92.6%</div>
+                </div>
+                <div class="metric-icon icon-blue">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+            </div>
+            <div class="metric-change">
+                <i class="fa-solid fa-arrow-up-right"></i>
+                <span>1.8%</span>
+                <span class="change-context">from last month</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Section Grid -->
+    <div class="analysis-grid">
+        <!-- Performance Over Time (2 Cols) -->
+        <div class="panel performance-panel">
+            <div class="panel-heading performance-heading">
+                <div>
+                    <h2>Performance over time</h2>
+                    <p>Average score by week</p>
+                </div>
+                <!-- Cohort Toggles -->
+                <div class="cohort-toggle">
+                    <button id="btnCurrentCohort" class="is-active" aria-pressed="true">Current cohort</button>
+                    <button id="btnPreviousCohort" aria-pressed="false">Previous cohort</button>
+                </div>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="chart-container performance-chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Course Completion (1 Col) -->
+        <div class="panel completion-panel">
+            <div>
+                <div class="panel-heading">
+                    <h2>Course completion</h2>
+                    <p>All active enrollments</p>
+                </div>
+            </div>
+
+            <div class="completion-content">
+                <!-- Donut Canvas Container -->
+                <div class="donut-container">
+                    <canvas id="completionChart"></canvas>
+                    <!-- Center Label -->
+                    <div class="donut-label">
+                        <span>77%</span>
                     </div>
                 </div>
 
-                <div class="completion-content">
-                    <!-- Donut Canvas Container -->
-                    <div class="donut-container">
-                        <canvas id="completionChart"></canvas>
-                        <!-- Center Label -->
-                        <div class="donut-label">
-                            <span>77%</span>
+                <!-- Legend Items -->
+                <div class="completion-legend">
+                    <div class="legend-row">
+                        <div class="legend-name">
+                            <span class="legend-swatch swatch-orange"></span>
+                            <span>Completed</span>
                         </div>
+                        <span class="legend-value">74%</span>
                     </div>
-
-                    <!-- Legend Items -->
-                    <div class="completion-legend">
-                        <div class="legend-row">
-                            <div class="legend-name">
-                                <span class="legend-swatch swatch-orange"></span>
-                                <span>Completed</span>
-                            </div>
-                            <span class="legend-value">74%</span>
+                    <div class="legend-row">
+                        <div class="legend-name">
+                            <span class="legend-swatch swatch-blue"></span>
+                            <span>In progress</span>
                         </div>
-                        <div class="legend-row">
-                            <div class="legend-name">
-                                <span class="legend-swatch swatch-blue"></span>
-                                <span>In progress</span>
-                            </div>
-                            <span class="legend-value">18%</span>
+                        <span class="legend-value">18%</span>
+                    </div>
+                    <div class="legend-row">
+                        <div class="legend-name">
+                            <span class="legend-swatch swatch-gray"></span>
+                            <span>Not started</span>
                         </div>
-                        <div class="legend-row">
-                            <div class="legend-name">
-                                <span class="legend-swatch swatch-gray"></span>
-                                <span>Not started</span>
-                            </div>
-                            <span class="legend-value">8%</span>
-                        </div>
+                        <span class="legend-value">8%</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bottom Section: Attendance by Course -->
-        <div class="panel attendance-panel">
-            <div class="panel-heading">
-                <h2>Attendance by course</h2>
-                <p>Average attendance rate</p>
-            </div>
-
-            <div class="chart-container attendance-chart-container">
-                <canvas id="attendanceChart"></canvas>
-            </div>
+    <!-- Bottom Section: Attendance by Course -->
+    <div class="panel attendance-panel">
+        <div class="panel-heading">
+            <h2>Attendance by course</h2>
+            <p>Average attendance rate</p>
         </div>
 
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // Common Font standard
-            Chart.defaults.font.family = "Arial, Helvetica, sans-serif";
-            Chart.defaults.color = '#94a3b8';
-
-            /* ==========================================
-               1. PERFORMANCE OVER TIME CHART
-            ========================================== */
-            const perfCtx = document.getElementById('performanceChart').getContext('2d');
-            
-            const currentCohortData = [45, 52, 58, 50, 62, 68, 72, 78, 75, 88];
-            const previousCohortData = [40, 48, 50, 55, 58, 60, 65, 70, 72, 80];
-
-            let perfChart = new Chart(perfCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-                    datasets: [{
-                        data: currentCohortData,
-                        backgroundColor: (context) => {
-                            // Highlight W10 (last bar) with darker orange
-                            return context.dataIndex === 9 ? '#f97316' : '#ffb066';
-                        },
-                        borderRadius: {
-                            topLeft: 6,
-                            topRight: 6,
-                            bottomLeft: 0,
-                            bottomRight: 0
-                        },
-                        borderSkipped: false,
-                        barThickness: 22
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => ` Score: ${context.parsed.y}`
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            border: { display: false },
-                            ticks: { font: { size: 11 } }
-                        },
-                        y: {
-                            display: false,
-                            min: 0,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // Cohort Toggle Interactions
-            const btnCurrent = document.getElementById('btnCurrentCohort');
-            const btnPrevious = document.getElementById('btnPreviousCohort');
-
-            btnCurrent.addEventListener('click', () => {
-                btnCurrent.classList.add('is-active');
-                btnCurrent.setAttribute('aria-pressed', 'true');
-                btnPrevious.classList.remove('is-active');
-                btnPrevious.setAttribute('aria-pressed', 'false');
-                
-                perfChart.data.datasets[0].data = currentCohortData;
-                perfChart.update();
-            });
-
-            btnPrevious.addEventListener('click', () => {
-                btnPrevious.classList.add('is-active');
-                btnPrevious.setAttribute('aria-pressed', 'true');
-                btnCurrent.classList.remove('is-active');
-                btnCurrent.setAttribute('aria-pressed', 'false');
-                
-                perfChart.data.datasets[0].data = previousCohortData;
-                perfChart.update();
-            });
-
-
-            /* ==========================================
-               2. COURSE COMPLETION DONUT CHART
-            ========================================== */
-            const compCtx = document.getElementById('completionChart').getContext('2d');
-            new Chart(compCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Completed', 'In progress', 'Not started'],
-                    datasets: [{
-                        data: [74, 18, 8],
-                        backgroundColor: ['#ff6b00', '#3b82f6', '#e2e8f0'],
-                        borderWidth: 0,
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '78%',
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => ` ${context.label}: ${context.parsed}%`
-                            }
-                        }
-                    }
-                }
-            });
-
-
-            /* ==========================================
-               3. ATTENDANCE BY COURSE CHART
-            ========================================== */
-            const attCtx = document.getElementById('attendanceChart').getContext('2d');
-            new Chart(attCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Alg.', 'Phys.', 'Eng.', 'Bio.', 'Hist.', 'Chem.'],
-                    datasets: [{
-                        data: [90, 86, 82, 88, 76, 85],
-                        backgroundColor: (context) => {
-                            // Highlight Chem bar with darker blue
-                            return context.dataIndex === 5 ? '#3b82f6' : '#93c5fd';
-                        },
-                        borderRadius: {
-                            topLeft: 6,
-                            topRight: 6,
-                            bottomLeft: 0,
-                            bottomRight: 0
-                        },
-                        borderSkipped: false,
-                        barThickness: 28
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => ` Attendance: ${context.parsed.y}%`
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            border: { display: false },
-                            ticks: { font: { size: 11, weight: '500' } }
-                        },
-                        y: {
-                            display: false,
-                            min: 0,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-        });
-    </script>
-</body>
-</html>
+        <div class="chart-container attendance-chart-container">
+            <canvas id="attendanceChart"></canvas>
+        </div>
+    </div>
+</div>
