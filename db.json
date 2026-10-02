@@ -13,19 +13,18 @@
       "password": "123456"
     }
   ],
-
   "students": [
     {
       "id": "S001",
       "instructorId": "I001",
-      "name": "Sara Ahmad",
+      "name": "Sara Aliii",
       "studentId": "ST001",
-      "course": "JavaScript",
-      "attendance": 92,
+      "course": "Test",
+      "attendance": "92",
       "grades": {
-        "assignments": 88,
-        "quizzes": 90,
-        "exam": 85
+        "assignments": "88",
+        "quizzes": "90",
+        "exam": "85"
       },
       "feedback": "Great progress. Keep practicing JavaScript.",
       "status": "Active"
@@ -65,12 +64,12 @@
       "instructorId": "I001",
       "name": "Yousef Ali",
       "studentId": "ST004",
-      "course": "React",
-      "attendance": 84,
+      "course": "CSS",
+      "attendance": "84",
       "grades": {
-        "assignments": 80,
-        "quizzes": 82,
-        "exam": 78
+        "assignments": "80",
+        "quizzes": "82",
+        "exam": "78"
       },
       "feedback": "Good work. Focus more on React components.",
       "status": "Active"
@@ -91,22 +90,36 @@
       "status": "Active"
     },
     {
-      "id": "S006",
-      "instructorId": "I002",
-      "name": "Nour Hassan",
-      "studentId": "ST006",
-      "course": "PHP Laravel",
-      "attendance": 68,
+      "instructorId": "I001",
+      "studentId": "ccc",
+      "name": "xxx",
+      "course": "xxx",
+      "attendance": null,
       "grades": {
-        "assignments": 65,
-        "quizzes": 70,
-        "exam": 58
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
       },
-      "feedback": "Needs improvement in Laravel and attendance.",
-      "status": "Active"
+      "feedback": "fff",
+      "status": "Active",
+      "id": "XOaBxlaeWcQ"
+    },
+    {
+      "instructorId": "I001",
+      "studentId": "hhh",
+      "name": "yyy",
+      "course": "ttt",
+      "attendance": null,
+      "grades": {
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
+      },
+      "feedback": "rrr",
+      "status": "Active",
+      "id": "GR7YvFjPRb8"
     }
   ],
-
   "courses": [
     {
       "id": "C001",
@@ -128,5 +141,6 @@
       "name": "PHP Laravel",
       "description": "Learn backend development using Laravel."
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
