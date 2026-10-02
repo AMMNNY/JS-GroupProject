@@ -247,7 +247,8 @@ select {
 
 .metric-card {
     display: flex;
-    min-height: 158px;
+    min-height: 100px;
+    margin-bottom: var(--space-6);
     flex-direction: column;
     justify-content: space-between;
     padding: var(--space-6);
@@ -310,8 +311,9 @@ select {
 
 .analysis-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-5);
+    margin-bottom: var(--space-6);
 }
 
 .panel {

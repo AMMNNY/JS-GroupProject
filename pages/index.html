@@ -47,9 +47,10 @@
     </main>
 
 
-    <script>
+    <script type="module">
 
         const dynmic = document.getElementById("Dynmic");
+        import {initDashboard} from "../script/analytics_dashboard.js";
 
         function loadPage() {
             const requestedHash = location.hash;
@@ -80,19 +81,11 @@
                     dynmic.innerHTML = data;
 
                     if (requestedHash === "#/Dashboard") {
-                        const dashboardScript = document.createElement("script");
-                        dashboardScript.type = "module";
-                        dashboardScript.src = "../script/analytics_dashboard.js";
-                        dashboardScript.onload = () => dashboardScript.remove();
-                        dashboardScript.onerror = () => {
-                            console.error("Unable to load ../script/analytics_dashboard.js");
-                            dashboardScript.remove();
-                        };
-                        document.body.appendChild(dashboardScript);
+                        initDashboard();
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
+                    console.errorٍ(error);
                 });
         }
 

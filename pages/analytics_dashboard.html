@@ -22,7 +22,7 @@
             </div>
             <div class="header-actions">
                 <!-- Nigth Mode Icon -->
-                <button class="night-mode" aria-label="NightMode">
+                <button class="night-mode" aria-label="NightMode" id="theme-toggle">
                     <i class="fa-solid fa-sun"></i>
                 </button>
                 <!-- Avatar -->
@@ -35,45 +35,6 @@
 
     <main class="dashboard">
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-            <!-- Course Filter -->
-            <div class="filter-control">
-                <select id="courseFilter">
-                    <option value="all">All courses</option>
-                    <option value="math">Mathematics</option>
-                    <option value="science">Science</option>
-                    <option value="history">History</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-
-            <!-- Time Filter -->
-            <div class="filter-control filter-control-wide">
-                <select id="timeFilter">
-                    <option value="12w">Last 12 weeks</option>
-                    <option value="4w">Last 4 weeks</option>
-                    <option value="6m">Last 6 months</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-
-            <!-- Cohort Filter -->
-            <div class="filter-control">
-                <select id="cohortFilter">
-                    <option value="all">All cohorts</option>
-                    <option value="2026-a">2026 Cohort A</option>
-                    <option value="2026-b">2026 Cohort B</option>
-                </select>
-                <div class="filter-chevron">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-        </div>
 
         <!-- Top Metric Cards Grid -->
         <div class="metrics-grid">
@@ -85,7 +46,7 @@
                         <div class="metric-value" id="totalStudents">81.4</div>
                     </div>
                     <div class="metric-icon icon-orange">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                 </div>
 
@@ -102,11 +63,6 @@
                         <i class="fa-regular fa-calendar-check"></i>
                     </div>
                 </div>
-                <div class="metric-change">
-                    <i class="fa-solid fa-arrow-up-right"></i>
-                    <span>6.1%</span>
-                    <span class="change-context">from last month</span>
-                </div>
             </div>
 
             <!-- Attendance rate card -->
@@ -116,14 +72,9 @@
                         <span class="metric-label">Total Courses</span>
                         <div class="metric-value" id="totalCourses">12</div>
                     </div>
-                    <div class="metric-icon icon-blue">
-                        <i class="fa-regular fa-calendar-check"></i>
+                    <div class="metric-icon icon-green">
+                        <i class="fa-solid fa-book"></i>
                     </div>
-                </div>
-                <div class="metric-change">
-                    <i class="fa-solid fa-arrow-up-right"></i>
-                    <span>1.8%</span>
-                    <span class="change-context">from last month</span>
                 </div>
             </div>
         </div>
@@ -184,6 +135,6 @@
 
     </main>
 
-    <script type="module" src="../script/analytics_dashboard.js"></script>
+    <script src="../script/night-mode.js"></script>
 </body>
 </html>
