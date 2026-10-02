@@ -284,5 +284,20 @@ export function initDashboard() {
     } else {
         initDashboard();
     }
-    
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', function () {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            themeToggle.setAttribute('aria-pressed', String(isDarkMode));
+
+            if (themeIcon) {
+                themeIcon.classList.toggle('fa-sun', isDarkMode);
+                themeIcon.classList.toggle('fa-moon', !isDarkMode);
+            }
+        });
+    }
+
 }
