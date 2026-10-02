@@ -19,6 +19,15 @@ export function initDashboard() {
         }
     });
 
+    let totalCoursesElement = document.getElementById('totalCourses');
+    coursesData.then(data => {
+        if (data) {
+            totalCoursesElement.textContent = data.length;
+        } else {
+            totalCoursesElement.textContent = '0';
+        }
+    });
+
     let attendanceRateElement = document.getElementById('attendanceRate');
 
 
