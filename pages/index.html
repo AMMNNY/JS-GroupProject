@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/analytics_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 
 <body>
@@ -80,10 +81,11 @@
 
                     if (requestedHash === "#/Dashboard") {
                         const dashboardScript = document.createElement("script");
-                        dashboardScript.src = "./js/dashboard.js";
+                        dashboardScript.type = "module";
+                        dashboardScript.src = "../script/analytics_dashboard.js";
                         dashboardScript.onload = () => dashboardScript.remove();
                         dashboardScript.onerror = () => {
-                            console.error("Unable to load ./js/dashboard.js");
+                            console.error("Unable to load ../script/analytics_dashboard.js");
                             dashboardScript.remove();
                         };
                         document.body.appendChild(dashboardScript);
@@ -97,6 +99,8 @@
         window.addEventListener("hashchange", loadPage);
 
         loadPage();
+
+        
 
     </script>
 
