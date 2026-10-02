@@ -44,7 +44,20 @@ instructorData.then(data => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+function initDashboard() {
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js failed to load.');
+        return;
+    }
+
+    const performanceCanvas = document.getElementById('performanceChart');
+    const completionCanvas = document.getElementById('completionChart');
+    const attendanceCanvas = document.getElementById('attendanceChart');
+
+    if (!performanceCanvas || !completionCanvas || !attendanceCanvas) {
+        console.warn('Dashboard chart canvases not found yet.');
+        return;
+    }
 
     // Common Font standard
     Chart.defaults.font.family = "Arial, Helvetica, sans-serif";
@@ -53,12 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        1. PERFORMANCE OVER TIME CHART
     ========================================== */
-    const perfCtx = document.getElementById('performanceChart').getContext('2d');
+    const perfCtx = performanceCanvas.getContext('2d');
 
     studentsData.then(data => {
+        if (!Array.isArray(data) || data.length === 0) return;
+
         const studentsAvgGrades = data.map(student => {
-            const grades = Object.values(student.grades);
-            return grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
+            const grades = Object.values(student.grades || {});
+            return grades.length ? grades.reduce((sum, grade) => sum + grade, 0) / grades.length : 0;
         });
 
         new Chart(perfCtx, {
@@ -105,17 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     /* ==========================================
        2. COURSE COMPLETION DONUT CHART
     ========================================== */
     Promise.all([coursesData, studentsData]).then(([courses, students]) => {
+        if (!Array.isArray(courses) || !Array.isArray(students)) return;
+
         const courseColors = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#e0f2fe'];
         const courseCounts = courses.map(course => ({
             name: course.name,
             count: students.filter(student => student.course === course.name).length
         }));
-        const compCtx = document.getElementById('completionChart').getContext('2d');
+        const compCtx = completionCanvas.getContext('2d');
 
         new Chart(compCtx, {
             type: 'doughnut',
@@ -142,38 +158,45 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        document.querySelector('.donut-label span').textContent = students.length;
+        const donutLabel = document.querySelector('.donut-label span');
+        if (donutLabel) {
+            donutLabel.textContent = students.length;
+        }
+
         const legend = document.querySelector('.completion-legend');
-        const legendRows = courseCounts.map((course, index) => {
-            const row = document.createElement('div');
-            row.className = 'legend-row';
+        if (legend) {
+            const legendRows = courseCounts.map((course, index) => {
+                const row = document.createElement('div');
+                row.className = 'legend-row';
 
-            const name = document.createElement('div');
-            name.className = 'legend-name';
+                const name = document.createElement('div');
+                name.className = 'legend-name';
 
-            const swatch = document.createElement('span');
-            swatch.className = 'legend-swatch';
-            swatch.style.backgroundColor = courseColors[index % courseColors.length];
+                const swatch = document.createElement('span');
+                swatch.className = 'legend-swatch';
+                swatch.style.backgroundColor = courseColors[index % courseColors.length];
 
-            const courseName = document.createElement('span');
-            courseName.textContent = course.name;
-            name.append(swatch, courseName);
+                const courseName = document.createElement('span');
+                courseName.textContent = course.name;
+                name.append(swatch, courseName);
 
-            const count = document.createElement('span');
-            count.className = 'legend-value';
-            count.textContent = course.count;
-            row.append(name, count);
-            return row;
-        });
-        legend.replaceChildren(...legendRows);
+                const count = document.createElement('span');
+                count.className = 'legend-value';
+                count.textContent = course.count;
+                row.append(name, count);
+                return row;
+            });
+            legend.replaceChildren(...legendRows);
+        }
     });
-
 
     /* ==========================================
        3. ATTENDANCE BY COURSE CHART
     ========================================== */
-    const attCtx = document.getElementById('attendanceChart').getContext('2d');
+    const attCtx = attendanceCanvas.getContext('2d');
     Promise.all([coursesData, studentsData]).then(([courses, students]) => {
+        if (!Array.isArray(courses) || !Array.isArray(students)) return;
+
         const courseAttendance = courses.map(course => {
             const courseStudents = students.filter(student => student.course === course.name);
             const totalAttendance = courseStudents.reduce((sum, student) => sum + student.attendance, 0);
@@ -226,5 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
 
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDashboard, { once: true });
+} else {
+    initDashboard();
+}
