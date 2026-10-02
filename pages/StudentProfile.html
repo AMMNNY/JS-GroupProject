@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile | EduTrack</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../style/studentProfile.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="page-container">
+
+        <!-- Back Button -->
+        <button class="back-btn" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+
+        <!-- =========================
+             STUDENT HEADER
+        ========================== -->
+
+        <section class="student-header">
+
+            <div class="student-info">
+
+                <div class="avatar">
+                    AK
+                </div>
+
+                <div>
+
+                    <h1 id="studentName">
+                        Ahmad Khalil
+                    </h1>
+
+                    <p>
+                        <span id="studentId">ST-001</span>
+                        •
+                        <span id="studentEmail">ahmad@example.com</span>
+                        •
+                        <span id="studentCourse">JavaScript</span>
+                    </p>
+
+                    <span class="status">
+                        Excellent
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="student-actions">
+
+                <button id="editStudentBtn" class="secondary-btn">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Edit Student
+
+                </button>
+
+
+                <button id="generateReportBtn" class="primary-btn">
+
+                    <i class="fa-solid fa-file-arrow-down"></i>
+
+                    Generate Report
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="statistics">
+
+            <!-- Overall -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Overall Grade</span>
+
+                    <h2 id="overallGrade">
+                        88
+                    </h2>
+                </div>
+
+                <div class="circle purple">
+                    <span id="overallCircle">88%</span>
+                </div>
+
+            </div>
+
+
+            <!-- Attendance -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Attendance</span>
+
+                    <h2 id="attendanceScore">
+                        92
+                    </h2>
+                </div>
+
+                <div class="circle green">
+                    <span id="attendanceCircle">92%</span>
+                </div>
+
+            </div>
+
+
+            <!-- Assignments -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Assignments</span>
+
+                    <h2 id="assignmentScore">
+                        85
+                    </h2>
+                </div>
+
+                <div class="circle blue">
+                    <span id="assignmentCircle">85%</span>
+                </div>
+
+            </div>
+
+
+            <!-- Quizzes -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Quizzes</span>
+
+                    <h2 id="quizScore">
+                        90
+                    </h2>
+                </div>
+
+                <div class="circle pink">
+                    <span id="quizCircle">90%</span>
+                </div>
+
+            </div>
+
+
+            <!-- Exams -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Exams</span>
+
+                    <h2 id="examScore">
+                        88
+                    </h2>
+                </div>
+
+                <div class="circle orange">
+                    <span id="examCircle">88%</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TABS
+        ========================== -->
+
+        <nav class="tabs">
+
+            <button class="tab active" data-tab="overview">
+                Overview
+            </button>
+
+            <button class="tab" data-tab="grades">
+                Grades
+            </button>
+
+            <button class="tab" data-tab="attendance">
+                Attendance
+            </button>
+
+            <button class="tab" data-tab="assignments">
+                Assignments
+            </button>
+
+            <button class="tab" data-tab="feedback">
+                Feedback
+            </button>
+
+        </nav>
+
+
+        <!-- =========================
+             OVERVIEW
+        ========================== -->
+
+        <section id="overview" class="tab-content active">
+
+            <h2>Performance Overview</h2>
+
+            <p class="section-description">
+                A quick summary of the student's academic performance.
+            </p>
+
+
+            <div class="overview-grid">
+
+                <div class="overview-item">
+
+                    <span>Overall Grade</span>
+
+                    <strong id="overviewGrade">
+                        88%
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <span>Attendance</span>
+
+                    <strong id="overviewAttendance">
+                        92%
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <span>Assignments</span>
+
+                    <strong id="overviewAssignments">
+                        85%
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <span>Quizzes</span>
+
+                    <strong id="overviewQuizzes">
+                        90%
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <span>Exams</span>
+
+                    <strong id="overviewExams">
+                        88%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GRADES
+        ========================== -->
+
+        <section id="grades" class="tab-content">
+
+            <h2>Grade Breakdown</h2>
+
+
+            <!-- Assignment -->
+
+            <div class="progress-row">
+
+                <span>Assignments (30%)</span>
+
+                <div class="progress">
+
+                    <div id="assignmentBar"
+                         class="progress-fill"
+                         style="width: 85%;">
+                    </div>
+
+                </div>
+
+                <strong id="assignmentProgressText">
+                    85
+                </strong>
+
+            </div>
+
+
+            <!-- Quiz -->
+
+            <div class="progress-row">
+
+                <span>Quizzes (20%)</span>
+
+                <div class="progress">
+
+                    <div id="quizBar"
+                         class="progress-fill"
+                         style="width: 90%;">
+                    </div>
+
+                </div>
+
+                <strong id="quizProgressText">
+                    90
+                </strong>
+
+            </div>
+
+
+            <!-- Exam -->
+
+            <div class="progress-row">
+
+                <span>Exams (50%)</span>
+
+                <div class="progress">
+
+                    <div id="examBar"
+                         class="progress-fill"
+                         style="width: 88%;">
+                    </div>
+
+                </div>
+
+                <strong id="examProgressText">
+                    88
+                </strong>
+
+            </div>
+
+
+            <!-- Final -->
+
+            <div class="progress-row">
+
+                <span>Final Grade</span>
+
+                <div class="progress">
+
+                    <div id="finalGradeBar"
+                         class="progress-fill"
+                         style="width: 88%;">
+                    </div>
+
+                </div>
+
+                <strong id="finalGradeText">
+                    88
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ATTENDANCE
+        ========================== -->
+
+        <section id="attendance" class="tab-content">
+
+            <h2>Attendance</h2>
+
+
+            <div class="progress-row">
+
+                <span>Present Rate</span>
+
+                <div class="progress">
+
+                    <div id="presentBar"
+                         class="progress-fill"
+                         style="width: 92%;">
+                    </div>
+
+                </div>
+
+                <strong id="presentText">
+                    92%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-row">
+
+                <span>Absence Rate</span>
+
+                <div class="progress">
+
+                    <div id="absenceBar"
+                         class="progress-fill absence"
+                         style="width: 8%;">
+                    </div>
+
+                </div>
+
+                <strong id="absenceText">
+                    8%
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ASSIGNMENTS
+        ========================== -->
+
+        <section id="assignments" class="tab-content">
+
+            <h2>Assignments & Assessments</h2>
+
+
+            <div class="progress-row">
+
+                <span>Assignments</span>
+
+                <div class="progress">
+
+                    <div id="assignmentAssessmentBar"
+                         class="progress-fill"
+                         style="width: 85%;">
+                    </div>
+
+                </div>
+
+                <strong id="assignmentAssessmentText">
+                    85
+                </strong>
+
+            </div>
+
+
+            <div class="progress-row">
+
+                <span>Quizzes</span>
+
+                <div class="progress">
+
+                    <div id="quizAssessmentBar"
+                         class="progress-fill"
+                         style="width: 90%;">
+                    </div>
+
+                </div>
+
+                <strong id="quizAssessmentText">
+                    90
+                </strong>
+
+            </div>
+
+
+            <div class="progress-row">
+
+                <span>Exams</span>
+
+                <div class="progress">
+
+                    <div id="examAssessmentBar"
+                         class="progress-fill"
+                         style="width: 88%;">
+                    </div>
+
+                </div>
+
+                <strong id="examAssessmentText">
+                    88
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEEDBACK
+        ========================== -->
+
+        <section id="feedback" class="tab-content">
+
+            <h2>Instructor Feedback</h2>
+
+
+            <div class="feedback-form">
+
+                <input
+                    type="text"
+                    id="feedbackInput"
+                    placeholder="Write feedback for Ahmad..."
+                >
+
+                <button id="postFeedbackBtn">
+                    Post
+                </button>
+
+            </div>
+
+
+            <div id="feedbackList" class="feedback-list">
+
+                <div id="emptyFeedback" class="empty-feedback">
+
+                    <i class="fa-solid fa-comments"></i>
+
+                    <h3>No feedback yet</h3>
+
+                    <p>
+                        Add your first note above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         EDIT STUDENT MODAL
+    ========================================== -->
+
+    <div id="editModal" class="modal">
+
+        <div class="modal-box">
+
+            <div class="modal-title">
+
+                <div class="modal-icon">
+                    <i class="fa-solid fa-user-pen"></i>
+                </div>
+
+                <div>
+
+                    <h2>Edit Student</h2>
+
+                    <p>
+                        Update the student's information and academic performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="editStudentForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Student Name
+                        </label>
+
+                        <input
+                            id="editName"
+                            type="text"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Student ID
+                        </label>
+
+                        <input
+                            id="editId"
+                            type="text"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            id="editEmail"
+                            type="email"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Course
+                        </label>
+
+                        <select id="editCourse">
+
+                            <option>JavaScript</option>
+                            <option>HTML & CSS</option>
+                            <option>React</option>
+                            <option>Node.js</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Attendance (%)
+                        </label>
+
+                        <input
+                            id="editAttendance"
+                            type="number"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Assignment Score
+                        </label>
+
+                        <input
+                            id="editAssignment"
+                            type="number"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Quiz Score
+                        </label>
+
+                        <input
+                            id="editQuiz"
+                            type="number"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Exam Score
+                        </label>
+
+                        <input
+                            id="editExam"
+                            type="number"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        id="cancelEdit"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         PDF REPORT
+    ========================================== -->
+
+    <div id="studentReport" class="student-report">
+
+
+        <div class="report-header">
+
+            <div>
+
+                <h1>EduTrack</h1>
+
+                <p>
+                    Student Performance Report
+                </p>
+
+            </div>
+
+
+            <div class="report-date">
+
+                <span>
+                    Report Date
+                </span>
+
+                <strong id="reportDate"></strong>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- Student Information -->
+
+        <div class="report-section">
+
+            <h2>Student Information</h2>
+
+
+            <div class="report-student-grid">
+
+                <div>
+
+                    <span>Student Name</span>
+
+                    <strong id="reportName"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Student ID</span>
+
+                    <strong id="reportId"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Email</span>
+
+                    <strong id="reportEmail"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Course</span>
+
+                    <strong id="reportCourse"></strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Academic Performance -->
+
+        <div class="report-section">
+
+            <h2>Academic Performance</h2>
+
+
+            <div class="report-performance">
+
+                <div>
+
+                    <span>Overall</span>
+
+                    <strong id="reportGrade"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Attendance</span>
+
+                    <strong id="reportAttendance"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Assignments</span>
+
+                    <strong id="reportAssignment"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Quizzes</span>
+
+                    <strong id="reportQuiz"></strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Exams</span>
+
+                    <strong id="reportExam"></strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feedback -->
+
+        <div class="report-section">
+
+            <h2>Instructor Feedback</h2>
+
+            <div id="reportFeedback">
+                No instructor feedback available.
+            </div>
+
+        </div>
+
+
+        <footer class="report-footer">
+
+            EduTrack Student Management System
+
+        </footer>
+
+    </div>
+
+
+    <!-- PDF Library -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="../script/studentProfile.js"></script>
+
+</body>
+
+</html>
