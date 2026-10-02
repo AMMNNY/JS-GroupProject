@@ -1,92 +1,72 @@
-import {
-  authenticateUser,
-  registerInstructor,
-  getActiveUser,
-  logoutUser
-} from './auth.js';
 
+// Import authentication functions
+import {authenticateUser,registerInstructor,getActiveUser,logoutUser} from './auth.js';
+// Import UI feedback function
+import {renderFeedbackMessage,} from './ui.js';
 
-
-import {
-  renderFeedbackMessage,
-
-} from './ui.js';
-
+// Run the code after the HTML page has fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+   // Get the currently logged-in user from sessionStorage
   const activeUser = getActiveUser();
+
+    // Get the current page path
   const currentPath = window.location.pathname;
 
+
+  // Check if the current page is the dashboard
   if (
     currentPath.includes('index.html') ||
     currentPath.endsWith('/')
   ) {
+    // Redirect to login if no user is logged in
     if (!activeUser) {
       window.location.href = 'login.html';
       return;
     }
-
+     // Initialize the dashboard for the logged-in user
     initializeDashboard(activeUser);
   }
 
-  const registerFormElement =
-    document.getElementById('registerForm');
+
+
+  //registerForm
+   // Get the registration form from the HTML
+  const registerFormElement = document.getElementById('registerForm');
 
   if (registerFormElement) {
-    registerFormElement.addEventListener(
-      'submit',
-      async event => {
+     // Handle registration form submission
+    registerFormElement.addEventListener('submit',async event => {
+       // Prevent the page from refreshing
         event.preventDefault();
-
+    // Get the values entered by the user
         const fullName =
-          document
-            .getElementById('registerFullName')
-            .value.trim();
+          document.getElementById('registerFullName') .value.trim();
 
-        const email =
-          document
-            .getElementById('registerEmail')
-            .value.trim();
+        const email =document.getElementById('registerEmail').value.trim();
 
-        const specialization =
-          document
-            .getElementById('registerSpecialization')
-            .value.trim();
+        const specialization =document.getElementById('registerSpecialization').value.trim();
 
-        const password =
-          document
-            .getElementById('registerPassword')
-            .value;
+        const password =document.getElementById('registerPassword').value;
 
+        // Try to create the new instructor account
         try {
-          const result =
-            await registerInstructor({
-              fullName,
-              email,
-              specialization,
-              password
-            });
+          const result =await registerInstructor({fullName,email,specialization,password });
 
+             // Check if registration was successful
           if (result.success) {
-            renderFeedbackMessage(
-              'registerFeedback',
-              'Account created successfully!'
-            );
- window.location.href = 'login.html';
-           
-          } 
+            // Display success message
+            renderFeedbackMessage('registerFeedback','Account created successfully!');
+             // Redirect to login page
+             window.location.href = 'login.html';
+           } 
+
           else {
-            renderFeedbackMessage(
-              'registerFeedback',
-              result.message,
-              true
-            );
+              // Display registration error message
+            renderFeedbackMessage('registerFeedback',result.message,true);
           }
         } catch (error) {
-          renderFeedbackMessage(
-            'registerFeedback',
-            'Server connection error',
-            true
-          );
+           // Display server connection error
+          renderFeedbackMessage('registerFeedback','Server connection error',true);
         }
       }
     );
@@ -96,94 +76,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-  const loginFormElement =
-    document.getElementById('loginForm');
+//login 
+ // Get the login form from the HTML
+  const loginFormElement = document.getElementById('loginForm');
 
   if (loginFormElement) {
-    loginFormElement.addEventListener(
-      'submit',
-      async event => {
+     // Handle login form submission
+    loginFormElement.addEventListener('submit',async event => {
+        // Prevent the page from refreshing
         event.preventDefault();
 
-        const email =
-          document
-            .getElementById('loginEmail')
-            .value.trim();
+      // Get the login credentials entered by the user
+        const email = document.getElementById('loginEmail').value.trim();
 
-        const password =
-          document
-            .getElementById('loginPassword')
-            .value;
+        const password =document.getElementById('loginPassword').value;
 
+        // Try to authenticate the user
         try {
-          const result =
-            await authenticateUser(
-              email,
-              password
-            );
+          const result =await authenticateUser(email,password);
 
+         // Check if login was successful
           if (result.success) {
-            renderFeedbackMessage(
-              'loginFeedback',
-              'Signed in successfully!'
-            );
+            // Display success message
+           renderFeedbackMessage('loginFeedback','Signed in successfully!');
 
+            // Redirect to the dashboard
          window.location.href = 'index.html';
           } else {
-            renderFeedbackMessage(
-              'loginFeedback',
-              result.message,
-              true
-            );
+             // Display invalid login message
+            renderFeedbackMessage('loginFeedback',result.message, true);
           }
         } catch (error) {
-          renderFeedbackMessage(
-            'loginFeedback',
-            'Unable to connect to JSON Server',
-            true
-          );
+            // Display server connection error
+          renderFeedbackMessage('loginFeedback','Unable to connect to JSON Server', true);
         }
       }
     );
   }
 });
 
-async function initializeDashboard(
-  activeUser
-) {
-  const nameDisplayElement =
-    document.getElementById(
-      'instructorNameDisplay'
-    );
 
-  const logoutBtnElement =
-    document.getElementById(
-      'logoutButton'
-    );
 
+
+
+
+// Initialize the dashboard for the logged-in instructor
+ 
+async function initializeDashboard(activeUser) {
+   // Get the instructor name display element
+  const nameDisplayElement =document.getElementById('instructorNameDisplay');
+  // Get the logout button
+  const logoutBtnElement =document.getElementById('logoutButton');
+  // Display the logged-in instructor's name
   if (nameDisplayElement) {
-    nameDisplayElement.textContent =
-      `Welcome, ${activeUser.fullName}`;
+    nameDisplayElement.textContent =`Welcome, ${activeUser.fullName}`;
   }
-
+  // Add logout functionality to the logout button
   if (logoutBtnElement) {
-    logoutBtnElement.addEventListener(
-      'click',
-      logoutUser
-    );
+    logoutBtnElement.addEventListener('click',logoutUser);
   }
 
-  try {
-    const instructorStudents =
-      await fetchStudentsByInstructorId(
-        activeUser.id
-      );
-
-    populateStudentsTable(
-      instructorStudents
-    );
-  } catch (error) {
-    console.error(error);
-  }
+  
 }

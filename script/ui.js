@@ -1,19 +1,16 @@
-/*
- Show feedback message
- */
-export function renderFeedbackMessage(
-  elementId,
-  textMessage,
-  isErrorType = false
-) {
-  const feedbackElement = document.getElementById(elementId);
+//Display a success or error feedback message to the user
 
+export function renderFeedbackMessage( elementId, textMessage,isErrorType = false) {
+
+   // Get the feedback element from the HTML
+  const feedbackElement = document.getElementById(elementId);
+// Stop if the element does not exist
   if (!feedbackElement) return;
 
+  // Display the feedback message
   feedbackElement.textContent = textMessage;
-
-  feedbackElement.className =
-    `feedback-message ${isErrorType ? 'error' : 'success'}`;
+// Apply the appropriate success or error CSS class
+  feedbackElement.className =`feedback-message ${isErrorType ? 'error' : 'success'}`;
 }
 
 
