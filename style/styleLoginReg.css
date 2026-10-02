@@ -36,9 +36,9 @@ body {
   flex-direction: column;
 }
 
-/* ==========================================================================
-   Auth Screens (Login / Register Card)
-   ========================================================================== */
+/* 
+   (Login / Register Card)
+ */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -93,8 +93,7 @@ body {
   transition: border-color var(--transition-fast);
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
 }
@@ -158,9 +157,9 @@ body {
 
 
 
-/* ==========================================================================
+/* 
    Media Queries (Responsive Layout)
-   ========================================================================== */
+  */
 @media (max-width: 768px) {
   .navbar {
     padding: 14px 16px;
@@ -169,21 +168,10 @@ body {
     align-items: flex-start;
   }
 
-  .navbar .user-info {
-    width: 100%;
-    justify-content: space-between;
-  }
 
-  .dashboard-container {
-    padding: 16px;
-  }
 
   .auth-card {
     padding: 24px;
   }
 
-  th, td {
-    padding: 10px 12px;
-    font-size: 0.85rem;
-  }
 }

@@ -11,6 +11,22 @@
       "name": "Ahmad Ali",
       "email": "ahmad@example.com",
       "password": "123456"
+    },
+    {
+      "fullName": "roaa",
+      "email": "roaa@gmail.com",
+      "specialization": "web development",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "NZJc2KA3UO0"
+    },
+    {
+      "fullName": "khaleel",
+      "email": "khaleel@gmail.com",
+      "specialization": "web-development",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "g5XoXauboc8"
     }
   ],
   "students": [
