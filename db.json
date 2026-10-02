@@ -27,6 +27,22 @@
       "password": "12345",
       "role": "Instructor",
       "id": "g5XoXauboc8"
+    },
+    {
+      "fullName": "ggrr",
+      "email": "ggrr@gmail.com",
+      "specialization": "fres",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "gJWH-8YekYg"
+    },
+    {
+      "fullName": "tina",
+      "email": "tina@gmail.com",
+      "specialization": "tina",
+      "password": "123",
+      "role": "Instructor",
+      "id": "P9ODUHEKj7g"
     }
   ],
   "students": [
@@ -106,34 +122,34 @@
       "status": "Active"
     },
     {
-      "instructorId": "I001",
-      "studentId": "ccc",
-      "name": "xxx",
-      "course": "xxx",
-      "attendance": null,
+      "instructorId": "gJWH-8YekYg",
+      "studentId": "12ww",
+      "name": "www",
+      "course": "wsw",
+      "attendance": 50,
       "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
+        "assignments": 20,
+        "quizzes": 10,
+        "exam": 2
       },
-      "feedback": "fff",
-      "status": "Active",
-      "id": "XOaBxlaeWcQ"
+      "feedback": "wer",
+      "status": "Inactive",
+      "id": "lbvyLf7EHT0"
     },
     {
       "instructorId": "I001",
-      "studentId": "hhh",
-      "name": "yyy",
-      "course": "ttt",
+      "studentId": "qusai123",
+      "name": "qusai",
+      "course": "java",
       "attendance": null,
       "grades": {
         "assignments": null,
         "quizzes": null,
         "exam": null
       },
-      "feedback": "rrr",
+      "feedback": "baaaaaddddd one",
       "status": "Active",
-      "id": "GR7YvFjPRb8"
+      "id": "yrCwOamqRvY"
     }
   ],
   "courses": [

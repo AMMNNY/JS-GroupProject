@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>EduTrack</title>
+
     <link rel="stylesheet" href="../style/sidebar.css">
     <link rel="stylesheet" href="../style/analytics_dashboard.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
 </head>
 
 <body>
@@ -42,6 +46,7 @@
 
     </aside>
 
+
     <main>
         <section id="Dynmic"></section>
     </main>
@@ -51,56 +56,118 @@
 
         const dynmic = document.getElementById("Dynmic");
 
+
+        function loadScript(scriptName) {
+
+            return new Promise(function (resolve, reject) {
+
+                const script = document.createElement("script");
+
+                script.type = "module";
+                script.src = `../script/${scriptName}`;
+
+                script.onload = function () {
+                    script.remove();
+                    resolve();
+                };
+
+                script.onerror = function () {
+
+                    console.error(
+                        `Unable to load ../script/${scriptName}`
+                    );
+
+                    script.remove();
+                    reject();
+
+                };
+
+                document.body.appendChild(script);
+
+            });
+
+        }
+
+
         function loadPage() {
+
             const requestedHash = location.hash;
+
             let page = requestedHash;
 
+
             if (page === "#/Students") {
+
                 page = "student.html";
+
             } else if (page === "#/Dashboard") {
+
                 page = "analytics_dashboard.html";
+
             }
 
-            fetch(`./${page}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error(`Unable to load ${page}: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then((data) => {
-                    // if (requestedHash !== location.hash) {
-                    //     return;
-                    // }
 
-                    // if (typeof window.destroyDashboard === "function") {
-                    //     window.destroyDashboard();
-                    // }
+            fetch(`./${page}`)
+
+                .then((response) => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Unable to load ${page}: ${response.status}`
+                        );
+
+                    }
+
+                    return response.text();
+
+                })
+
+
+                .then(async (data) => {
 
                     dynmic.innerHTML = data;
 
+
+                    // Night Mode
+                    await loadScript("night-mode.js");
+
+
                     if (requestedHash === "#/Dashboard") {
-                        const dashboardScript = document.createElement("script");
-                        dashboardScript.type = "module";
-                        dashboardScript.src = "../script/analytics_dashboard.js";
-                        dashboardScript.onload = () => dashboardScript.remove();
-                        dashboardScript.onerror = () => {
-                            console.error("Unable to load ../script/analytics_dashboard.js");
-                            dashboardScript.remove();
-                        };
-                        document.body.appendChild(dashboardScript);
+
+                        await loadScript("analytics_dashboard.js");
+
                     }
+
+
+                    else if (requestedHash === "#/Students") {
+
+                        await loadScript("student-managment.js");
+
+                        await loadScript("add-student.js");
+
+                        await loadScript("edit-student.js");
+
+                        await loadScript("delete-student.js");
+
+                    }
+
                 })
+
+
                 .catch((error) => {
+
                     console.error(error);
+
                 });
+
         }
+
 
         window.addEventListener("hashchange", loadPage);
 
-        loadPage();
 
-        
+        loadPage();
 
     </script>
 

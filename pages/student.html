@@ -37,8 +37,8 @@
                     </button>
 
                     <button class="avatar">
-                            FE
-                        
+                        FE
+
                     </button>
                 </div>
 
@@ -54,18 +54,15 @@
 
                         <i class="fa-solid fa-magnifying-glass"></i>
 
-                        <input type="search" class="student-search" placeholder="Search by name or email...">
+                        <input type="search" class="student-search" id="student-search"
+                            placeholder="Search by name or student ID...">
 
                     </div>
 
-                    <a href="/pages/add-student.html"><input type="submit" value="Add Student" class="add-student" id="add-student"></a>
-                    
-
-                    <select class="course-filter" id="course-filter">
-
-                        <option value="">All Courses</option>
-                    </select>
-
+                    <button type="button" class="add-student" id="add-student">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Student
+                    </button>
                 </div>
 
 
@@ -87,132 +84,7 @@
                         </thead>
 
 
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    <div class="student-info">
-
-                                        <img src="user_profile_female_icon_192701.webp" alt="Maya Chen"
-                                            class="student-avatar">
-
-                                        <span>Maya Chen</span>
-
-                                    </div>
-                                </td>
-
-                                <td>Algebra II</td>
-
-                                <td>
-
-                                    <div class="progress-container">
-
-                                        <div class="progress-bar">
-                                            <span style="width: 75%;"></span>
-                                        </div>
-
-                                        <span class="progress-value">75%</span>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <span class="grade">A</span>
-                                </td>
-                                <td>
-                                    <span>
-                                        <a href="../pages/edit-student.html"><i class="fa-regular fa-pen-to-square" id="edit-student"></i></a>
-                                        <a href="../pages/delete-student.html"><i class="fa-regular fa-trash-can"></i></a>
-                                    </span>
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    <div class="student-info">
-
-                                        <img src="user_profile_female_icon_192701.webp" alt="Maya Chen"
-                                            class="student-avatar">
-
-                                        <span>Maya Chen</span>
-
-                                    </div>
-                                </td>
-
-                                <td>Algebra II</td>
-
-                                <td>
-
-                                    <div class="progress-container">
-
-                                        <div class="progress-bar">
-                                            <span style="width: 60%;"></span>
-                                        </div>
-
-                                        <span class="progress-value">60%</span>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <span class="grade">A</span>
-                                </td>
-                                <td>
-                                    <span>
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </span>
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    <div class="student-info">
-
-                                        <img src="user_profile_female_icon_192701.webp" alt="Maya Chen"
-                                            class="student-avatar">
-
-                                        <span>Maya Chen</span>
-
-                                    </div>
-                                </td>
-
-                                <td>Algebra II</td>
-
-                                <td>
-
-                                    <div class="progress-container">
-
-                                        <div class="progress-bar">
-                                            <span style="width: 90%;"></span>
-                                        </div>
-
-                                        <span class="progress-value">90%</span>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <span class="grade">A</span>
-                                </td>
-                                <td>
-                                    <span>
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </span>
-                                </td>
-
-                            </tr>
+                        <tbody id="students-list">
 
                         </tbody>
 
@@ -227,8 +99,287 @@
     </div>
 
 
-    <script src="../script/student.js"></script>
+    <script type="module" src="../script/student-managment.js"></script>
+    <script type="module" src="../script/add-student.js"></script>
     <script src="../script/night-mode.js"></script>
+    <!-- Add Student Modal -->
+
+    <div class="modal-overlay" id="addStudentModal">
+
+        <div class="add-student-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h3>Add Student</h3>
+                    <p>Add a new student to your class</p>
+                </div>
+
+                <button type="button" class="close-modal" id="closeAddModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="addStudentForm">
+
+                <div class="form-group">
+
+                    <label for="studentId">
+                        Student ID
+                    </label>
+
+                    <input type="text" id="studentId" placeholder="e.g. ST007" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input type="text" id="studentName" placeholder="Enter student name" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentCourse">
+                        Course
+                    </label>
+
+                    <input type="text" id="studentCourse" placeholder="e.g. JavaScript" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentFeedback">
+                        Feedback
+                    </label>
+
+                    <textarea id="studentFeedback" placeholder="Add feedback for the student..." rows="3"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="studentActivation">
+                        Status
+                    </label>
+
+                    <select id="studentActivation">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelAdd">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-student-btn" id="add-new-student">
+                        Add Student
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Edit Student Modal -->
+    
+    <div class="modal-overlay" id="editStudentModal">
+    
+        <div class="add-student-modal">
+    
+            <div class="modal-header">
+    
+                <div>
+                    <h3>Edit Student</h3>
+                    <p>Update student information</p>
+                </div>
+    
+                <button type="button" class="close-modal" id="closeEditModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+    
+            </div>
+    
+    
+            <form id="editStudentForm">
+    
+                <div class="form-group">
+    
+                    <label for="editStudentName">
+                        Student Name
+                    </label>
+    
+                    <input type="text" id="editStudentName" required>
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editCourse">
+                        Course
+                    </label>
+    
+                    <input type="text" id="editCourse" required>
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editAttendance">
+                        Attendance (%)
+                    </label>
+    
+                    <input type="number" id="editAttendance" min="0" max="100">
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editAssignments">
+                        Assignments Grade
+                    </label>
+    
+                    <input type="number" id="editAssignments" min="0" max="100">
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editQuizzes">
+                        Quizzes Grade
+                    </label>
+    
+                    <input type="number" id="editQuizzes" min="0" max="100">
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editExam">
+                        Exam Grade
+                    </label>
+    
+                    <input type="number" id="editExam" min="0" max="100">
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editFeedback">
+                        Feedback
+                    </label>
+    
+                    <textarea id="editFeedback" rows="3"></textarea>
+    
+                </div>
+    
+    
+                <div class="form-group">
+    
+                    <label for="editStatus">
+                        Status
+                    </label>
+    
+                    <select id="editStatus">
+    
+                        <option value="Active">
+                            Active
+                        </option>
+    
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+    
+                    </select>
+    
+                </div>
+    
+    
+                <div class="modal-buttons">
+    
+                    <button type="button" class="cancel-btn" id="cancelEdit">
+                        Cancel
+                    </button>
+    
+                    <button type="submit" class="save-student-btn">
+                        Save Changes
+                    </button>
+    
+                </div>
+    
+            </form>
+    
+        </div>
+    
+    </div>
+
+    <!-- Delete Student Modal -->
+    
+    <div class="modal-overlay" id="deleteStudentModal">
+    
+        <div class="add-student-modal delete-popup">
+    
+            <div class="modal-header">
+    
+                <div>
+                    <h3>Delete Student</h3>
+                    <p>Are you sure you want to delete this student?</p>
+                </div>
+    
+                <button type="button" class="close-modal" id="closeDeleteModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+    
+            </div>
+    
+    
+            <div class="modal-buttons">
+    
+                <button type="button" class="cancel-btn" id="cancelDelete">
+                    Cancel
+                </button>
+    
+                <button type="button" class="delete-confirm-btn" id="confirmDelete">
+                    Delete
+                </button>
+    
+            </div>
+    
+        </div>
+    
+    </div>
 
 </body>
 
