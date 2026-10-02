@@ -1,0 +1,162 @@
+{
+  "instructors": [
+    {
+      "id": "I001",
+      "name": "Farah Elaydi",
+      "email": "farah@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "I002",
+      "name": "Ahmad Ali",
+      "email": "ahmad@example.com",
+      "password": "123456"
+    },
+    {
+      "fullName": "roaa",
+      "email": "roaa@gmail.com",
+      "specialization": "web development",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "NZJc2KA3UO0"
+    },
+    {
+      "fullName": "khaleel",
+      "email": "khaleel@gmail.com",
+      "specialization": "web-development",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "g5XoXauboc8"
+    }
+  ],
+  "students": [
+    {
+      "id": "S001",
+      "instructorId": "I001",
+      "name": "Sara Aliii",
+      "studentId": "ST001",
+      "course": "Test",
+      "attendance": "92",
+      "grades": {
+        "assignments": "88",
+        "quizzes": "90",
+        "exam": "85"
+      },
+      "feedback": "Great progress. Keep practicing JavaScript.",
+      "status": "Active"
+    },
+    {
+      "id": "S002",
+      "instructorId": "I001",
+      "name": "Omar Khaled",
+      "studentId": "ST002",
+      "course": "HTML & CSS",
+      "attendance": 76,
+      "grades": {
+        "assignments": 70,
+        "quizzes": 75,
+        "exam": 68
+      },
+      "feedback": "Needs more practice and better attendance.",
+      "status": "Active"
+    },
+    {
+      "id": "S003",
+      "instructorId": "I001",
+      "name": "Lina Samir",
+      "studentId": "ST003",
+      "course": "JavaScript",
+      "attendance": 97,
+      "grades": {
+        "assignments": 95,
+        "quizzes": 92,
+        "exam": 94
+      },
+      "feedback": "Excellent performance. Keep it up!",
+      "status": "Active"
+    },
+    {
+      "id": "S004",
+      "instructorId": "I001",
+      "name": "Yousef Ali",
+      "studentId": "ST004",
+      "course": "CSS",
+      "attendance": "84",
+      "grades": {
+        "assignments": "80",
+        "quizzes": "82",
+        "exam": "78"
+      },
+      "feedback": "Good work. Focus more on React components.",
+      "status": "Active"
+    },
+    {
+      "id": "S005",
+      "instructorId": "I002",
+      "name": "Mohammad Saleh",
+      "studentId": "ST005",
+      "course": "React",
+      "attendance": 89,
+      "grades": {
+        "assignments": 82,
+        "quizzes": 86,
+        "exam": 90
+      },
+      "feedback": "Good performance.",
+      "status": "Active"
+    },
+    {
+      "instructorId": "I001",
+      "studentId": "ccc",
+      "name": "xxx",
+      "course": "xxx",
+      "attendance": null,
+      "grades": {
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
+      },
+      "feedback": "fff",
+      "status": "Active",
+      "id": "XOaBxlaeWcQ"
+    },
+    {
+      "instructorId": "I001",
+      "studentId": "hhh",
+      "name": "yyy",
+      "course": "ttt",
+      "attendance": null,
+      "grades": {
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
+      },
+      "feedback": "rrr",
+      "status": "Active",
+      "id": "GR7YvFjPRb8"
+    }
+  ],
+  "courses": [
+    {
+      "id": "C001",
+      "name": "JavaScript",
+      "description": "Learn JavaScript fundamentals and DOM manipulation."
+    },
+    {
+      "id": "C002",
+      "name": "HTML & CSS",
+      "description": "Learn how to build responsive web pages."
+    },
+    {
+      "id": "C003",
+      "name": "React",
+      "description": "Learn the basics of React and reusable components."
+    },
+    {
+      "id": "C004",
+      "name": "PHP Laravel",
+      "description": "Learn backend development using Laravel."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

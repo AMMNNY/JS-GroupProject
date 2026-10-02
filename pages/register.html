@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTrack - Create Account</title>
+  <link rel="stylesheet" href="../style/styleLoginReg.css">
+</head>
+<body>
+
+  <!-- register form -->
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Create Account 🚀</h2>
+      <p class="subtitle">Join EduTrack to manage your student progress</p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="registerFullName">Full Name</label>
+          <input type="text" id="registerFullName" placeholder="e.g. John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="registerEmail">Email Address</label>
+          <input type="email" id="registerEmail" placeholder="example@domain.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="registerSpecialization">Specialization</label>
+          <input type="text" id="registerSpecialization" placeholder="e.g. Web Development" required>
+        </div>
+
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required>
+        </div>
+
+
+        <!-- submit button  -->
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+      <!-- feedback message -->
+      <div id="registerFeedback" class="feedback-message"></div>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../script/main.js"></script>
+</body>
+</html>

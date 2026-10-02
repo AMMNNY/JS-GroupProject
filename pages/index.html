@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack</title>
+    <link rel="stylesheet" href="../style/sidebar.css">
+    <link rel="stylesheet" href="../style/analytics_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <h2>EduTrack</h2>
+
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="#/Dashboard">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="#/Students">Students</a>
+                </li>
+
+                <li>
+                    <a href="#">Courses</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+    </aside>
+
+    <main>
+        <section id="Dynmic"></section>
+    </main>
+
+
+    <script>
+
+        const dynmic = document.getElementById("Dynmic");
+
+        function loadPage() {
+            const requestedHash = location.hash;
+            let page = requestedHash;
+
+            if (page === "#/Students") {
+                page = "student.html";
+            } else if (page === "#/Dashboard") {
+                page = "analytics_dashboard.html";
+            }
+
+            fetch(`./${page}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Unable to load ${page}: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then((data) => {
+                    // if (requestedHash !== location.hash) {
+                    //     return;
+                    // }
+
+                    // if (typeof window.destroyDashboard === "function") {
+                    //     window.destroyDashboard();
+                    // }
+
+                    dynmic.innerHTML = data;
+
+                    if (requestedHash === "#/Dashboard") {
+                        const dashboardScript = document.createElement("script");
+                        dashboardScript.type = "module";
+                        dashboardScript.src = "../script/analytics_dashboard.js";
+                        dashboardScript.onload = () => dashboardScript.remove();
+                        dashboardScript.onerror = () => {
+                            console.error("Unable to load ../script/analytics_dashboard.js");
+                            dashboardScript.remove();
+                        };
+                        document.body.appendChild(dashboardScript);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
+        window.addEventListener("hashchange", loadPage);
+
+        loadPage();
+
+        
+
+    </script>
+
+</body>
+
+</html>
