@@ -1,14 +1,35 @@
-:root {
-    --primary-color: #065F46;
-    --primary-hover: #047857;
-    --secondary-color: #10B981;
-    --bg-color: #F0FDF4;
-    --card-bg: #ffffff;
-    --text-main: #0F172A;
-    --text-muted: #334155;
-    --border-color: #DCFCE7;
-}
+/* =========================
+   THEME VARIABLES
+========================= */
 
+:root {
+    --primary-color: #6B1D3A;
+    /* burgundy */
+    --primary-hover: #8A2A4D;
+    --secondary-color: #A8802F;
+    /* gold */
+    --accent-light: #E5C98A;
+
+    --bg-color: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --input-bg: #FFFFFF;
+
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --placeholder: #94A3B8;
+
+    --border-color: #E2E8F0;
+    --soft-bg: #F6E8EE;
+    --row-hover: #FBF5F7;
+    --track: #EADCE2;
+
+    --danger: #DC2626;
+    --danger-hover: #B91C1C;
+    --danger-soft: #FEF2F2;
+
+    --overlay: rgba(61, 15, 33, 0.25);
+    --shadow: rgba(107, 29, 58, 0.08);
+}
 
 /* =========================
    RESET
@@ -25,11 +46,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
 
-    transition:
-        background-color 0.3s,
-        color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
-
 
 /* =========================
    DASHBOARD
@@ -40,39 +58,25 @@ body {
     min-height: 100vh;
 }
 
-
-/* =========================
-   SIDEBAR
-========================= */
-
 .sidebar {
     width: 236px;
     min-height: 100vh;
+    flex-shrink: 0;
 
     background-color: var(--card-bg);
     border-right: 1px solid var(--border-color);
 
-    flex-shrink: 0;
-
-    transition:
-        background-color 0.3s,
-        border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .sidebar-content {
     padding: 24px;
 }
 
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
 .main-content {
     flex: 1;
     min-width: 0;
 }
-
 
 /* =========================
    TOPBAR
@@ -80,19 +84,16 @@ body {
 
 .topbar {
     height: 76px;
-
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
+    padding: 0 32px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 32px;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
 
-    transition:
-        background-color 0.3s,
-        border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .page-intro {
@@ -100,18 +101,18 @@ body {
 }
 
 .page-intro h2 {
-    font-size: 24px;
-    font-weight: 700;
+    margin-bottom: 5px;
+
     color: var(--primary-color);
 
-    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .page-intro-p {
-    font-size: 14px;
     color: var(--text-muted);
+    font-size: 14px;
 }
-
 
 /* =========================
    HEADER ACTIONS
@@ -128,51 +129,40 @@ body {
     height: 40px;
 
     border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
-
     border-radius: 10px;
 
+    background-color: var(--card-bg);
     color: var(--primary-color);
 
     cursor: pointer;
 
-    transition:
-        background-color 0.2s,
-        color 0.2s,
-        border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .icon-button:hover {
-    background-color: var(--bg-color);
+    background-color: var(--soft-bg);
     color: var(--primary-hover);
 }
 
-
-/* Avatar */
-
 .avatar {
-    display: grid;
-
     width: 40px;
     height: 40px;
 
+    display: grid;
     place-items: center;
 
+    border: none;
     border-radius: 50%;
 
     background-color: var(--primary-color);
-    color: white;
+    color: #FFFFFF;
 
     cursor: pointer;
 
     font-size: 12px;
     font-weight: 700;
 
-    border: none;
-
-    transition:
-        background-color 0.2s,
-        transform 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .avatar:hover {
@@ -180,38 +170,29 @@ body {
     transform: translateY(-1px);
 }
 
-
 /* =========================
    STUDENT BODY
 ========================= */
 
 .student-body {
+    padding: 32px;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
-    padding: 32px;
 }
-
 
 /* =========================
    FILTERS
 ========================= */
 
 .students-filters {
-    display: flex;
-
-    gap: 14px;
-
     width: 100%;
-
     margin-bottom: 24px;
+
+    display: flex;
+    gap: 14px;
 }
-
-
-/* =========================
-   SEARCH
-========================= */
 
 .search-box {
     position: relative;
@@ -222,14 +203,12 @@ body {
 
 .search-box i {
     position: absolute;
-
     left: 15px;
     top: 50%;
 
     transform: translateY(-50%);
 
     color: var(--primary-color);
-
     font-size: 14px;
 
     pointer-events: none;
@@ -238,41 +217,33 @@ body {
 .student-search {
     width: 100%;
     height: 44px;
-
     padding: 0 16px 0 42px;
 
-    background-color: var(--card-bg);
-
     border: 1px solid var(--border-color);
-
     border-radius: 10px;
 
     outline: none;
 
+    background-color: var(--card-bg);
     color: var(--text-main);
 
     font-size: 14px;
 
-    transition:
-        background-color 0.2s,
-        border-color 0.2s,
-        box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .student-search:hover {
-    border-color: #A7F3D0;
+    border-color: var(--secondary-color);
 }
 
 .student-search:focus {
     border-color: var(--secondary-color);
-
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    box-shadow: 0 0 0 3px rgba(168, 128, 47, 0.15);
 }
 
 .student-search::placeholder {
-    color: #64748B;
+    color: var(--placeholder);
 }
-
 
 /* =========================
    ADD STUDENT BUTTON
@@ -281,33 +252,25 @@ body {
 .add-student {
     width: 130px;
     height: 44px;
-
     padding: 0 14px;
 
     border: none;
-
     border-radius: 10px;
 
     background-color: var(--primary-color);
-
-    color: white;
+    color: #FFFFFF;
 
     font-size: 14px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition:
-        background-color 0.2s,
-        transform 0.2s,
-        box-shadow 0.2s;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .add-student:hover {
     background-color: var(--primary-hover);
-
-    box-shadow: 0 4px 10px rgba(6, 95, 70, 0.18);
-
+    box-shadow: 0 4px 10px var(--shadow);
     transform: translateY(-1px);
 }
 
@@ -315,101 +278,66 @@ body {
     transform: translateY(0);
 }
 
-
 /* =========================
-   TABLE CONTAINER
+   TABLE
 ========================= */
 
 .table-container {
     width: 100%;
 
-    background-color: var(--card-bg);
-
     border: 1px solid var(--border-color);
-
     border-radius: 14px;
 
     overflow: hidden;
 
-    box-shadow: 0 4px 15px rgba(6, 95, 70, 0.04);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 15px var(--shadow);
 
-    transition:
-        background-color 0.3s,
-        border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
-
-
-/* =========================
-   TABLE
-========================= */
 
 .students-table {
     width: 100%;
-
     border-collapse: collapse;
 }
 
-
-/* Table Header */
-
 .students-table th {
     height: 52px;
-
     padding: 0 20px;
 
     text-align: left;
 
-    background-color: #ECFDF5;
+    border-bottom: 1px solid var(--border-color);
 
+    background-color: var(--soft-bg);
     color: var(--primary-color);
 
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 0.5px;
 
-    border-bottom: 1px solid var(--border-color);
-
-    transition:
-        background-color 0.3s,
-        color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
-
-
-/* Table Cells */
 
 .students-table td {
     height: 72px;
-
     padding: 0 20px;
 
     border-top: 1px solid var(--border-color);
 
+    color: var(--text-main);
     font-size: 14px;
 
-    color: var(--text-main);
-
-    transition:
-        border-color 0.3s,
-        color 0.3s,
-        background-color 0.2s;
+    transition: border-color 0.3s, color 0.3s, background-color 0.2s;
 }
-
-
-/* Remove first row top border */
 
 .students-table tbody tr:first-child td {
     border-top: none;
 }
 
-
-/* Row Hover */
-
 .students-table tbody tr:hover {
-    background-color: #F7FEF9;
+    background-color: var(--row-hover);
 }
-
 
 /* =========================
    STUDENT INFO
@@ -417,111 +345,432 @@ body {
 
 .student-info {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
 
-    font-weight: 600;
-
     color: var(--text-main);
+    font-weight: 600;
 }
-
-
-/* Optional Student Avatar */
 
 .student-avatar {
     width: 36px;
     height: 36px;
 
     border-radius: 50%;
-
     object-fit: cover;
 }
-
 
 /* =========================
    PROGRESS
 ========================= */
 
 .progress-container {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
     min-width: 180px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .progress-bar {
     width: 120px;
     height: 7px;
 
-    background-color: #D1FAE5;
-
     border-radius: 10px;
-
     overflow: hidden;
+
+    background-color: var(--track);
 }
 
 .progress-bar span {
     display: block;
-
     height: 100%;
 
-    background-color: var(--secondary-color);
-
     border-radius: 10px;
+    background-color: var(--secondary-color);
 }
 
 .progress-value {
     color: var(--text-muted);
-
     font-size: 13px;
 }
-
 
 /* =========================
    GRADE
 ========================= */
 
 .grade {
-    display: inline-flex;
+    min-width: 42px;
+    height: 30px;
+    padding: 0 9px;
 
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    min-width: 42px;
-    height: 30px;
-
-    padding: 0 9px;
-
     border-radius: 8px;
 
-    background-color: #ECFDF5;
-
+    background-color: var(--soft-bg);
     color: var(--primary-color);
 
     font-size: 13px;
-
     font-weight: 700;
 }
 
-
 /* =========================
-   EDIT / DELETE ICONS
+   EDIT / DELETE BUTTONS
 ========================= */
 
 .students-table td:last-child {
     white-space: nowrap;
-
     text-align: right;
+}
+
+.students-table td:last-child button {
+    width: 34px;
+    height: 34px;
+    margin-left: 5px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.students-table td:last-child .edit-btn:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.students-table td:last-child .delete-btn:hover {
+    background-color: var(--danger-soft);
+    color: var(--danger);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    min-height: 320px;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: var(--soft-bg);
+    color: var(--primary-color);
+
+    font-size: 26px;
+}
+
+.empty-state h3 {
+    margin-bottom: 8px;
+
+    color: var(--text-main);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.empty-state p {
+    max-width: 400px;
+    margin-bottom: 20px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.empty-add-btn {
+    height: 42px;
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.empty-add-btn:hover {
+    background-color: var(--primary-hover);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    padding: 20px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--overlay);
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.add-student-modal {
+    width: 100%;
+    max-width: 500px;
+    padding: 24px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+
+    background-color: var(--card-bg);
+    box-shadow: 0 20px 50px var(--shadow);
+
+    animation: modalAppear 0.2s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.modal-header h3 {
+    margin-bottom: 5px;
+
+    color: var(--primary-color);
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.modal-header p {
+    margin: 0;
+
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.close-modal {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--text-muted);
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.close-modal:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-color);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+#addStudentForm,
+#editStudentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 11px 12px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+
+    outline: none;
+
+    background-color: var(--input-bg);
+    color: var(--text-main);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(168, 128, 47, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--placeholder);
+}
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+
+.modal-buttons {
+    margin-top: 8px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-btn,
+.save-student-btn,
+.delete-confirm-btn {
+    height: 40px;
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.cancel-btn {
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-muted);
+}
+
+.cancel-btn:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-color);
+}
+
+.save-student-btn {
+    border: none;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+.save-student-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.delete-popup {
+    max-width: 420px;
+}
+
+.delete-popup .modal-header {
+    margin-bottom: 20px;
+}
+
+.delete-confirm-btn {
+    border: none;
+    background-color: var(--danger);
+    color: #FFFFFF;
+}
+
+.delete-confirm-btn:hover {
+    background-color: var(--danger-hover);
+    transform: translateY(-1px);
+}
+
+.delete-confirm-btn:active {
+    transform: translateY(0);
 }
 
 /* =========================
    TABLET
-   769px - 1024px
 ========================= */
 
 @media (max-width: 1024px) {
@@ -548,10 +797,8 @@ body {
     }
 }
 
-
 /* =========================
    MOBILE
-   481px - 768px
 ========================= */
 
 @media (max-width: 768px) {
@@ -560,13 +807,9 @@ body {
         display: none;
     }
 
-
-    /* Topbar */
-
     .topbar {
         height: auto;
         min-height: 72px;
-
         padding: 16px 20px;
     }
 
@@ -582,46 +825,28 @@ body {
         font-size: 13px;
     }
 
-
-    /* Header */
-
     .header-actions {
         gap: 8px;
     }
-
-
-    /* Body */
 
     .student-body {
         padding: 20px;
     }
 
-
-    /* Filters */
-
     .students-filters {
-        flex-direction: column;
-
-        gap: 12px;
-
         margin-bottom: 20px;
+
+        flex-direction: column;
+        gap: 12px;
     }
 
     .search-box {
         width: 100%;
     }
 
-    .student-search {
-        height: 44px;
-    }
-
     .add-student {
         width: 100%;
-        height: 44px;
     }
-
-
-    /* Table */
 
     .table-container {
         overflow-x: auto;
@@ -632,10 +857,8 @@ body {
     }
 }
 
-
 /* =========================
    SMALL MOBILE
-   480px and below
 ========================= */
 
 @media (max-width: 480px) {
@@ -652,9 +875,6 @@ body {
         font-size: 12px;
     }
 
-
-    /* Header */
-
     .header-actions {
         gap: 5px;
     }
@@ -665,947 +885,16 @@ body {
         height: 36px;
     }
 
-
-    /* Body */
-
     .student-body {
         padding: 16px;
     }
 
-
-    /* Search */
-
-    .student-search {
-        height: 42px;
-    }
-
+    .student-search,
     .add-student {
         height: 42px;
     }
 
-
-    /* Table */
-
     .table-container {
         border-radius: 10px;
     }
-}
-
-
-/* =================================================
-   DARK MODE
-================================================= */
-
-body.dark-mode {
-    --bg-color: #022C22;
-    --card-bg: #064E3B;
-    --text-main: #FFFFFF;
-    --text-muted: #D1D5DB;
-    --border-color: #166534;
-
-    background-color: var(--bg-color);
-    color: var(--text-main);
-}
-
-
-/* =========================
-   DARK SIDEBAR
-========================= */
-
-body.dark-mode .sidebar {
-    background-color: #022C22;
-    border-color: #166534;
-}
-
-
-/* =========================
-   DARK TOPBAR
-========================= */
-
-body.dark-mode .topbar {
-    background-color: #064E3B;
-    border-color: #166534;
-}
-
-body.dark-mode .page-intro h2 {
-    color: #FFFFFF;
-}
-
-body.dark-mode .page-intro-p {
-    color: #D1D5DB;
-}
-
-
-/* =========================
-   DARK HEADER
-========================= */
-
-body.dark-mode .icon-button {
-    background-color: #064E3B;
-    border-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .icon-button:hover {
-    background-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .avatar {
-    background-color: #10B981;
-    color: #022C22;
-}
-
-body.dark-mode .avatar:hover {
-    background-color: #34D399;
-}
-
-
-/* =========================
-   DARK SEARCH
-========================= */
-
-body.dark-mode .student-search {
-    background-color: #064E3B;
-    border-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .student-search:hover {
-    border-color: #10B981;
-}
-
-body.dark-mode .student-search:focus {
-    border-color: #10B981;
-
-    box-shadow:
-        0 0 0 3px rgba(16, 185, 129, 0.15);
-}
-
-body.dark-mode .student-search::placeholder {
-    color: #CBD5E1;
-}
-
-body.dark-mode .search-box i {
-    color: #FFFFFF;
-}
-
-
-/* =========================
-   DARK ADD BUTTON
-========================= */
-
-body.dark-mode .add-student {
-    background-color: #10B981;
-    color: #022C22;
-}
-
-body.dark-mode .add-student:hover {
-    background-color: #34D399;
-}
-
-
-/* =========================
-   DARK TABLE
-========================= */
-
-body.dark-mode .table-container {
-    background-color: #064E3B;
-    border-color: #166534;
-}
-
-body.dark-mode .students-table th {
-    background-color: #022C22;
-    color: #FFFFFF;
-    border-color: #166534;
-}
-
-body.dark-mode .students-table td {
-    background-color: #064E3B;
-    color: #FFFFFF;
-    border-color: #166534;
-}
-
-body.dark-mode .students-table tbody tr:hover {
-    background-color: #07543F;
-}
-
-body.dark-mode .student-info {
-    color: #FFFFFF;
-}
-
-
-/* =========================
-   DARK GRADE
-========================= */
-
-body.dark-mode .grade {
-    background-color: #10B981;
-    color: #022C22;
-}
-
-
-/* =========================
-   DARK PROGRESS
-========================= */
-
-body.dark-mode .progress-bar {
-    background-color: #166534;
-}
-
-body.dark-mode .progress-bar span {
-    background-color: #10B981;
-}
-
-body.dark-mode .progress-value {
-    color: #FFFFFF;
-}
-
-
-/* =========================
-   DARK ACTION ICONS
-========================= */
-
-body.dark-mode .students-table td:last-child button {
-    color: #FFFFFF;
-}
-
-
-/* Edit */
-
-body.dark-mode .students-table td:last-child .edit-btn:hover {
-    background-color: #166534;
-    color: #FFFFFF;
-}
-
-
-/* Delete */
-
-body.dark-mode .students-table td:last-child .delete-btn:hover {
-    background-color: #451A1A;
-    color: #FCA5A5;
-}
-
-
-/* =========================
-   DARK EMPTY STATE
-========================= */
-
-body.dark-mode .empty-icon {
-    background-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .empty-state h3 {
-    color: #FFFFFF;
-}
-
-body.dark-mode .empty-state p {
-    color: #D1D5DB;
-}
-
-body.dark-mode .empty-add-btn {
-    background-color: #10B981;
-    color: #022C22;
-}
-
-body.dark-mode .empty-add-btn:hover {
-    background-color: #34D399;
-}
-
-
-/* =========================
-   DARK MODAL
-========================= */
-
-body.dark-mode .modal-overlay {
-    background-color: rgba(0, 0, 0, 0.55);
-}
-
-body.dark-mode .add-student-modal {
-    background-color: #064E3B;
-    border-color: #166534;
-}
-
-body.dark-mode .modal-header h3 {
-    color: #FFFFFF;
-}
-
-body.dark-mode .modal-header p {
-    color: #D1D5DB;
-}
-
-body.dark-mode .close-modal {
-    color: #FFFFFF;
-}
-
-body.dark-mode .close-modal:hover {
-    background-color: #166534;
-    color: #FFFFFF;
-}
-
-
-/* =========================
-   DARK FORM
-========================= */
-
-body.dark-mode .form-group label {
-    color: #FFFFFF;
-}
-
-body.dark-mode .form-group input,
-body.dark-mode .form-group textarea,
-body.dark-mode .form-group select {
-    background-color: #022C22;
-    border-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .form-group input:focus,
-body.dark-mode .form-group textarea:focus,
-body.dark-mode .form-group select:focus {
-    border-color: #10B981;
-
-    box-shadow:
-        0 0 0 3px rgba(16, 185, 129, 0.12);
-}
-
-body.dark-mode .form-group input::placeholder,
-body.dark-mode .form-group textarea::placeholder {
-    color: #CBD5E1;
-}
-
-
-/* =========================
-   DARK MODAL BUTTONS
-========================= */
-
-body.dark-mode .cancel-btn {
-    border-color: #166534;
-    background-color: transparent;
-    color: #FFFFFF;
-}
-
-body.dark-mode .cancel-btn:hover {
-    background-color: #166534;
-    color: #FFFFFF;
-}
-
-body.dark-mode .save-student-btn {
-    background-color: #10B981;
-    color: #022C22;
-}
-
-body.dark-mode .save-student-btn:hover {
-    background-color: #34D399;
-}
-
-
-/* =========================
-   DARK DELETE MODAL
-========================= */
-
-body.dark-mode .delete-confirm-btn {
-    background-color: #DC2626;
-    color: #FFFFFF;
-}
-
-body.dark-mode .delete-confirm-btn:hover {
-    background-color: #B91C1C;
-}
-
-/* =========================
-   EMPTY STATE
-========================= */
-
-.empty-state {
-    min-height: 320px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 40px 20px;
-}
-
-.empty-icon {
-    width: 64px;
-    height: 64px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    border-radius: 50%;
-
-    background-color: #ECFDF5;
-
-    color: var(--primary-color);
-
-    font-size: 26px;
-}
-
-.empty-state h3 {
-    margin-bottom: 8px;
-
-    color: var(--text-main);
-
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.empty-state p {
-    max-width: 400px;
-
-    margin-bottom: 20px;
-
-    color: var(--text-muted);
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
-.empty-add-btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    height: 42px;
-
-    padding: 0 18px;
-
-    border-radius: 9px;
-
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    transition:
-        background-color 0.2s,
-        transform 0.2s;
-}
-
-.empty-add-btn:hover {
-    background-color: var(--primary-hover);
-
-    color: white;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   EMPTY STATE - DARK MODE
-========================= */
-
-body.dark-mode .empty-icon {
-    background-color: #065F46;
-
-    color: #6EE7B7;
-}
-
-body.dark-mode .empty-state h3 {
-    color: #ECFDF5;
-}
-
-body.dark-mode .empty-state p {
-    color: #A7F3D0;
-}
-
-body.dark-mode .empty-add-btn {
-    background-color: #10B981;
-
-    color: #022C22;
-}
-
-body.dark-mode .empty-add-btn:hover {
-    background-color: #34D399;
-}
-/* =========================
-   ADD STUDENT MODAL
-========================= */
-
-.modal-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    background-color: rgba(6, 95, 70, 0.18);
-
-    backdrop-filter: blur(4px);
-
-    z-index: 1000;
-}
-
-
-/* Show Modal */
-
-.modal-overlay.active {
-    display: flex;
-}
-
-
-/* Modal */
-
-.add-student-modal {
-    width: 100%;
-    max-width: 500px;
-
-    background-color: var(--card-bg);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 16px;
-
-    padding: 24px;
-
-    box-shadow: 0 20px 50px rgba(6, 95, 70, 0.15);
-
-    animation: modalAppear 0.2s ease;
-}
-
-
-@keyframes modalAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(-10px) scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-}
-
-
-/* Modal Header */
-
-.modal-header {
-    display: flex;
-
-    align-items: flex-start;
-    justify-content: space-between;
-
-    margin-bottom: 24px;
-}
-
-.modal-header h3 {
-    margin-bottom: 5px;
-
-    color: var(--primary-color);
-
-    font-size: 21px;
-    font-weight: 700;
-}
-
-.modal-header p {
-    margin: 0;
-
-    color: var(--text-muted);
-
-    font-size: 13px;
-}
-
-
-/* Close Button */
-
-.close-modal {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background-color: transparent;
-
-    color: var(--text-muted);
-
-    cursor: pointer;
-
-    font-size: 16px;
-
-    transition:
-        background-color 0.2s,
-        color 0.2s;
-}
-
-.close-modal:hover {
-    background-color: #ECFDF5;
-
-    color: var(--primary-color);
-}
-
-
-/* Form */
-
-#addStudentForm {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 16px;
-}
-
-
-/* Form Group */
-
-.form-group {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-.form-group label {
-    color: var(--text-main);
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-
-    padding: 11px 12px;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 9px;
-
-    outline: none;
-
-    background-color: var(--card-bg);
-
-    color: var(--text-main);
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: var(--secondary-color);
-
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #94A3B8;
-}
-
-
-/* Modal Buttons */
-
-.modal-buttons {
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 10px;
-
-    margin-top: 8px;
-}
-
-.cancel-btn,
-.save-student-btn {
-    height: 40px;
-
-    padding: 0 18px;
-
-    border-radius: 8px;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-/* Cancel */
-
-.cancel-btn {
-    border: 1px solid var(--border-color);
-
-    background-color: transparent;
-
-    color: var(--text-muted);
-}
-
-.cancel-btn:hover {
-    background-color: #F0FDF4;
-
-    color: var(--primary-color);
-}
-
-
-/* Save */
-
-.save-student-btn {
-    border: none;
-
-    background-color: var(--primary-color);
-
-    color: white;
-}
-
-.save-student-btn:hover {
-    background-color: var(--primary-hover);
-}
-
-
-/* =========================
-   DARK MODE MODAL
-========================= */
-
-body.dark-mode .modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode .add-student-modal {
-    background-color: var(--card-bg);
-
-    border-color: var(--border-color);
-}
-
-body.dark-mode .modal-header h3 {
-    color: #6EE7B7;
-}
-
-body.dark-mode .modal-header p {
-    color: #A7F3D0;
-}
-
-body.dark-mode .close-modal {
-    color: #A7F3D0;
-}
-
-body.dark-mode .close-modal:hover {
-    background-color: #065F46;
-
-    color: #ECFDF5;
-}
-
-body.dark-mode .form-group label {
-    color: #ECFDF5;
-}
-
-body.dark-mode .form-group input,
-body.dark-mode .form-group textarea,
-body.dark-mode .form-group select {
-    background-color: #022C22;
-
-    border-color: #065F46;
-
-    color: #ECFDF5;
-}
-
-body.dark-mode .form-group input::placeholder,
-body.dark-mode .form-group textarea::placeholder {
-    color: #6B8F83;
-}
-
-body.dark-mode .cancel-btn {
-    border-color: #065F46;
-
-    color: #A7F3D0;
-}
-
-body.dark-mode .cancel-btn:hover {
-    background-color: #065F46;
-
-    color: #ECFDF5;
-}
-/* =========================
-   EDIT / DELETE BUTTONS
-========================= */
-
-.students-table td:last-child {
-    white-space: nowrap;
-    text-align: right;
-}
-
-.students-table td:last-child button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 34px;
-    height: 34px;
-
-    margin-left: 5px;
-
-    border: none;
-    border-radius: 8px;
-
-    background-color: transparent;
-
-    color: var(--text-muted);
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s,
-        color 0.2s,
-        transform 0.2s;
-}
-
-
-/* Edit Button */
-
-.students-table td:last-child .edit-btn:hover {
-    background-color: #ECFDF5;
-
-    color: var(--primary-color);
-
-    transform: translateY(-1px);
-}
-
-
-/* Delete Button */
-
-.students-table td:last-child .delete-btn:hover {
-    background-color: #FEF2F2;
-
-    color: #DC2626;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   DELETE MODAL
-========================= */
-
-.delete-popup {
-    max-width: 420px;
-}
-
-
-/* Delete confirmation text */
-
-.delete-popup .modal-header {
-    margin-bottom: 20px;
-}
-
-
-/* Delete Button */
-
-.delete-confirm-btn {
-    height: 40px;
-
-    padding: 0 18px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background-color: #DC2626;
-
-    color: white;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s,
-        transform 0.2s;
-}
-
-.delete-confirm-btn:hover {
-    background-color: #B91C1C;
-
-    transform: translateY(-1px);
-}
-
-.delete-confirm-btn:active {
-    transform: translateY(0);
-}
-
-
-/* =========================
-   DARK MODE - ACTION BUTTONS
-========================= */
-
-body.dark-mode .students-table td:last-child button {
-    color: #A7F3D0;
-}
-
-
-/* Edit */
-
-body.dark-mode .students-table td:last-child .edit-btn:hover {
-    background-color: #065F46;
-
-    color: #6EE7B7;
-}
-
-
-/* Delete */
-
-body.dark-mode .students-table td:last-child .delete-btn:hover {
-    background-color: #451A1A;
-
-    color: #FCA5A5;
-}
-
-
-/* Delete Modal */
-
-body.dark-mode .delete-confirm-btn {
-    background-color: #DC2626;
-
-    color: white;
-}
-
-body.dark-mode .delete-confirm-btn:hover {
-    background-color: #B91C1C;
 }
