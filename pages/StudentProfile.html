@@ -36,26 +36,26 @@
 
             <div class="student-info">
 
-                <div class="avatar">
-                    AK
+                <div class="avatar" id="studentAvatar">
+                    --
                 </div>
 
                 <div>
 
                     <h1 id="studentName">
-                        Ahmad Khalil
+                        Loading...
                     </h1>
 
                     <p>
-                        <span id="studentId">ST-001</span>
+                        <span id="studentId">--</span>
                         •
-                        <span id="studentEmail">ahmad@example.com</span>
+                        <span id="studentEmail">--</span>
                         •
-                        <span id="studentCourse">JavaScript</span>
+                        <span id="studentCourse">--</span>
                     </p>
 
-                    <span class="status">
-                        Excellent
+                    <span class="status" id="studentStatus">
+                        --
                     </span>
 
                 </div>
@@ -101,12 +101,31 @@
                     <span>Overall Grade</span>
 
                     <h2 id="overallGrade">
-                        88
+                        0
                     </h2>
                 </div>
 
                 <div class="circle purple">
-                    <span id="overallCircle">88%</span>
+                    <span id="overallCircle">0%</span>
+                </div>
+
+            </div>
+
+
+            <!-- GPA -->
+
+            <div class="stat-card">
+
+                <div>
+                    <span>GPA</span>
+
+                    <h2 id="gpaScore">
+                        0.00
+                    </h2>
+                </div>
+
+                <div class="circle purple">
+                    <span id="gpaCircle">0.00</span>
                 </div>
 
             </div>
@@ -120,12 +139,12 @@
                     <span>Attendance</span>
 
                     <h2 id="attendanceScore">
-                        92
+                        0
                     </h2>
                 </div>
 
                 <div class="circle green">
-                    <span id="attendanceCircle">92%</span>
+                    <span id="attendanceCircle">0%</span>
                 </div>
 
             </div>
@@ -139,12 +158,12 @@
                     <span>Assignments</span>
 
                     <h2 id="assignmentScore">
-                        85
+                        0
                     </h2>
                 </div>
 
                 <div class="circle blue">
-                    <span id="assignmentCircle">85%</span>
+                    <span id="assignmentCircle">0%</span>
                 </div>
 
             </div>
@@ -158,12 +177,12 @@
                     <span>Quizzes</span>
 
                     <h2 id="quizScore">
-                        90
+                        0
                     </h2>
                 </div>
 
                 <div class="circle pink">
-                    <span id="quizCircle">90%</span>
+                    <span id="quizCircle">0%</span>
                 </div>
 
             </div>
@@ -177,12 +196,12 @@
                     <span>Exams</span>
 
                     <h2 id="examScore">
-                        88
+                        0
                     </h2>
                 </div>
 
                 <div class="circle orange">
-                    <span id="examCircle">88%</span>
+                    <span id="examCircle">0%</span>
                 </div>
 
             </div>
@@ -239,7 +258,18 @@
                     <span>Overall Grade</span>
 
                     <strong id="overviewGrade">
-                        88%
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <span>GPA</span>
+
+                    <strong id="overviewGPA">
+                        0.00 / 4.00
                     </strong>
 
                 </div>
@@ -250,7 +280,7 @@
                     <span>Attendance</span>
 
                     <strong id="overviewAttendance">
-                        92%
+                        0%
                     </strong>
 
                 </div>
@@ -261,7 +291,7 @@
                     <span>Assignments</span>
 
                     <strong id="overviewAssignments">
-                        85%
+                        0%
                     </strong>
 
                 </div>
@@ -272,7 +302,7 @@
                     <span>Quizzes</span>
 
                     <strong id="overviewQuizzes">
-                        90%
+                        0%
                     </strong>
 
                 </div>
@@ -283,7 +313,7 @@
                     <span>Exams</span>
 
                     <strong id="overviewExams">
-                        88%
+                        0%
                     </strong>
 
                 </div>
@@ -311,14 +341,14 @@
                 <div class="progress">
 
                     <div id="assignmentBar"
-                         class="progress-fill"
-                         style="width: 85%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="assignmentProgressText">
-                    85
+                    0
                 </strong>
 
             </div>
@@ -333,14 +363,14 @@
                 <div class="progress">
 
                     <div id="quizBar"
-                         class="progress-fill"
-                         style="width: 90%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="quizProgressText">
-                    90
+                    0
                 </strong>
 
             </div>
@@ -355,14 +385,14 @@
                 <div class="progress">
 
                     <div id="examBar"
-                         class="progress-fill"
-                         style="width: 88%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="examProgressText">
-                    88
+                    0
                 </strong>
 
             </div>
@@ -377,14 +407,14 @@
                 <div class="progress">
 
                     <div id="finalGradeBar"
-                         class="progress-fill"
-                         style="width: 88%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="finalGradeText">
-                    88
+                    0
                 </strong>
 
             </div>
@@ -408,14 +438,14 @@
                 <div class="progress">
 
                     <div id="presentBar"
-                         class="progress-fill"
-                         style="width: 92%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="presentText">
-                    92%
+                    0%
                 </strong>
 
             </div>
@@ -428,14 +458,14 @@
                 <div class="progress">
 
                     <div id="absenceBar"
-                         class="progress-fill absence"
-                         style="width: 8%;">
+                        class="progress-fill absence"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="absenceText">
-                    8%
+                    0%
                 </strong>
 
             </div>
@@ -459,14 +489,14 @@
                 <div class="progress">
 
                     <div id="assignmentAssessmentBar"
-                         class="progress-fill"
-                         style="width: 85%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="assignmentAssessmentText">
-                    85
+                    0
                 </strong>
 
             </div>
@@ -479,14 +509,14 @@
                 <div class="progress">
 
                     <div id="quizAssessmentBar"
-                         class="progress-fill"
-                         style="width: 90%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="quizAssessmentText">
-                    90
+                    0
                 </strong>
 
             </div>
@@ -499,14 +529,14 @@
                 <div class="progress">
 
                     <div id="examAssessmentBar"
-                         class="progress-fill"
-                         style="width: 88%;">
+                        class="progress-fill"
+                        style="width: 0%;">
                     </div>
 
                 </div>
 
                 <strong id="examAssessmentText">
-                    88
+                    0
                 </strong>
 
             </div>
@@ -528,8 +558,7 @@
                 <input
                     type="text"
                     id="feedbackInput"
-                    placeholder="Write feedback for Ahmad..."
-                >
+                    placeholder="Write feedback...">
 
                 <button id="postFeedbackBtn">
                     Post
@@ -540,7 +569,7 @@
 
             <div id="feedbackList" class="feedback-list">
 
-                <div id="emptyFeedback" class="empty-feedback">
+                <div class="empty-feedback">
 
                     <i class="fa-solid fa-comments"></i>
 
@@ -600,7 +629,7 @@
                         <input
                             id="editName"
                             type="text"
-                        >
+                            required>
 
                     </div>
 
@@ -614,7 +643,7 @@
                         <input
                             id="editId"
                             type="text"
-                        >
+                            required>
 
                     </div>
 
@@ -627,8 +656,7 @@
 
                         <input
                             id="editEmail"
-                            type="email"
-                        >
+                            type="email">
 
                     </div>
 
@@ -643,8 +671,10 @@
 
                             <option>JavaScript</option>
                             <option>HTML & CSS</option>
+                            <option>CSS</option>
                             <option>React</option>
-                            <option>Node.js</option>
+                            <option>PHP Laravel</option>
+                            <option>Test</option>
 
                         </select>
 
@@ -661,8 +691,7 @@
                             id="editAttendance"
                             type="number"
                             min="0"
-                            max="100"
-                        >
+                            max="100">
 
                     </div>
 
@@ -677,8 +706,7 @@
                             id="editAssignment"
                             type="number"
                             min="0"
-                            max="100"
-                        >
+                            max="100">
 
                     </div>
 
@@ -693,8 +721,7 @@
                             id="editQuiz"
                             type="number"
                             min="0"
-                            max="100"
-                        >
+                            max="100">
 
                     </div>
 
@@ -709,8 +736,7 @@
                             id="editExam"
                             type="number"
                             min="0"
-                            max="100"
-                        >
+                            max="100">
 
                     </div>
 
@@ -722,17 +748,19 @@
                     <button
                         type="button"
                         id="cancelEdit"
-                        class="cancel-btn"
-                    >
+                        class="cancel-btn">
+
                         Cancel
+
                     </button>
 
 
                     <button
                         type="submit"
-                        class="save-btn"
-                    >
+                        class="save-btn">
+
                         Save Changes
+
                     </button>
 
                 </div>
@@ -839,47 +867,38 @@
             <div class="report-performance">
 
                 <div>
-
                     <span>Overall</span>
-
                     <strong id="reportGrade"></strong>
-
                 </div>
 
 
                 <div>
+                    <span>GPA</span>
+                    <strong id="reportGPA"></strong>
+                </div>
 
+
+                <div>
                     <span>Attendance</span>
-
                     <strong id="reportAttendance"></strong>
-
                 </div>
 
 
                 <div>
-
                     <span>Assignments</span>
-
                     <strong id="reportAssignment"></strong>
-
                 </div>
 
 
                 <div>
-
                     <span>Quizzes</span>
-
                     <strong id="reportQuiz"></strong>
-
                 </div>
 
 
                 <div>
-
                     <span>Exams</span>
-
                     <strong id="reportExam"></strong>
-
                 </div>
 
             </div>
