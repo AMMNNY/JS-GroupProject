@@ -18,29 +18,34 @@
 
 <body>
 
-    <aside class="sidebar">
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-sidebar" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <button class="sidebar-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
 
-        <h2>EduTrack</h2>
+    <aside class="sidebar" id="site-sidebar" aria-label="Main navigation">
 
-        <nav>
-            <ul>
+        <h2 class="sidebar-title">EduTrack</h2>
 
-                <li>
-                    <a href="#/Dashboard">Dashboard</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-list">
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#/Dashboard">Dashboard</a>
                 </li>
 
-                <li>
-                    <a href="#/Students">Students</a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#/Students">Students</a>
                 </li>
 
-                <li>
-                    <a href="#/Courses">Courses</a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#/Courses">Courses</a>
                 </li>
 
             </ul>
         </nav>
 
-        <button id="logoutButton">
+        <button class="sidebar-logout" id="logoutButton">
             Logout
         </button>
 
@@ -54,10 +59,43 @@
 
     <script type="module">
         import coursesFunction from "../script/courses.js"
-        const dynmic = document.getElementById("Dynmic");
         import { initDashboard } from "../script/analytics_dashboard.js";
         import { initStudents } from "../script/student-managment.js";
 
+        const dynmic = document.getElementById("Dynmic");
+        const sidebar = document.getElementById("site-sidebar");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menuToggleIcon = menuToggle.querySelector("i");
+        const sidebarBackdrop = document.querySelector(".sidebar-backdrop");
+
+        function setSidebarOpen(isOpen) {
+            sidebar.classList.toggle("is-open", isOpen);
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+            menuToggleIcon.classList.toggle("fa-bars", !isOpen);
+            menuToggleIcon.classList.toggle("fa-xmark", isOpen);
+            sidebarBackdrop.classList.toggle("is-visible", isOpen);
+        }
+
+        menuToggle.addEventListener("click", function () {
+            setSidebarOpen(!sidebar.classList.contains("is-open"));
+        });
+
+        sidebarBackdrop.addEventListener("click", function () {
+            setSidebarOpen(false);
+        });
+
+        sidebar.querySelectorAll(".sidebar-link").forEach(function (link) {
+            link.addEventListener("click", function () {
+                setSidebarOpen(false);
+            });
+        });
+
+        window.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                setSidebarOpen(false);
+            }
+        });
 
         function loadScript(scriptName) {
 

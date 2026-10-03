@@ -2,18 +2,18 @@
    CSS Variables & Root Configurations
    ========================================================================== */
 :root {
-  --primary-color: #065F46;
-  --primary-hover: #047857;
-  --secondary-color: #10B981;
-  --bg-color: #F0FDF4;
-  --card-bg: #ffffff;
+  --primary-color: #6B1D3A;
+  --primary-hover: #8A2A4D;
+  --secondary-color: #A8802F;
+  --bg-color: #F8FAFC;
+  --card-bg: #FFFFFF;
   --text-main: #0F172A;
-  --text-muted: #334155;
-  --border-color: #DCFCE7;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
   --danger-color: #EF4444;
   --success-color: #22C55E;
-  --shadow-sm: 0 1px 3px rgba(6, 95, 70, 0.03);
-  --shadow-md: 0 4px 6px -1px rgba(6, 95, 70, 0.06);
+  --shadow-sm: 0 1px 3px rgba(107, 29, 58, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(107, 29, 58, 0.06);
   --radius-md: 8px;
   --radius-lg: 12px;
   --transition-fast: 0.2s ease-in-out;

@@ -9,22 +9,22 @@
 }
 
 :root {
-    --primary: #6c4cff;
-    --primary-dark: #5637e8;
-    --primary-light: #eeeaff;
+    --primary: #6B1D3A;
+    --primary-dark: #8A2A4D;
+    --primary-light: #F6E8EE;
 
-    --background: #f6f7fb;
-    --card: #ffffff;
+    --background: #F8FAFC;
+    --card: #FFFFFF;
 
-    --text: #172033;
-    --muted: #697386;
+    --text: #0F172A;
+    --muted: #64748B;
 
-    --border: #e4e7ec;
+    --border: #E2E8F0;
 
     --green: #18b7a5;
-    --blue: #4b4ded;
-    --orange: #ff9800;
-    --red: #ef4444;
+    --blue: #A8802F;
+    --pink: #ff6b7a;
+    --orange: #A8802F;
 
     --shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
 
@@ -68,7 +68,7 @@ textarea {
 
     padding: 10px 16px;
 
-    background: white;
+    background: var(--card);
     color: var(--text);
 
     border: 1px solid var(--border);
@@ -96,7 +96,7 @@ textarea {
 ========================================= */
 
 .instructor-header {
-    background: white;
+    background: var(--card);
 
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -233,7 +233,7 @@ textarea {
     border: 1px solid var(--border);
     border-radius: 9px;
 
-    background: white;
+    background: var(--card);
     color: var(--primary);
 
     font-weight: 700;
@@ -267,7 +267,7 @@ textarea {
 .stat-card {
     min-height: 115px;
 
-    background: white;
+    background: var(--card);
 
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -331,23 +331,23 @@ textarea {
 }
 
 .stat-icon.purple {
-    color: #6c4cff;
-    background: #eeeaff;
+    color: var(--primary);
+    background: var(--primary-light);
 }
 
 .stat-icon.blue {
-    color: #2563eb;
-    background: #dbeafe;
+    color: var(--blue);
+    background: var(--primary-light);
 }
 
 .stat-icon.orange {
-    color: #ea580c;
-    background: #ffedd5;
+    color: var(--orange);
+    background: var(--primary-light);
 }
 
 .stat-icon.green {
-    color: #059669;
-    background: #d1fae5;
+    color: var(--green);
+    background: #D1FAE5;
 }
 
 
@@ -362,7 +362,7 @@ textarea {
 
     padding: 5px;
 
-    background: white;
+    background: var(--card);
 
     border: 1px solid var(--border);
     border-radius: 11px;
@@ -376,7 +376,7 @@ textarea {
     border: none;
 
     background: transparent;
-    color: #586174;
+    color: var(--muted);
 
     padding: 10px 18px;
 
@@ -393,13 +393,13 @@ textarea {
 }
 
 .tab:hover {
-    background: #f8f7ff;
+    background: var(--primary-light);
     color: var(--primary);
 }
 
 .tab.active {
     background: var(--primary);
-    color: white;
+    color: #FFFFFF;
 }
 
 
@@ -410,7 +410,7 @@ textarea {
 .tab-content {
     display: none;
 
-    background: white;
+    background: var(--card);
 
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -472,7 +472,7 @@ textarea {
 
     gap: 14px;
 
-    background: #f8f9fc;
+    background: var(--background);
 
     border: 1px solid transparent;
     border-radius: 11px;
@@ -481,8 +481,8 @@ textarea {
 }
 
 .overview-item:hover {
-    background: #f5f3ff;
-    border-color: #e8e3ff;
+    background: var(--primary-light);
+    border-color: var(--border);
 }
 
 .overview-icon {
@@ -541,7 +541,7 @@ textarea {
 
     transform: translateY(-50%);
 
-    color: #9ca3af;
+    color: var(--muted);
 
     font-size: 13px;
 }
@@ -566,7 +566,7 @@ textarea {
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(108, 76, 255, 0.1);
+        0 0 0 3px rgba(107, 29, 58, 0.1);
 }
 
 
@@ -587,13 +587,13 @@ table {
 }
 
 thead {
-    background: #f8f9fc;
+    background: var(--background);
 }
 
 th {
     padding: 13px 14px;
 
-    color: #667085;
+    color: var(--muted);
 
     font-size: 11px;
     font-weight: 700;
@@ -606,7 +606,7 @@ th {
 td {
     padding: 15px 14px;
 
-    border-bottom: 1px solid #edf0f4;
+    border-bottom: 1px solid var(--border);
 
     font-size: 13px;
 
@@ -676,7 +676,7 @@ td {
     border: 1px solid var(--border);
     border-radius: 8px;
 
-    background: white;
+    background: var(--card);
     color: var(--primary);
 
     cursor: pointer;
@@ -686,7 +686,7 @@ td {
 
 .view-profile-btn:hover {
     background: var(--primary);
-    color: white;
+    color: #FFFFFF;
 
     border-color: var(--primary);
 }
@@ -705,7 +705,7 @@ td {
 }
 
 .empty-state i {
-    color: #c5cad4;
+    color: var(--muted);
 
     font-size: 35px;
 
@@ -741,9 +741,9 @@ td {
 .course-card {
     padding: 20px;
 
-    background: #f8f9fc;
+    background: var(--background);
 
-    border: 1px solid #edf0f4;
+    border: 1px solid var(--border);
     border-radius: 12px;
 
     transition: 0.2s;
@@ -752,9 +752,9 @@ td {
 .course-card:hover {
     transform: translateY(-3px);
 
-    border-color: #dcd5ff;
+    border-color: var(--primary);
 
-    background: #faf9ff;
+    background: var(--primary-light);
 }
 
 .course-icon {
@@ -802,7 +802,7 @@ td {
 
     padding: 22px;
 
-    background: #f8f9fc;
+    background: var(--background);
 
     border-radius: 12px;
 }
@@ -877,7 +877,7 @@ td {
 
     padding: 28px;
 
-    background: white;
+    background: var(--card);
 
     border-radius: 16px;
 
@@ -937,8 +937,8 @@ td {
     border: none;
     border-radius: 8px;
 
-    background: #f5f6f8;
-    color: #667085;
+    background: var(--background);
+    color: var(--muted);
 
     cursor: pointer;
 }
@@ -969,7 +969,7 @@ td {
 }
 
 .form-group label {
-    color: #475467;
+    color: var(--muted);
 
     font-size: 13px;
     font-weight: 700;
@@ -985,7 +985,7 @@ td {
     border: 1px solid var(--border);
     border-radius: 8px;
 
-    background: white;
+    background: var(--card);
     color: var(--text);
 
     font-size: 14px;
@@ -1001,7 +1001,7 @@ td {
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(108, 76, 255, 0.1);
+        0 0 0 3px rgba(107, 29, 58, 0.1);
 }
 
 .modal-buttons {
@@ -1013,7 +1013,7 @@ td {
     margin-top: 25px;
     padding-top: 20px;
 
-    border-top: 1px solid #edf0f4;
+    border-top: 1px solid var(--border);
 }
 
 .cancel-btn,
@@ -1029,7 +1029,7 @@ td {
 }
 
 .cancel-btn {
-    background: white;
+    background: var(--card);
     color: var(--text);
 
     border: 1px solid var(--border);
@@ -1041,7 +1041,7 @@ td {
     gap: 7px;
 
     background: var(--primary);
-    color: white;
+    color: #FFFFFF;
 
     border: 1px solid var(--primary);
 }

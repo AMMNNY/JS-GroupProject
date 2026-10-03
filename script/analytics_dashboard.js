@@ -7,7 +7,7 @@ export function initDashboard() {
     let currentInstructor = getActiveUser();
 
     let studentsData = fetchStudentsData('http://localhost:3000/students', currentInstructor.id);
-    let coursesData = fetchCoursesData('http://localhost:3000/courses');
+    let coursesData = fetchCoursesData('http://localhost:3000/courses', currentInstructor.id);
 
     let totalStudentsElement = document.getElementById('totalStudents');
     studentsData.then(data => {
@@ -38,7 +38,12 @@ export function initDashboard() {
             }
             console.log('Total Attendance:', totalAttendance);
             console.log('Number of Students:', data.length);
-            attendanceRateElement.textContent = `${(totalAttendance / data.length).toFixed(1)}%`;
+            let averageAttendance = 0;
+            if (data.length > 0) {
+                averageAttendance = totalAttendance / data.length;
+                console.log('Average Attendance:', averageAttendance);
+            }
+            attendanceRateElement.textContent = `${(averageAttendance).toFixed(1)}%`;
         } else {
             attendanceRateElement.textContent = '0%';
         }
@@ -46,11 +51,19 @@ export function initDashboard() {
 
     let instructorNameElement = document.getElementById('instructorName');
 
-    instructorNameElement.textContent = currentInstructor.name;    
+    instructorNameElement.textContent = currentInstructor.fullName || 'Instructor';    
 
     let avatarElement = document.querySelector('.avatar');
-    avatarElement.textContent = currentInstructor.name.split(' ').map(n => n.charAt(0).toUpperCase()).join('');
-
+    try {
+        if (currentInstructor.name) {
+            avatarElement.textContent = currentInstructor.name.split(' ').map(n => n.charAt(0).toUpperCase()).join('');
+        }
+        else {
+            avatarElement.textContent = 'A';
+        }
+    } catch (error) {
+        console.error('Error setting avatar text:', error);
+    }
 
     function initDashboard() {
         if (typeof Chart === 'undefined') {
@@ -69,7 +82,7 @@ export function initDashboard() {
 
         // Common Font standard
         Chart.defaults.font.family = "Arial, Helvetica, sans-serif";
-        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.color = '#64748b';
 
         /* ==========================================
            1. PERFORMANCE OVER TIME CHART
@@ -101,7 +114,7 @@ export function initDashboard() {
                     labels: top5Students.map(student => student.name),
                     datasets: [{
                         data: top5Students.map(student => student.average),
-                        backgroundColor: '#ffb066',
+                        backgroundColor: '#6B1D3A',
                         barThickness: 22
                     }]
                 },
@@ -138,7 +151,7 @@ export function initDashboard() {
         Promise.all([coursesData, studentsData]).then(([courses, students]) => {
             if (!Array.isArray(courses) || !Array.isArray(students)) return;
 
-            const courseColors = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#e0f2fe'];
+            const courseColors = ['#6B1D3A', '#8A2A4D', '#A8802F', '#E5C98A', '#3D0F21'];
             const courseCounts = courses.map(course => ({
                 name: course.name,
                 count: students.filter(student => student.course === course.name).length
@@ -223,7 +236,7 @@ export function initDashboard() {
                     datasets: [{
                         data: courseAttendance,
                         backgroundColor: (context) => {
-                            return context.dataIndex === courseAttendance.length - 1 ? '#3b82f6' : '#93c5fd';
+                            return context.dataIndex === courseAttendance.length - 1 ? '#A8802F' : '#E5C98A';
                         },
                         borderSkipped: false,
                         barThickness: 30

@@ -134,9 +134,16 @@
       "image": "../Assest/instructors/default-profile.png",
       "status": "Active",
       "experience": 1
+    },
+    {
+      "fullName": "any",
+      "email": "any@example.com",
+      "specialization": "any",
+      "password": "123456",
+      "role": "Instructor",
+      "id": "G609wbVGNXg"
     }
   ],
-
   "students": [
     {
       "id": "S001",
@@ -153,8 +160,6 @@
       "feedback": "Great progress. Keep practicing JavaScript.",
       "status": "Active"
     },
-
-    
     {
       "id": "S002",
       "instructorId": "I001",
@@ -246,97 +251,107 @@
       "id": "6pQwH1p4DSU"
     },
     {
-  "id": "S006",
-  "instructorId": "I003",
-  "name": "Laith Ahmad",
-  "studentId": "ST006",
-  "course": "JavaScript",
-  "attendance": 94,
-  "grades": {
-    "assignments": 88,
-    "quizzes": 91,
-    "exam": 86
-  },
-  "feedback": "Excellent progress and active participation.",
-  "status": "Active"
-},
-{
-  "id": "S007",
-  "instructorId": "I003",
-  "name": "Rama Khaled",
-  "studentId": "ST007",
-  "course": "HTML & CSS",
-  "attendance": 89,
-  "grades": {
-    "assignments": 92,
-    "quizzes": 87,
-    "exam": 90
-  },
-  "feedback": "Great performance. Keep practicing responsive design.",
-  "status": "Active"
-},
-{
-  "id": "S008",
-  "instructorId": "I003",
-  "name": "Yazan Mohammad",
-  "studentId": "ST008",
-  "course": "React",
-  "attendance": 82,
-  "grades": {
-    "assignments": 79,
-    "quizzes": 84,
-    "exam": 81
-  },
-  "feedback": "Good progress. Focus more on React components and state.",
-  "status": "Active"
-},
-{
-  "id": "S009",
-  "instructorId": "I003",
-  "name": "Dana Ali",
-  "studentId": "ST009",
-  "course": "JavaScript",
-  "attendance": 71,
-  "grades": {
-    "assignments": 68,
-    "quizzes": 73,
-    "exam": 70
-  },
-  "feedback": "Needs more practice with JavaScript fundamentals.",
-  "status": "Inactive"
-}
-
-    
-  ],
-
-  "courses": [
-
+      "id": "S006",
+      "instructorId": "I003",
+      "name": "Laith Ahmad",
+      "studentId": "ST006",
+      "course": "JavaScript",
+      "attendance": 94,
+      "grades": {
+        "assignments": 88,
+        "quizzes": 91,
+        "exam": 86
+      },
+      "feedback": "Excellent progress and active participation.",
+      "status": "Active"
+    },
     {
-  "id": "C001",
-  "name": "JavaScript",
-  "description": "Learn JavaScript fundamentals, DOM manipulation, events, APIs and asynchronous programming.",
-  "instructor": "I003"
-},
-{
-  "id": "C002",
-  "name": "HTML & CSS",
-  "description": "Learn how to build modern, responsive and accessible web pages using HTML and CSS.",
-  "instructor": "I003"
-},
-{
-  "id": "C003",
-  "name": "React",
-  "description": "Learn React fundamentals, components, props, state and building modern user interfaces.",
-  "instructor": "I003"
-},
-    
+      "id": "S007",
+      "instructorId": "I003",
+      "name": "Rama Khaled",
+      "studentId": "ST007",
+      "course": "HTML & CSS",
+      "attendance": 89,
+      "grades": {
+        "assignments": 92,
+        "quizzes": 87,
+        "exam": 90
+      },
+      "feedback": "Great performance. Keep practicing responsive design.",
+      "status": "Active"
+    },
+    {
+      "id": "S008",
+      "instructorId": "I003",
+      "name": "Yazan Mohammad",
+      "studentId": "ST008",
+      "course": "React",
+      "attendance": 82,
+      "grades": {
+        "assignments": 79,
+        "quizzes": 84,
+        "exam": 81
+      },
+      "feedback": "Good progress. Focus more on React components and state.",
+      "status": "Active"
+    },
+    {
+      "id": "S009",
+      "instructorId": "I003",
+      "name": "Dana Ali",
+      "studentId": "ST009",
+      "course": "JavaScript",
+      "attendance": 71,
+      "grades": {
+        "assignments": 68,
+        "quizzes": 73,
+        "exam": 70
+      },
+      "feedback": "Needs more practice with JavaScript fundamentals.",
+      "status": "Inactive"
+    },
+    {
+      "instructorId": "G609wbVGNXg",
+      "studentId": "ST001",
+      "name": "any",
+      "course": "any",
+      "attendance": 30,
+      "grades": {
+        "assignments": 60,
+        "quizzes": 70,
+        "exam": 80
+      },
+      "feedback": "gdgdgf",
+      "status": "Active",
+      "id": "QKmbAQRMx6E",
+      "email": "amroabd2003@gmail.com"
+    }
+  ],
+  "courses": [
+    {
+      "id": "C001",
+      "name": "JavaScript",
+      "description": "Learn JavaScript fundamentals, DOM manipulation, events, APIs and asynchronous programming.",
+      "instructor": "I003"
+    },
+    {
+      "id": "C002",
+      "name": "HTML & CSS",
+      "description": "Learn how to build modern, responsive and accessible web pages using HTML and CSS.",
+      "instructor": "I003"
+    },
+    {
+      "id": "C003",
+      "name": "React",
+      "description": "Learn React fundamentals, components, props, state and building modern user interfaces.",
+      "instructor": "I003"
+    },
     {
       "name": "any",
       "description": "any",
-      "instructor": "Pos_Wufu9zw",
+      "instructor": "G609wbVGNXg",
       "id": "Ib_gc9v1ShQ"
     }
   ],
-
   "$schema": "./node_modules/json-server/schema.json"
 }

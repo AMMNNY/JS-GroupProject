@@ -125,8 +125,3 @@ body.dark-mode #theme-toggle {
     color: var(--text-main);
     border-color: var(--border-color);
 }
-
-body.dark-mode .sidebar {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-}

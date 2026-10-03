@@ -15,7 +15,7 @@
     --input-bg: #FFFFFF;
 
     --text-main: #0F172A;
-    --text-muted: #475569;
+    --text-muted: #64748B;
     --placeholder: #94A3B8;
 
     --border-color: #E2E8F0;
@@ -58,33 +58,15 @@ body {
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 236px;
-    min-height: 100vh;
-    flex-shrink: 0;
 
-    background-color: var(--card-bg);
-    border-right: 1px solid var(--border-color);
-
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.sidebar-content {
-    padding: 24px;
-}
-
-.main-content {
-    flex: 1;
-    min-width: 0;
-}
 
 /* =========================
    TOPBAR
 ========================= */
 
 .topbar {
-    height: 76px;
-    padding: 0 32px;
+    min-height: 80px;
+    padding: 25px 30px;
 
     display: flex;
     align-items: center;
@@ -97,15 +79,15 @@ body {
 }
 
 .page-intro {
-    margin-top: 18px;
+    margin: 0;
 }
 
 .page-intro h2 {
-    margin-bottom: 5px;
+    margin: 0 0 5px;
 
-    color: var(--primary-color);
+    color: var(--text-main);
 
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -121,7 +103,31 @@ body {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: var(--text-muted);
+
+    cursor: pointer;
+    font-size: 17px;
+
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--soft-bg);
+    color: var(--primary-color);
 }
 
 .icon-button {
@@ -286,12 +292,12 @@ body {
     width: 100%;
 
     border: 1px solid var(--border-color);
-    border-radius: 14px;
+    border-radius: 16px;
 
     overflow: hidden;
 
     background-color: var(--card-bg);
-    box-shadow: 0 4px 15px var(--shadow);
+    box-shadow: 0 1px 2px var(--shadow);
 
     transition: background-color 0.3s, border-color 0.3s;
 }
@@ -775,12 +781,8 @@ body {
 
 @media (max-width: 1024px) {
 
-    .sidebar {
-        width: 190px;
-    }
-
     .topbar {
-        padding: 0 24px;
+        padding: 18px 24px;
     }
 
     .student-body {
@@ -803,22 +805,13 @@ body {
 
 @media (max-width: 768px) {
 
-    .sidebar {
-        display: none;
-    }
-
     .topbar {
-        height: auto;
         min-height: 72px;
         padding: 16px 20px;
     }
 
-    .page-intro {
-        margin-top: 0;
-    }
-
     .page-intro h2 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .page-intro-p {
@@ -880,6 +873,7 @@ body {
     }
 
     .icon-button,
+    .theme-toggle,
     .avatar {
         width: 36px;
         height: 36px;

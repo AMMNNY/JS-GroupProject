@@ -119,7 +119,7 @@
             <!-- Header Actions -->
 
             <div class="header-actions">
-
+                <a href="profile.html">
                 <button
                     id="editProfileBtn"
                     class="secondary-btn"
@@ -128,7 +128,7 @@
                     <i class="fa-regular fa-pen-to-square"></i>
                     Edit Profile
                 </button>
-
+                </a>
             </div>
 
         </section>
@@ -549,215 +549,10 @@
          EDIT PROFILE MODAL
     =================================== -->
 
-    <div
-        id="editModal"
-        class="modal"
-    >
+    
 
-        <div class="modal-box">
 
-            <div class="modal-header">
-
-                <div class="modal-title">
-
-                    <div class="modal-icon">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </div>
-
-                    <div>
-                        <h2>Edit Instructor Profile</h2>
-
-                        <p>
-                            Update instructor information.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <button
-                    id="closeModalBtn"
-                    class="close-btn"
-                    type="button"
-                >
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-            </div>
-
-
-            <form id="editInstructorForm">
-
-                <div class="form-grid">
-
-
-                    <div class="form-group">
-
-                        <label for="editName">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="editName"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editEmail">
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="editEmail"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editPhone">
-                            Phone
-                        </label>
-
-                        <input
-                            type="text"
-                            id="editPhone"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editSpecialization">
-                            Specialization
-                        </label>
-
-                        <input
-                            type="text"
-                            id="editSpecialization"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editExperience">
-                            Experience (Years)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="editExperience"
-                            min="0"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editLocation">
-                            Location
-                        </label>
-
-                        <input
-                            type="text"
-                            id="editLocation"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editImage">
-                            Profile Image Path
-                        </label>
-
-                        <input
-                            type="text"
-                            id="editImage"
-                            placeholder="../Assest/instructors/profile.jpg"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="editStatus">
-                            Status
-                        </label>
-
-                        <select id="editStatus">
-
-                            <option value="Active">
-                                Active
-                            </option>
-
-                            <option value="Inactive">
-                                Inactive
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group full-width">
-
-                        <label for="editBio">
-                            Biography
-                        </label>
-
-                        <textarea
-                            id="editBio"
-                            rows="5"
-                        ></textarea>
-
-                    </div>
-
-                </div>
-
-
-                <div class="modal-buttons">
-
-                    <button
-                        id="cancelEditBtn"
-                        class="cancel-btn"
-                        type="button"
-                    >
-                        Cancel
-                    </button>
-
-                    <button
-                        class="save-btn"
-                        type="submit"
-                    >
-                        <i class="fa-solid fa-check"></i>
-                        Save Changes
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-    <script src="../script/instructorProfile.js"></script>
+    <script type="module" src="../script/instructorProfile.js"></script>
 
 </body>
 
