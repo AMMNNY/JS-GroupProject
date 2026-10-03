@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Instructor Profile | EduTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="../style/instructorProfile.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+
+<body>
+
+    <main class="page-container">
+
+        <!-- ===============================
+             BACK BUTTON
+        ================================ -->
+
+        <button
+            class="back-btn"
+            id="backBtn"
+            type="button"
+        >
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+
+        <!-- ===============================
+             INSTRUCTOR HEADER
+        ================================ -->
+
+        <section class="instructor-header">
+
+            <div class="instructor-main-info">
+
+                <!-- Profile Image -->
+
+                <div class="profile-image-wrapper">
+
+                    <img
+                        id="instructorImage"
+                        class="profile-image"
+                        alt="Instructor Profile"
+                    >
+
+                    <div
+                        id="imageFallback"
+                        class="image-fallback"
+                    >
+                        --
+                    </div>
+
+                </div>
+
+
+                <!-- Instructor Info -->
+
+                <div class="instructor-info">
+
+                    <h1 id="instructorName">
+                        Loading...
+                    </h1>
+
+                    <p
+                        id="instructorSpecialization"
+                        class="specialization"
+                    >
+                        --
+                    </p>
+
+                    <div class="instructor-meta">
+
+                        <span>
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <span id="instructorEmail">
+                                --
+                            </span>
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="instructorLocation">
+                                --
+                            </span>
+                        </span>
+
+                    </div>
+
+                    <span
+                        id="instructorStatus"
+                        class="status"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Header Actions -->
+
+            <div class="header-actions">
+
+                <button
+                    id="editProfileBtn"
+                    class="secondary-btn"
+                    type="button"
+                >
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Edit Profile
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===============================
+             STATISTICS
+        ================================ -->
+
+        <section class="statistics">
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Total Students</span>
+
+                    <h2 id="totalStudents">
+                        0
+                    </h2>
+                </div>
+
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Courses</span>
+
+                    <h2 id="totalCourses">
+                        0
+                    </h2>
+                </div>
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Experience</span>
+
+                    <h2>
+                        <span id="experienceYears">0</span>
+                        <small>Years</small>
+                    </h2>
+                </div>
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div>
+                    <span>Active Students</span>
+
+                    <h2 id="activeStudents">
+                        0
+                    </h2>
+                </div>
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===============================
+             TABS
+        ================================ -->
+
+        <nav class="tabs">
+
+            <button
+                class="tab active"
+                data-tab="overview"
+                type="button"
+            >
+                Overview
+            </button>
+
+            <button
+                class="tab"
+                data-tab="students"
+                type="button"
+            >
+                My Students
+            </button>
+
+            <button
+                class="tab"
+                data-tab="courses"
+                type="button"
+            >
+                Courses
+            </button>
+
+            <button
+                class="tab"
+                data-tab="about"
+                type="button"
+            >
+                About
+            </button>
+
+        </nav>
+
+
+
+        <!-- ===============================
+             OVERVIEW TAB
+        ================================ -->
+
+        <section
+            id="overview"
+            class="tab-content active"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Instructor Overview</h2>
+
+                    <p>
+                        General information and teaching details.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="overview-grid">
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+                        <span>Full Name</span>
+
+                        <strong id="overviewName">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <div>
+                        <span>Specialization</span>
+
+                        <strong id="overviewSpecialization">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <span>Email</span>
+
+                        <strong id="overviewEmail">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div>
+                        <span>Phone</span>
+
+                        <strong id="overviewPhone">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+
+                        <strong id="overviewLocation">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-item">
+
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <div>
+                        <span>Experience</span>
+
+                        <strong id="overviewExperience">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===============================
+             STUDENTS TAB
+        ================================ -->
+
+        <section
+            id="students"
+            class="tab-content"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <h2>My Students</h2>
+
+                    <p>
+                        Students currently assigned to this instructor.
+                    </p>
+                </div>
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search students..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Student</th>
+                            <th>Student ID</th>
+                            <th>Course</th>
+                            <th>Attendance</th>
+                            <th>Overall Grade</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentsTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                id="noStudents"
+                class="empty-state"
+            >
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>No students found</h3>
+
+                <p>
+                    There are currently no students assigned to this instructor.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===============================
+             COURSES TAB
+        ================================ -->
+
+        <section
+            id="courses"
+            class="tab-content"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Courses</h2>
+
+                    <p>
+                        Courses currently taught by this instructor.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="coursesGrid"
+                class="courses-grid"
+            >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===============================
+             ABOUT TAB
+        ================================ -->
+
+        <section
+            id="about"
+            class="tab-content"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <h2>About Instructor</h2>
+
+                    <p>
+                        Professional information about the instructor.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="about-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+
+                <div>
+
+                    <h3>Biography</h3>
+
+                    <p id="instructorBio">
+                        No biography available.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================================
+         EDIT PROFILE MODAL
+    =================================== -->
+
+    <div
+        id="editModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+
+                    <div class="modal-icon">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+
+                    <div>
+                        <h2>Edit Instructor Profile</h2>
+
+                        <p>
+                            Update instructor information.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="closeModalBtn"
+                    class="close-btn"
+                    type="button"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="editInstructorForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="editName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editPhone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editPhone"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editSpecialization">
+                            Specialization
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editSpecialization"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editExperience">
+                            Experience (Years)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="editExperience"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editLocation">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editLocation"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editImage">
+                            Profile Image Path
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editImage"
+                            placeholder="../Assest/instructors/profile.jpg"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editStatus">
+                            Status
+                        </label>
+
+                        <select id="editStatus">
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="editBio">
+                            Biography
+                        </label>
+
+                        <textarea
+                            id="editBio"
+                            rows="5"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-buttons">
+
+                    <button
+                        id="cancelEditBtn"
+                        class="cancel-btn"
+                        type="button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="save-btn"
+                        type="submit"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../script/instructorProfile.js"></script>
+
+</body>
+
+</html>
