@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+
+    <link rel="stylesheet" href="../style/courses.css">
+</head>
+
+<body>
+
+    <main class="courses-page">
+
+        <header class="page-header">
+            <div>
+                <h1>Courses</h1>
+                <p>Manage and explore all available courses.</p>
+            </div>
+
+            <button class="add-course-btn" id="openModal">
+                + Add Course
+            </button>
+        </header>
+
+
+        <section class="courses-container">
+
+            <div class="courses-grid" id="coursesContainer">
+
+                <article id="course-card">
+                    <div id="course-content">
+
+
+                        <div class="course-info">
+                            <span></span>
+                            <strong></strong>
+                        </div>
+                    </div>
+
+                    <div id="course-actions">
+                        <button id="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Add Course Modal -->
+
+    <div class="modal" id="courseModal">
+
+        <div  class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <h2>Add New Course</h2>
+                    <p>Create a new course and assign an instructor.</p>
+                </div>
+
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+
+
+            <form id="courseForm">
+
+                <div class="form-group">
+                    <label for="courseName">Course Name</label>
+                    <input
+                        type="text"
+                        id="courseName"
+                        placeholder="Enter course name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="courseDescription">Description</label>
+
+                    <textarea
+                        id="courseDescription"
+                        rows="4"
+                        placeholder="Enter course description"
+                        required
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="instructor">Instructor</label>
+
+                    <select id="instructor" required>
+                        <option value="">Select instructor</option>
+                    </select>
+                </div>
+
+
+                <div class="form-actions">
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelBtn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Add Course
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="modal" id="editCourseModal">
+    <div class="modal-content">
+
+        <h2>Edit Course</h2>
+
+        <form id="editCourseForm">
+
+            <div class="form-group">
+                <label for="editCourseName">Course Name</label>
+                <input type="text" id="editCourseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editCourseDescription">Description</label>
+                <textarea id="editCourseDescription" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="editInstructor">Instructor</label>
+                <select id="editInstructor" required>
+                    <option value="">Select instructor</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="editCancelBtn">Cancel</button>
+                <button type="submit">Save Changes</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <div class="modal" id="deleteConfirmationModal" role="dialog" aria-modal="true" aria-labelledby="deleteConfirmationTitle">
+        <div class="modal-content delete-confirmation-content">
+            <h2 id="deleteConfirmationTitle">Confirm deletion</h2>
+            <p>Are you sure you want to delete this course?</p>
+            <div class="delete-confirmation-actions">
+                <button type="button" id="cancelDeleteBtn">Cancel</button>
+                <button type="button" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script/courses.js" ></script>
+</body>
+</html>

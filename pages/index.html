@@ -30,7 +30,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Courses</a>
+                    <a href="#/Courses">Courses</a>
                 </li>
 
             </ul>
@@ -48,7 +48,7 @@
 
 
     <script type="module">
-
+        import coursesFunction from "../script/courses.js"
         const dynmic = document.getElementById("Dynmic");
         import { initDashboard } from "../script/analytics_dashboard.js";
 
@@ -60,6 +60,8 @@
                 page = "student.html";
             } else if (page === "#/Dashboard") {
                 page = "analytics_dashboard.html";
+            }else if (page === "#/Courses") {
+                page = "Courses.html";
             }
 
             fetch(`./${page}`)
@@ -70,18 +72,13 @@
                     return response.text();
                 })
                 .then((data) => {
-                    // if (requestedHash !== location.hash) {
-                    //     return;
-                    // }
-
-                    // if (typeof window.destroyDashboard === "function") {
-                    //     window.destroyDashboard();
-                    // }
-
                     dynmic.innerHTML = data;
 
                     if (requestedHash === "#/Dashboard") {
                         initDashboard();
+                    }
+                    else if(requestedHash === "#/Courses"){
+                        coursesFunction()
                     }
                 })
                 .catch((error) => {
