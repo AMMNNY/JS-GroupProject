@@ -57,6 +57,10 @@
         const dynmic = document.getElementById("Dynmic");
         import { initDashboard } from "../script/analytics_dashboard.js";
         import { initStudents } from "../script/student-managment.js";
+        import { addStudent } from "../script/add-student.js";
+        import { editStudent } from "../script/edit-student.js";
+        import { deleteeStudent } from "../script/delete-student.js";
+        import { initArchive } from "../script/archive-student.js";
 
 
         function loadScript(scriptName) {
@@ -140,11 +144,12 @@
                         // loadScript("student-managment.js");
                         initStudents();
 
-                        loadScript("add-student.js");
+                        addStudent();
 
-                        loadScript("edit-student.js");
+                        editStudent();
 
-                        loadScript("delete-student.js");
+                        deleteeStudent();
+                        initArchive();
 
                     }
 

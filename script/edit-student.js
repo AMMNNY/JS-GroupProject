@@ -1,153 +1,156 @@
-let editModal = document.getElementById("editStudentModal");
+export function editStudent() {
 
-let editForm = document.getElementById("editStudentForm");
+    let editModal = document.getElementById("editStudentModal");
 
-let closeEditModal = document.getElementById("closeEditModal");
+    let editForm = document.getElementById("editStudentForm");
 
-let cancelEdit = document.getElementById("cancelEdit");
+    let closeEditModal = document.getElementById("closeEditModal");
 
-let editStudentName = document.getElementById("editStudentName");
+    let cancelEdit = document.getElementById("cancelEdit");
 
-let editCourse = document.getElementById("editCourse");
+    let editStudentName = document.getElementById("editStudentName");
 
-let editAttendance = document.getElementById("editAttendance");
+    let editCourse = document.getElementById("editCourse");
 
-let editAssignments = document.getElementById("editAssignments");
+    let editAttendance = document.getElementById("editAttendance");
 
-let editQuizzes = document.getElementById("editQuizzes");
+    let editAssignments = document.getElementById("editAssignments");
 
-let editExam = document.getElementById("editExam");
+    let editQuizzes = document.getElementById("editQuizzes");
 
-let editFeedback = document.getElementById("editFeedback");
+    let editExam = document.getElementById("editExam");
 
-let editStatus = document.getElementById("editStatus");
+    let editFeedback = document.getElementById("editFeedback");
 
-
-let currentStudentId = null;
-
-
-// Open Edit Modal
-
-document.addEventListener("click", async function (e) {
-
-    let editButton = e.target.closest(".edit-btn");
-
-    if (!editButton) {
-        return;
-    }
-
-    currentStudentId = editButton.dataset.id;
-
-    let response = await fetch(
-        `http://localhost:3000/students/${currentStudentId}`
-    );
-
-    let student = await response.json();
+    let editStatus = document.getElementById("editStatus");
 
 
-    editStudentName.value = student.name;
-
-    editCourse.value = student.course;
-
-    editAttendance.value = student.attendance ?? "";
-
-    editAssignments.value = student.grades.assignments ?? "";
-
-    editQuizzes.value = student.grades.quizzes ?? "";
-
-    editExam.value = student.grades.exam ?? "";
-
-    editFeedback.value = student.feedback ?? "";
-
-    editStatus.value = student.status;
+    let currentStudentId = null;
 
 
-    editModal.classList.add("active");
+    // Open Edit Modal
 
-});
+    document.addEventListener("click", async function (e) {
 
+        let editButton = e.target.closest(".edit-btn");
 
-// Close
+        if (!editButton) {
+            return;
+        }
 
-closeEditModal.addEventListener("click", function () {
+        currentStudentId = editButton.dataset.id;
 
-    editModal.classList.remove("active");
+        let response = await fetch(
+            `http://localhost:3000/students/${currentStudentId}`
+        );
 
-});
-
-
-// Cancel
-
-cancelEdit.addEventListener("click", function () {
-
-    editModal.classList.remove("active");
-
-});
+        let student = await response.json();
 
 
-// Save Changes
+        editStudentName.value = student.name;
 
-editForm.addEventListener("submit", async function (e) {
+        editCourse.value = student.course;
 
-    e.preventDefault();
+        editAttendance.value = student.attendance ?? "";
+
+        editAssignments.value = student.grades.assignments ?? "";
+
+        editQuizzes.value = student.grades.quizzes ?? "";
+
+        editExam.value = student.grades.exam ?? "";
+
+        editFeedback.value = student.feedback ?? "";
+
+        editStatus.value = student.status;
 
 
-    let updatedStudent = {
+        editModal.classList.add("active");
 
-        name: editStudentName.value,
+    });
 
-        course: editCourse.value,
 
-        attendance: editAttendance.value === ""
-            ? null
-            : Number(editAttendance.value),
+    // Close
 
-        grades: {
+    closeEditModal.addEventListener("click", function () {
 
-            assignments: editAssignments.value === ""
+        editModal.classList.remove("active");
+
+    });
+
+
+    // Cancel
+
+    cancelEdit.addEventListener("click", function () {
+
+        editModal.classList.remove("active");
+
+    });
+
+
+    // Save Changes
+
+    editForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+
+        let updatedStudent = {
+
+            name: editStudentName.value,
+
+            course: editCourse.value,
+
+            attendance: editAttendance.value === ""
                 ? null
-                : Number(editAssignments.value),
+                : Number(editAttendance.value),
 
-            quizzes: editQuizzes.value === ""
-                ? null
-                : Number(editQuizzes.value),
+            grades: {
 
-            exam: editExam.value === ""
-                ? null
-                : Number(editExam.value)
+                assignments: editAssignments.value === ""
+                    ? null
+                    : Number(editAssignments.value),
 
-        },
+                quizzes: editQuizzes.value === ""
+                    ? null
+                    : Number(editQuizzes.value),
 
-        feedback: editFeedback.value || null,
+                exam: editExam.value === ""
+                    ? null
+                    : Number(editExam.value)
 
-        status: editStatus.value
-
-    };
-
-
-    let response = await fetch(
-        `http://localhost:3000/students/${currentStudentId}`,
-        {
-
-            method: "PATCH",
-
-            headers: {
-                "Content-Type": "application/json"
             },
 
-            body: JSON.stringify(updatedStudent)
+            feedback: editFeedback.value || null,
 
-        }
-    );
+            status: editStatus.value
 
-
-    let data = await response.json();
-
-    console.log("Student updated:", data);
+        };
 
 
-    editModal.classList.remove("active");
+        let response = await fetch(
+            `http://localhost:3000/students/${currentStudentId}`,
+            {
 
-    window.location.reload();
+                method: "PATCH",
 
-});
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(updatedStudent)
+
+            }
+        );
+
+
+        let data = await response.json();
+
+        console.log("Student updated:", data);
+
+
+        editModal.classList.remove("active");
+
+        window.location.reload();
+
+    });
+}
