@@ -30,7 +30,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Courses</a>
+                    <a href="#/Courses">Courses</a>
                 </li>
 
             </ul>
@@ -47,8 +47,8 @@
     </main>
 
 
-    <script>
-
+    <script type="module">
+        import coursesFunction from "../script/courses.js"
         const dynmic = document.getElementById("Dynmic");
 
         function loadPage() {
@@ -59,6 +59,8 @@
                 page = "student.html";
             } else if (page === "#/Dashboard") {
                 page = "analytics_dashboard.html";
+            }else if (page === "#/Courses") {
+                page = "Courses.html";
             }
 
             fetch(`./${page}`)
@@ -69,26 +71,21 @@
                     return response.text();
                 })
                 .then((data) => {
-                    // if (requestedHash !== location.hash) {
-                    //     return;
-                    // }
-
-                    // if (typeof window.destroyDashboard === "function") {
-                    //     window.destroyDashboard();
-                    // }
-
                     dynmic.innerHTML = data;
 
                     if (requestedHash === "#/Dashboard") {
-                        const dashboardScript = document.createElement("script");
-                        dashboardScript.type = "module";
-                        dashboardScript.src = "../script/analytics_dashboard.js";
-                        dashboardScript.onload = () => dashboardScript.remove();
-                        dashboardScript.onerror = () => {
-                            console.error("Unable to load ../script/analytics_dashboard.js");
-                            dashboardScript.remove();
-                        };
-                        document.body.appendChild(dashboardScript);
+                        // const dashboardScript = document.createElement("script");
+                        // dashboardScript.type = "module";
+                        // dashboardScript.src = "../script/analytics_dashboard.js";
+                        // dashboardScript.onload = () => dashboardScript.remove();
+                        // dashboardScript.onerror = () => {
+                        //     console.error("Unable to load ../script/analytics_dashboard.js");
+                        //     dashboardScript.remove();
+                        // };
+                        // document.body.appendChild(dashboardScript);
+                    }
+                    else if(requestedHash === "#/Courses"){
+                        coursesFunction()
                     }
                 })
                 .catch((error) => {
