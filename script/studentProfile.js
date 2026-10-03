@@ -1,28 +1,108 @@
 // =========================================
-// STUDENT DATA
+// API
 // =========================================
 
-let student = {
+const BASE_URL = "http://localhost:3000/students";
 
-    name: "Ahmad Khalil",
+let student = null;
 
-    id: "ST-001",
 
-    email: "ahmad@example.com",
+// =========================================
+// GET STUDENT ID FROM URL
+// Example:
+// StudentProfile.html?id=S001
+// =========================================
 
-    course: "JavaScript",
+const params = new URLSearchParams(window.location.search);
 
-    attendance: 92,
+const studentDatabaseId = params.get("id");
 
-    assignment: 85,
 
-    quiz: 90,
+// =========================================
+// GET STUDENT FROM JSON SERVER
+// =========================================
 
-    exam: 88,
+async function getStudent() {
 
-    feedback: []
+    try {
 
-};
+        if (!studentDatabaseId) {
+
+            throw new Error("Student ID is missing from URL");
+
+        }
+
+
+        const response = await fetch(
+            `${BASE_URL}/${studentDatabaseId}`
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error("Student not found");
+
+        }
+
+
+        const data = await response.json();
+
+
+        // Convert db.json structure to the structure
+        // used by the Student Profile page
+
+        student = {
+
+            dbId: data.id,
+
+            instructorId: data.instructorId,
+
+            name: data.name,
+
+            id: data.studentId,
+
+            email: data.email || "No email",
+
+            course: data.course || "No course",
+
+            attendance:
+                Number(data.attendance) || 0,
+
+            assignment:
+                Number(data.grades?.assignments) || 0,
+
+            quiz:
+                Number(data.grades?.quizzes) || 0,
+
+            exam:
+                Number(data.grades?.exam) || 0,
+
+            feedback:
+                data.feedback
+                    ? [data.feedback]
+                    : [],
+
+            status:
+                data.status || "Active"
+
+        };
+
+
+        displayStudent();
+
+        displayFeedback();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+}
 
 
 // =========================================
@@ -32,11 +112,67 @@ let student = {
 function calculateOverall() {
 
     let overall =
+
         student.assignment * 0.30 +
+
         student.quiz * 0.20 +
+
         student.exam * 0.50;
 
+
     return Math.round(overall);
+
+}
+
+
+// =========================================
+// CALCULATE GPA
+// GPA = Overall converted to 4.00 scale
+// =========================================
+
+function calculateGPA() {
+
+    const overall = calculateOverall();
+
+    const gpa =
+        (overall / 100) * 4;
+
+
+    return gpa.toFixed(2);
+
+}
+
+
+// =========================================
+// GET STUDENT INITIALS
+// =========================================
+
+function getInitials(name) {
+
+    if (!name) {
+
+        return "--";
+
+    }
+
+
+    const words =
+        name.trim().split(" ");
+
+
+    if (words.length === 1) {
+
+        return words[0]
+            .substring(0, 2)
+            .toUpperCase();
+
+    }
+
+
+    return (
+        words[0][0] +
+        words[words.length - 1][0]
+    ).toUpperCase();
 
 }
 
@@ -47,149 +183,311 @@ function calculateOverall() {
 
 function displayStudent() {
 
-    const overall = calculateOverall();
+    if (!student) {
+
+        return;
+
+    }
 
 
+    const overall =
+        calculateOverall();
+
+
+    const gpa =
+        calculateGPA();
+
+
+    // =====================================
     // Student Information
+    // =====================================
 
-    document.getElementById("studentName").textContent =
+    document.getElementById(
+        "studentName"
+    ).textContent =
         student.name;
 
-    document.getElementById("studentId").textContent =
+
+    document.getElementById(
+        "studentId"
+    ).textContent =
         student.id;
 
-    document.getElementById("studentEmail").textContent =
+
+    document.getElementById(
+        "studentEmail"
+    ).textContent =
         student.email;
 
-    document.getElementById("studentCourse").textContent =
+
+    document.getElementById(
+        "studentCourse"
+    ).textContent =
         student.course;
 
 
-    // Header scores
+    document.getElementById(
+        "studentStatus"
+    ).textContent =
+        student.status;
 
-    document.getElementById("overallGrade").textContent =
+
+    document.getElementById(
+        "studentAvatar"
+    ).textContent =
+        getInitials(student.name);
+
+
+    // =====================================
+    // Header Scores
+    // =====================================
+
+    document.getElementById(
+        "overallGrade"
+    ).textContent =
         overall;
 
-    document.getElementById("attendanceScore").textContent =
+
+    document.getElementById(
+        "gpaScore"
+    ).textContent =
+        gpa;
+
+
+    document.getElementById(
+        "attendanceScore"
+    ).textContent =
         student.attendance;
 
-    document.getElementById("assignmentScore").textContent =
+
+    document.getElementById(
+        "assignmentScore"
+    ).textContent =
         student.assignment;
 
-    document.getElementById("quizScore").textContent =
+
+    document.getElementById(
+        "quizScore"
+    ).textContent =
         student.quiz;
 
-    document.getElementById("examScore").textContent =
+
+    document.getElementById(
+        "examScore"
+    ).textContent =
         student.exam;
 
 
+    // =====================================
     // Circles
+    // =====================================
 
-    document.getElementById("overallCircle").textContent =
+    document.getElementById(
+        "overallCircle"
+    ).textContent =
         overall + "%";
 
-    document.getElementById("attendanceCircle").textContent =
+
+    document.getElementById(
+        "gpaCircle"
+    ).textContent =
+        gpa;
+
+
+    document.getElementById(
+        "attendanceCircle"
+    ).textContent =
         student.attendance + "%";
 
-    document.getElementById("assignmentCircle").textContent =
+
+    document.getElementById(
+        "assignmentCircle"
+    ).textContent =
         student.assignment + "%";
 
-    document.getElementById("quizCircle").textContent =
+
+    document.getElementById(
+        "quizCircle"
+    ).textContent =
         student.quiz + "%";
 
-    document.getElementById("examCircle").textContent =
+
+    document.getElementById(
+        "examCircle"
+    ).textContent =
         student.exam + "%";
 
 
+    // =====================================
     // Overview
+    // =====================================
 
-    document.getElementById("overviewGrade").textContent =
+    document.getElementById(
+        "overviewGrade"
+    ).textContent =
         overall + "%";
 
-    document.getElementById("overviewAttendance").textContent =
+
+    document.getElementById(
+        "overviewGPA"
+    ).textContent =
+        gpa + " / 4.00";
+
+
+    document.getElementById(
+        "overviewAttendance"
+    ).textContent =
         student.attendance + "%";
 
-    document.getElementById("overviewAssignments").textContent =
+
+    document.getElementById(
+        "overviewAssignments"
+    ).textContent =
         student.assignment + "%";
 
-    document.getElementById("overviewQuizzes").textContent =
+
+    document.getElementById(
+        "overviewQuizzes"
+    ).textContent =
         student.quiz + "%";
 
-    document.getElementById("overviewExams").textContent =
+
+    document.getElementById(
+        "overviewExams"
+    ).textContent =
         student.exam + "%";
 
 
+    // =====================================
     // Grades
+    // =====================================
 
     updateProgress(
+
         "assignmentBar",
+
         "assignmentProgressText",
+
         student.assignment
+
     );
 
+
     updateProgress(
+
         "quizBar",
+
         "quizProgressText",
+
         student.quiz
+
     );
 
+
     updateProgress(
+
         "examBar",
+
         "examProgressText",
+
         student.exam
+
     );
 
+
     updateProgress(
+
         "finalGradeBar",
+
         "finalGradeText",
+
         overall
+
     );
 
 
+    // =====================================
     // Attendance
+    // =====================================
 
-    document.getElementById("presentBar").style.width =
+    document.getElementById(
+        "presentBar"
+    ).style.width =
         student.attendance + "%";
 
-    document.getElementById("presentText").textContent =
+
+    document.getElementById(
+        "presentText"
+    ).textContent =
         student.attendance + "%";
 
 
-    const absence = 100 - student.attendance;
+    const absence =
+        100 - student.attendance;
 
 
-    document.getElementById("absenceBar").style.width =
+    document.getElementById(
+        "absenceBar"
+    ).style.width =
         absence + "%";
 
-    document.getElementById("absenceText").textContent =
+
+    document.getElementById(
+        "absenceText"
+    ).textContent =
         absence + "%";
 
 
+    // =====================================
     // Assignments Tab
+    // =====================================
 
     updateProgress(
+
         "assignmentAssessmentBar",
+
         "assignmentAssessmentText",
+
         student.assignment
+
     );
 
+
     updateProgress(
+
         "quizAssessmentBar",
+
         "quizAssessmentText",
+
         student.quiz
+
     );
+
 
     updateProgress(
+
         "examAssessmentBar",
+
         "examAssessmentText",
+
         student.exam
+
     );
 
 
-    // Feedback placeholder
+    // =====================================
+    // Feedback Placeholder
+    // =====================================
 
-    document.getElementById("feedbackInput").placeholder =
-        "Write feedback for " + student.name.split(" ")[0] + "...";
+    document.getElementById(
+        "feedbackInput"
+    ).placeholder =
+
+        "Write feedback for " +
+
+        student.name.split(" ")[0] +
+
+        "...";
 
 }
 
@@ -198,12 +496,21 @@ function displayStudent() {
 // UPDATE PROGRESS
 // =========================================
 
-function updateProgress(barId, textId, value) {
+function updateProgress(
+    barId,
+    textId,
+    value
+) {
 
-    document.getElementById(barId).style.width =
+    document.getElementById(
+        barId
+    ).style.width =
         value + "%";
 
-    document.getElementById(textId).textContent =
+
+    document.getElementById(
+        textId
+    ).textContent =
         value;
 
 }
@@ -213,48 +520,66 @@ function updateProgress(barId, textId, value) {
 // TABS
 // =========================================
 
-const tabs = document.querySelectorAll(".tab");
+const tabs =
+    document.querySelectorAll(".tab");
+
 
 const contents =
-    document.querySelectorAll(".tab-content");
+    document.querySelectorAll(
+        ".tab-content"
+    );
 
 
 tabs.forEach(function (tab) {
 
-    tab.addEventListener("click", function () {
-
-        // Remove active from all tabs
-
-        tabs.forEach(function (item) {
-
-            item.classList.remove("active");
-
-        });
+    tab.addEventListener(
+        "click",
+        function () {
 
 
-        // Hide all content
+            tabs.forEach(
+                function (item) {
 
-        contents.forEach(function (content) {
+                    item.classList.remove(
+                        "active"
+                    );
 
-            content.classList.remove("active");
-
-        });
-
-
-        // Activate clicked tab
-
-        tab.classList.add("active");
+                }
+            );
 
 
-        const tabName =
-            tab.getAttribute("data-tab");
+            contents.forEach(
+                function (content) {
+
+                    content.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
 
 
-        document
-            .getElementById(tabName)
-            .classList.add("active");
+            tab.classList.add(
+                "active"
+            );
 
-    });
+
+            const tabName =
+                tab.getAttribute(
+                    "data-tab"
+                );
+
+
+            document
+                .getElementById(
+                    tabName
+                )
+                .classList.add(
+                    "active"
+                );
+
+        }
+    );
 
 });
 
@@ -264,126 +589,275 @@ tabs.forEach(function (tab) {
 // =========================================
 
 const editModal =
-    document.getElementById("editModal");
+    document.getElementById(
+        "editModal"
+    );
 
 
 document
-    .getElementById("editStudentBtn")
-    .addEventListener("click", function () {
+    .getElementById(
+        "editStudentBtn"
+    )
+    .addEventListener(
+        "click",
+        function () {
 
 
-        // Put current data in form
+            if (!student) {
 
-        document.getElementById("editName").value =
-            student.name;
+                return;
 
-        document.getElementById("editId").value =
-            student.id;
-
-        document.getElementById("editEmail").value =
-            student.email;
-
-        document.getElementById("editCourse").value =
-            student.course;
-
-        document.getElementById("editAttendance").value =
-            student.attendance;
-
-        document.getElementById("editAssignment").value =
-            student.assignment;
-
-        document.getElementById("editQuiz").value =
-            student.quiz;
-
-        document.getElementById("editExam").value =
-            student.exam;
+            }
 
 
-        editModal.classList.add("show");
+            document.getElementById(
+                "editName"
+            ).value =
+                student.name;
 
-    });
+
+            document.getElementById(
+                "editId"
+            ).value =
+                student.id;
 
 
-// Cancel
+            document.getElementById(
+                "editEmail"
+            ).value =
+                student.email === "No email"
+                    ? ""
+                    : student.email;
 
-document
-    .getElementById("cancelEdit")
-    .addEventListener("click", function () {
 
-        editModal.classList.remove("show");
+            document.getElementById(
+                "editCourse"
+            ).value =
+                student.course;
 
-    });
+
+            document.getElementById(
+                "editAttendance"
+            ).value =
+                student.attendance;
+
+
+            document.getElementById(
+                "editAssignment"
+            ).value =
+                student.assignment;
+
+
+            document.getElementById(
+                "editQuiz"
+            ).value =
+                student.quiz;
+
+
+            document.getElementById(
+                "editExam"
+            ).value =
+                student.exam;
+
+
+            editModal.classList.add(
+                "show"
+            );
+
+        }
+    );
 
 
 // =========================================
-// SAVE EDIT
+// CANCEL EDIT
 // =========================================
 
 document
-    .getElementById("editStudentForm")
-    .addEventListener("submit", function (event) {
+    .getElementById(
+        "cancelEdit"
+    )
+    .addEventListener(
+        "click",
+        function () {
 
-        event.preventDefault();
-
-
-        student.name =
-            document.getElementById("editName").value;
-
-        student.id =
-            document.getElementById("editId").value;
-
-        student.email =
-            document.getElementById("editEmail").value;
-
-        student.course =
-            document.getElementById("editCourse").value;
-
-        student.attendance =
-            Number(
-                document.getElementById("editAttendance").value
+            editModal.classList.remove(
+                "show"
             );
 
-        student.assignment =
-            Number(
-                document.getElementById("editAssignment").value
-            );
-
-        student.quiz =
-            Number(
-                document.getElementById("editQuiz").value
-            );
-
-        student.exam =
-            Number(
-                document.getElementById("editExam").value
-            );
+        }
+    );
 
 
-        // Update page
+// =========================================
+// SAVE EDIT TO DB.JSON
+// =========================================
 
-        displayStudent();
+document
+    .getElementById(
+        "editStudentForm"
+    )
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
 
 
-        // Close modal
+            if (!student) {
 
-        editModal.classList.remove("show");
+                return;
 
-    });
+            }
+
+
+            const updatedStudent = {
+
+                instructorId:
+                    student.instructorId,
+
+                studentId:
+                    document.getElementById(
+                        "editId"
+                    ).value,
+
+                name:
+                    document.getElementById(
+                        "editName"
+                    ).value,
+
+                email:
+                    document.getElementById(
+                        "editEmail"
+                    ).value,
+
+                course:
+                    document.getElementById(
+                        "editCourse"
+                    ).value,
+
+                attendance:
+                    Number(
+                        document.getElementById(
+                            "editAttendance"
+                        ).value
+                    ),
+
+                grades: {
+
+                    assignments:
+                        Number(
+                            document.getElementById(
+                                "editAssignment"
+                            ).value
+                        ),
+
+                    quizzes:
+                        Number(
+                            document.getElementById(
+                                "editQuiz"
+                            ).value
+                        ),
+
+                    exam:
+                        Number(
+                            document.getElementById(
+                                "editExam"
+                            ).value
+                        )
+
+                },
+
+                feedback:
+                    student.feedback.join(" | "),
+
+                status:
+                    student.status
+
+            };
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${BASE_URL}/${student.dbId}`,
+                        {
+
+                            method: "PATCH",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    updatedStudent
+                                )
+
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Failed to update student"
+                    );
+
+                }
+
+
+                editModal.classList.remove(
+                    "show"
+                );
+
+
+                await getStudent();
+
+
+                alert(
+                    "Student updated successfully."
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Could not update student."
+                );
+
+            }
+
+        }
+    );
 
 
 // =========================================
 // CLOSE MODAL WHEN CLICKING BACKGROUND
 // =========================================
 
-editModal.addEventListener("click", function (event) {
+editModal.addEventListener(
+    "click",
+    function (event) {
 
-    if (event.target === editModal) {
+        if (
+            event.target === editModal
+        ) {
 
-        editModal.classList.remove("show");
+            editModal.classList.remove(
+                "show"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 // =========================================
@@ -391,15 +865,33 @@ editModal.addEventListener("click", function (event) {
 // =========================================
 
 const feedbackInput =
-    document.getElementById("feedbackInput");
+    document.getElementById(
+        "feedbackInput"
+    );
 
 
 document
-    .getElementById("postFeedbackBtn")
-    .addEventListener("click", addFeedback);
+    .getElementById(
+        "postFeedbackBtn"
+    )
+    .addEventListener(
+        "click",
+        addFeedback
+    );
 
 
-function addFeedback() {
+// =========================================
+// ADD FEEDBACK
+// =========================================
+
+async function addFeedback() {
+
+    if (!student) {
+
+        return;
+
+    }
+
 
     const text =
         feedbackInput.value.trim();
@@ -407,7 +899,9 @@ function addFeedback() {
 
     if (text === "") {
 
-        alert("Please write feedback first.");
+        alert(
+            "Please write feedback first."
+        );
 
         return;
 
@@ -417,10 +911,63 @@ function addFeedback() {
     student.feedback.push(text);
 
 
-    feedbackInput.value = "";
+    const feedbackString =
+        student.feedback.join(" | ");
 
 
-    displayFeedback();
+    try {
+
+        const response =
+            await fetch(
+                `${BASE_URL}/${student.dbId}`,
+                {
+
+                    method: "PATCH",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            feedback:
+                                feedbackString
+
+                        })
+
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to save feedback"
+            );
+
+        }
+
+
+        feedbackInput.value = "";
+
+
+        displayFeedback();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Could not save feedback."
+        );
+
+    }
 
 }
 
@@ -431,18 +978,25 @@ function addFeedback() {
 
 function displayFeedback() {
 
+    if (!student) {
+
+        return;
+
+    }
+
+
     const feedbackList =
-        document.getElementById("feedbackList");
+        document.getElementById(
+            "feedbackList"
+        );
 
-
-    // Clear current list
 
     feedbackList.innerHTML = "";
 
 
-    // Empty
-
-    if (student.feedback.length === 0) {
+    if (
+        student.feedback.length === 0
+    ) {
 
         feedbackList.innerHTML = `
 
@@ -452,35 +1006,45 @@ function displayFeedback() {
 
                 <h3>No feedback yet</h3>
 
-                <p>Add your first note above.</p>
+                <p>
+                    Add your first note above.
+                </p>
 
             </div>
 
         `;
+
 
         return;
 
     }
 
 
-    // Display feedback
-
-    student.feedback.forEach(function (feedback) {
-
-        const feedbackItem =
-            document.createElement("div");
+    student.feedback.forEach(
+        function (feedback) {
 
 
-        feedbackItem.classList.add("feedback-item");
+            const feedbackItem =
+                document.createElement(
+                    "div"
+                );
 
 
-        feedbackItem.textContent =
-            feedback;
+            feedbackItem.classList.add(
+                "feedback-item"
+            );
 
 
-        feedbackList.appendChild(feedbackItem);
+            feedbackItem.textContent =
+                feedback;
 
-    });
+
+            feedbackList.appendChild(
+                feedbackItem
+            );
+
+        }
+    );
 
 }
 
@@ -490,77 +1054,133 @@ function displayFeedback() {
 // =========================================
 
 document
-    .getElementById("generateReportBtn")
-    .addEventListener("click", generateReport);
+    .getElementById(
+        "generateReportBtn"
+    )
+    .addEventListener(
+        "click",
+        generateReport
+    );
 
 
 function generateReport() {
 
+    if (!student) {
+
+        return;
+
+    }
+
+
     const report =
-        document.getElementById("studentReport");
+        document.getElementById(
+            "studentReport"
+        );
 
 
     const overall =
         calculateOverall();
 
 
-    // =========================
-    // Student Information
-    // =========================
+    const gpa =
+        calculateGPA();
 
-    document.getElementById("reportName").textContent =
+
+    // =====================================
+    // Student Information
+    // =====================================
+
+    document.getElementById(
+        "reportName"
+    ).textContent =
         student.name;
 
-    document.getElementById("reportId").textContent =
+
+    document.getElementById(
+        "reportId"
+    ).textContent =
         student.id;
 
-    document.getElementById("reportEmail").textContent =
+
+    document.getElementById(
+        "reportEmail"
+    ).textContent =
         student.email;
 
-    document.getElementById("reportCourse").textContent =
+
+    document.getElementById(
+        "reportCourse"
+    ).textContent =
         student.course;
 
 
-    // =========================
+    // =====================================
     // Scores
-    // =========================
+    // =====================================
 
-    document.getElementById("reportGrade").textContent =
+    document.getElementById(
+        "reportGrade"
+    ).textContent =
         overall + "%";
 
-    document.getElementById("reportAttendance").textContent =
+
+    document.getElementById(
+        "reportGPA"
+    ).textContent =
+        gpa + " / 4.00";
+
+
+    document.getElementById(
+        "reportAttendance"
+    ).textContent =
         student.attendance + "%";
 
-    document.getElementById("reportAssignment").textContent =
+
+    document.getElementById(
+        "reportAssignment"
+    ).textContent =
         student.assignment + "%";
 
-    document.getElementById("reportQuiz").textContent =
+
+    document.getElementById(
+        "reportQuiz"
+    ).textContent =
         student.quiz + "%";
 
-    document.getElementById("reportExam").textContent =
+
+    document.getElementById(
+        "reportExam"
+    ).textContent =
         student.exam + "%";
 
 
-    // =========================
+    // =====================================
     // Date
-    // =========================
+    // =====================================
 
-    const today = new Date();
+    const today =
+        new Date();
 
 
-    document.getElementById("reportDate").textContent =
+    document.getElementById(
+        "reportDate"
+    ).textContent =
         today.toLocaleDateString();
 
 
-    // =========================
+    // =====================================
     // Feedback
-    // =========================
+    // =====================================
 
     const reportFeedback =
-        document.getElementById("reportFeedback");
+        document.getElementById(
+            "reportFeedback"
+        );
 
 
-    if (student.feedback.length === 0) {
+    if (
+        student.feedback.length === 0
+    ) {
 
         reportFeedback.textContent =
             "No instructor feedback available.";
@@ -572,45 +1192,57 @@ function generateReport() {
         reportFeedback.innerHTML = "";
 
 
-        student.feedback.forEach(function (feedback) {
-
-            const paragraph =
-                document.createElement("p");
+        student.feedback.forEach(
+            function (feedback) {
 
 
-            paragraph.textContent =
-                "• " + feedback;
+                const paragraph =
+                    document.createElement(
+                        "p"
+                    );
 
 
-            paragraph.style.marginBottom =
-                "7px";
+                paragraph.textContent =
+                    "• " + feedback;
 
 
-            reportFeedback.appendChild(paragraph);
+                paragraph.style.marginBottom =
+                    "7px";
 
-        });
+
+                reportFeedback.appendChild(
+                    paragraph
+                );
+
+            }
+        );
 
     }
 
 
-    // =========================
+    // =====================================
     // Show Report
-    // =========================
+    // =====================================
 
     report.style.display =
         "block";
 
 
-    // =========================
+    // =====================================
     // PDF Options
-    // =========================
+    // =====================================
 
     const options = {
 
         margin: 0.3,
 
         filename:
-            student.name.replaceAll(" ", "-") +
+
+            student.name.replaceAll(
+                " ",
+                "-"
+            ) +
+
             "-Report.pdf",
 
         image: {
@@ -640,9 +1272,9 @@ function generateReport() {
     };
 
 
-    // =========================
-    // Generate
-    // =========================
+    // =====================================
+    // Generate PDF
+    // =====================================
 
     html2pdf()
 
@@ -666,6 +1298,4 @@ function generateReport() {
 // FIRST PAGE LOAD
 // =========================================
 
-displayStudent();
-
-displayFeedback();
+getStudent();
