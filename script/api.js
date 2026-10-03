@@ -35,3 +35,15 @@ export async function createInstructorUser(userData) {
   // Convert the response to JSON and return the created user
   return await response.json();
 }
+
+//update an existing user's data in the JSON Server
+export async function updateUser(userId, userData){
+
+  //send a PATCH request to update the user's information 
+  const response = await fetch(`${BASE_API_URL}/instructors/${userId}`,
+    {method:"PATCH",
+      headers:{"content-Type":"application/json"},
+      body:JSON.stringify(userData)});
+  return await response.json();
+
+  }
