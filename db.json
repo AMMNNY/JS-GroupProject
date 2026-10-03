@@ -158,22 +158,8 @@
         "exam": "85"
       },
       "feedback": "Great progress. Keep practicing JavaScript.",
-      "status": "Active"
-    },
-    {
-      "id": "S002",
-      "instructorId": "I001",
-      "name": "Omar Khaled",
-      "studentId": "ST002",
-      "course": "HTML & CSS",
-      "attendance": 76,
-      "grades": {
-        "assignments": 70,
-        "quizzes": 75,
-        "exam": 68
-      },
-      "feedback": "Needs more practice and better attendance.",
-      "status": "Active"
+      "status": "Active",
+      "deleted": true
     },
     {
       "id": "S003",
@@ -188,7 +174,8 @@
         "exam": 94
       },
       "feedback": "Excellent performance. Keep it up!",
-      "status": "Active"
+      "status": "Active",
+      "deleted": true
     },
     {
       "id": "S004",
@@ -203,7 +190,8 @@
         "exam": "78"
       },
       "feedback": "Good work. Focus more on React components.",
-      "status": "Active"
+      "status": "Active",
+      "deleted": true
     },
     {
       "id": "S005",

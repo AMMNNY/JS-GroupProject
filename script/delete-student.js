@@ -1,66 +1,71 @@
-let deleteModal = document.getElementById("deleteStudentModal");
-
-let closeDeleteModal = document.getElementById("closeDeleteModal");
-
-let cancelDelete = document.getElementById("cancelDelete");
-
-let confirmDelete = document.getElementById("confirmDelete");
+export function deleteeStudent()
+{
 
 
-let currentStudentId = null;
+    let deleteModal = document.getElementById("deleteStudentModal");
+
+    let closeDeleteModal = document.getElementById("closeDeleteModal");
+
+    let cancelDelete = document.getElementById("cancelDelete");
+
+    let confirmDelete = document.getElementById("confirmDelete");
 
 
-// Open Delete Modal
-
-document.addEventListener("click", function (e) {
-
-    let deleteButton = e.target.closest(".delete-btn");
-
-    if (!deleteButton) {
-        return;
-    }
-
-    currentStudentId = deleteButton.dataset.id;
-
-    deleteModal.classList.add("active");
-
-});
+    let currentStudentId = null;
 
 
-// Close
+    // Open Delete Modal
 
-closeDeleteModal.addEventListener("click", function () {
+    document.addEventListener("click", function (e) {
 
-    deleteModal.classList.remove("active");
+        let deleteButton = e.target.closest(".delete-btn");
 
-});
-
-
-// Cancel
-
-cancelDelete.addEventListener("click", function () {
-
-    deleteModal.classList.remove("active");
-
-});
-
-
-// Delete
-
-confirmDelete.addEventListener("click", async function () {
-
-    await fetch(
-        `http://localhost:3000/students/${currentStudentId}`,
-        {
-            method: "DELETE"
+        if (!deleteButton) {
+            return;
         }
-    );
+
+        currentStudentId = deleteButton.dataset.id;
+
+        deleteModal.classList.add("active");
+
+    });
 
 
-    console.log("Student deleted");
+    // Close
 
-    deleteModal.classList.remove("active");
+    closeDeleteModal.addEventListener("click", function () {
 
-    window.location.reload();
+        deleteModal.classList.remove("active");
 
-});
+    });
+
+
+    // Cancel
+
+    cancelDelete.addEventListener("click", function () {
+
+        deleteModal.classList.remove("active");
+
+    });
+
+
+    // Delete
+
+    confirmDelete.addEventListener("click", async function () {
+
+        await fetch(
+            `http://localhost:3000/students/${currentStudentId}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+
+        console.log("Student deleted");
+
+        deleteModal.classList.remove("active");
+
+        window.location.reload();
+
+    });
+}
