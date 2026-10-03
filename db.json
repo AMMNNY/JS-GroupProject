@@ -1,21 +1,6 @@
 {
   "instructors": [
     {
-      "id": "I003",
-      "name": "Abdullah Alqudah",
-      "fullName": "Abdullah Alqudah",
-      "email": "abdullah@email.com",
-      "password": "123456",
-      "specialization": "Web Development",
-      "role": "Instructor",
-      "phone": "+962 7 9000 0000",
-      "location": "Amman, Jordan",
-      "bio": "Web Development Instructor focused on practical learning, modern web technologies, and building real-world projects.",
-      "image": "../Assest/instructors/mine.png",
-      "status": "Active",
-      "experience": 3
-    },
-    {
       "id": "I001",
       "name": "Farah Elaydi",
       "fullName": "Farah Elaydi",
@@ -23,9 +8,9 @@
       "password": "123456",
       "specialization": "Web Development",
       "role": "Instructor",
-      "phone": "+962 7 9000 0001",
+      "phone": "+962 7 9000 1001",
       "location": "Amman, Jordan",
-      "bio": "Web Development Instructor passionate about helping students develop practical programming skills.",
+      "bio": "Web Development Instructor focused on practical programming, modern web technologies, and helping students build real-world applications.",
       "image": "../Assest/instructors/farah.jpg",
       "status": "Active",
       "experience": 5
@@ -38,158 +23,121 @@
       "password": "123456",
       "specialization": "Frontend Development",
       "role": "Instructor",
-      "phone": "+962 7 9000 0002",
+      "phone": "+962 7 9000 1002",
       "location": "Amman, Jordan",
-      "bio": "Frontend Development Instructor focused on modern web technologies and interactive user interfaces.",
+      "bio": "Frontend Development Instructor specializing in interactive interfaces, responsive design, and modern JavaScript frameworks.",
       "image": "../Assest/instructors/ahmad.jpg",
       "status": "Active",
       "experience": 4
     },
     {
-      "fullName": "roaa",
-      "name": "roaa",
-      "email": "roaa@gmail.com",
-      "specialization": "web development",
-      "password": "12345",
+      "id": "I003",
+      "name": "Abdullah Alqudah",
+      "fullName": "Abdullah Alqudah",
+      "email": "abdullah@email.com",
+      "password": "123456",
+      "specialization": "JavaScript Development",
       "role": "Instructor",
-      "id": "NZJc2KA3UO0",
-      "phone": "",
+      "phone": "+962 7 9000 1003",
       "location": "Amman, Jordan",
-      "bio": "Web Development Instructor.",
-      "image": "../Assest/instructors/default-profile.png",
-      "status": "Active",
-      "experience": 2
-    },
-    {
-      "fullName": "khaleel",
-      "name": "khaleel",
-      "email": "khaleel@gmail.com",
-      "specialization": "web-development",
-      "password": "12345",
-      "role": "Instructor",
-      "id": "g5XoXauboc8",
-      "phone": "",
-      "location": "Amman, Jordan",
-      "bio": "Web Development Instructor.",
-      "image": "../Assest/instructors/default-profile.png",
+      "bio": "JavaScript instructor focused on clean code, problem solving, DOM manipulation, APIs, and practical web development.",
+      "image": "../Assest/instructors/mine.png",
       "status": "Active",
       "experience": 3
     },
     {
-      "fullName": "ggrr",
-      "name": "ggrr",
-      "email": "ggrr@gmail.com",
-      "specialization": "fres",
-      "password": "12345",
-      "role": "Instructor",
-      "id": "gJWH-8YekYg",
-      "phone": "",
-      "location": "Amman, Jordan",
-      "bio": "Instructor profile.",
-      "image": "../Assest/instructors/default-profile.png",
-      "status": "Active",
-      "experience": 1
-    },
-    {
-      "fullName": "tina",
-      "name": "tina",
-      "email": "tina@gmail.com",
-      "specialization": "tina",
-      "password": "123",
-      "role": "Instructor",
-      "id": "P9ODUHEKj7g",
-      "phone": "",
-      "location": "Amman, Jordan",
-      "bio": "Instructor profile.",
-      "image": "../Assest/instructors/default-profile.png",
-      "status": "Active",
-      "experience": 1
-    },
-    {
-      "fullName": "Amro",
-      "name": "Amro",
-      "email": "amro@gmail.com",
-      "specialization": "Any",
-      "password": "1234",
-      "role": "Instructor",
-      "id": "6A1ZTeDc-yk",
-      "phone": "",
-      "location": "Amman, Jordan",
-      "bio": "Instructor profile.",
-      "image": "../Assest/instructors/default-profile.png",
-      "status": "Active",
-      "experience": 1
-    },
-    {
-      "fullName": "Amro Abdelgader",
-      "name": "Amro Abdelgader",
-      "email": "amro@any.com",
-      "specialization": "Any",
-      "password": "12345",
-      "role": "Instructor",
-      "id": "Pos_Wufu9zw",
-      "phone": "",
-      "location": "Amman, Jordan",
-      "bio": "Instructor profile.",
-      "image": "../Assest/instructors/default-profile.png",
-      "status": "Active",
-      "experience": 1
-    },
-    {
-      "fullName": "any",
-      "email": "any@example.com",
-      "specialization": "any",
+      "id": "I004",
+      "name": "Rania Haddad",
+      "fullName": "Rania Haddad",
+      "email": "rania@example.com",
       "password": "123456",
+      "specialization": "UI/UX & Web Design",
       "role": "Instructor",
-      "id": "G609wbVGNXg"
+      "phone": "+962 7 9000 1004",
+      "location": "Amman, Jordan",
+      "bio": "UI/UX and Web Design Instructor helping students create accessible, responsive, and user-friendly digital experiences.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 6
+    },
+    {
+      "id": "I005",
+      "name": "Omar Khalil",
+      "fullName": "Omar Khalil",
+      "email": "omar@example.com",
+      "password": "123456",
+      "specialization": "Backend Development",
+      "role": "Instructor",
+      "phone": "+962 7 9000 1005",
+      "location": "Irbid, Jordan",
+      "bio": "Backend Development Instructor focused on APIs, databases, server-side programming, and software architecture.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 7
     }
   ],
   "students": [
     {
       "id": "S001",
       "instructorId": "I001",
-      "name": "Sara Aliii",
+      "name": "Sara Ahmad",
       "studentId": "ST001",
-      "course": "Test",
-      "attendance": "92",
+      "course": "JavaScript",
+      "attendance": 96,
       "grades": {
-        "assignments": "88",
-        "quizzes": "90",
-        "exam": "85"
+        "assignments": 94,
+        "quizzes": 91,
+        "exam": 95
       },
-      "feedback": "Great progress. Keep practicing JavaScript.",
+      "feedback": "Excellent performance and consistent participation. Keep up the great work.",
       "status": "Active",
-      "deleted": true
+      "deleted": false
+    },
+    {
+      "id": "S002",
+      "instructorId": "I001",
+      "name": "Lina Samir",
+      "studentId": "ST002",
+      "course": "HTML & CSS",
+      "attendance": 93,
+      "grades": {
+        "assignments": 90,
+        "quizzes": 88,
+        "exam": 92
+      },
+      "feedback": "Very good progress. Continue improving responsive design skills.",
+      "status": "Active",
+      "deleted": false
     },
     {
       "id": "S003",
       "instructorId": "I001",
-      "name": "Lina Samir",
+      "name": "Yousef Ali",
       "studentId": "ST003",
       "course": "JavaScript",
-      "attendance": 97,
+      "attendance": 87,
       "grades": {
-        "assignments": 95,
-        "quizzes": 92,
-        "exam": 94
+        "assignments": 84,
+        "quizzes": 81,
+        "exam": 86
       },
-      "feedback": "Excellent performance. Keep it up!",
+      "feedback": "Good progress. Focus more on asynchronous JavaScript and APIs.",
       "status": "Active",
-      "deleted": true
+      "deleted": false
     },
     {
       "id": "S004",
       "instructorId": "I001",
-      "name": "Yousef Ali",
+      "name": "Maya Hassan",
       "studentId": "ST004",
-      "course": "CSS",
-      "attendance": "84",
+      "course": "HTML & CSS",
+      "attendance": 78,
       "grades": {
-        "assignments": "80",
-        "quizzes": "82",
-        "exam": "78"
+        "assignments": 82,
+        "quizzes": 76,
+        "exam": 80
       },
-      "feedback": "Good work. Focus more on React components.",
+      "feedback": "Good effort. More practice with CSS layouts will improve your results.",
       "status": "Active",
       "deleted": true
     },
@@ -199,146 +147,287 @@
       "name": "Mohammad Saleh",
       "studentId": "ST005",
       "course": "React",
-      "attendance": 89,
+      "attendance": 91,
       "grades": {
-        "assignments": 82,
-        "quizzes": 86,
-        "exam": 90
+        "assignments": 88,
+        "quizzes": 90,
+        "exam": 93
       },
-      "feedback": "Good performance.",
-      "status": "Active"
-    },
-    {
-      "instructorId": "I003",
-      "studentId": "12ww",
-      "name": "www",
-      "course": "wsw",
-      "attendance": 50,
-      "grades": {
-        "assignments": 20,
-        "quizzes": 10,
-        "exam": 2
-      },
-      "feedback": "wer",
-      "status": "Inactive",
-      "id": "lbvyLf7EHT0"
-    },
-    {
-      "instructorId": "Pos_Wufu9zw",
-      "studentId": "ST001",
-      "name": "any",
-      "course": "any",
-      "attendance": null,
-      "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
-      },
-      "feedback": "gfthf",
+      "feedback": "Strong React skills and excellent understanding of components and state.",
       "status": "Active",
-      "id": "6pQwH1p4DSU"
+      "deleted": false
     },
     {
       "id": "S006",
-      "instructorId": "I003",
-      "name": "Laith Ahmad",
+      "instructorId": "I002",
+      "name": "Noor Khaled",
       "studentId": "ST006",
-      "course": "JavaScript",
-      "attendance": 94,
+      "course": "React",
+      "attendance": 95,
       "grades": {
-        "assignments": 88,
-        "quizzes": 91,
-        "exam": 86
+        "assignments": 96,
+        "quizzes": 94,
+        "exam": 91
       },
-      "feedback": "Excellent progress and active participation.",
-      "status": "Active"
+      "feedback": "Outstanding performance. Demonstrates excellent understanding of React.",
+      "status": "Active",
+      "deleted": false
     },
     {
       "id": "S007",
+      "instructorId": "I002",
+      "name": "Khaled Nasser",
+      "studentId": "ST007",
+      "course": "Frontend Development",
+      "attendance": 84,
+      "grades": {
+        "assignments": 79,
+        "quizzes": 83,
+        "exam": 81
+      },
+      "feedback": "Good overall performance. Continue practicing component-based development.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S008",
+      "instructorId": "I002",
+      "name": "Dana Ibrahim",
+      "studentId": "ST008",
+      "course": "React",
+      "attendance": 72,
+      "grades": {
+        "assignments": 68,
+        "quizzes": 74,
+        "exam": 70
+      },
+      "feedback": "Needs more practice with React state management and component structure.",
+      "status": "Inactive",
+      "deleted": false
+    },
+    {
+      "id": "S009",
+      "instructorId": "I003",
+      "name": "Laith Ahmad",
+      "studentId": "ST009",
+      "course": "JavaScript",
+      "attendance": 94,
+      "grades": {
+        "assignments": 91,
+        "quizzes": 93,
+        "exam": 89
+      },
+      "feedback": "Excellent progress and active participation throughout the course.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S010",
       "instructorId": "I003",
       "name": "Rama Khaled",
-      "studentId": "ST007",
-      "course": "HTML & CSS",
+      "studentId": "ST010",
+      "course": "JavaScript",
       "attendance": 89,
       "grades": {
         "assignments": 92,
         "quizzes": 87,
         "exam": 90
       },
-      "feedback": "Great performance. Keep practicing responsive design.",
-      "status": "Active"
+      "feedback": "Great performance. Keep practicing DOM manipulation and APIs.",
+      "status": "Active",
+      "deleted": false
     },
     {
-      "id": "S008",
+      "id": "S011",
       "instructorId": "I003",
       "name": "Yazan Mohammad",
-      "studentId": "ST008",
-      "course": "React",
+      "studentId": "ST011",
+      "course": "JavaScript",
       "attendance": 82,
       "grades": {
         "assignments": 79,
         "quizzes": 84,
         "exam": 81
       },
-      "feedback": "Good progress. Focus more on React components and state.",
-      "status": "Active"
+      "feedback": "Good progress. Focus more on functions, arrays, and asynchronous programming.",
+      "status": "Active",
+      "deleted": false
     },
     {
-      "id": "S009",
+      "id": "S012",
       "instructorId": "I003",
       "name": "Dana Ali",
-      "studentId": "ST009",
+      "studentId": "ST012",
       "course": "JavaScript",
-      "attendance": 71,
+      "attendance": 76,
       "grades": {
-        "assignments": 68,
-        "quizzes": 73,
-        "exam": 70
+        "assignments": 72,
+        "quizzes": 75,
+        "exam": 69
       },
-      "feedback": "Needs more practice with JavaScript fundamentals.",
-      "status": "Inactive"
+      "feedback": "Shows steady progress. More practice with JavaScript fundamentals is recommended.",
+      "status": "Active",
+      "deleted": false
     },
     {
-      "instructorId": "G609wbVGNXg",
-      "studentId": "ST001",
-      "name": "any",
-      "course": "any",
-      "attendance": 30,
+      "id": "S013",
+      "instructorId": "I003",
+      "name": "Omar Ahmad",
+      "studentId": "ST013",
+      "course": "JavaScript",
+      "attendance": 98,
       "grades": {
-        "assignments": 60,
-        "quizzes": 70,
-        "exam": 80
+        "assignments": 97,
+        "quizzes": 95,
+        "exam": 96
       },
-      "feedback": "gdgdgf",
+      "feedback": "Outstanding work. Excellent technical understanding and participation.",
       "status": "Active",
-      "id": "QKmbAQRMx6E",
-      "email": "amroabd2003@gmail.com"
+      "deleted": false
+    },
+    {
+      "id": "S014",
+      "instructorId": "I004",
+      "name": "Hala Mahmoud",
+      "studentId": "ST014",
+      "course": "UI/UX Design",
+      "attendance": 92,
+      "grades": {
+        "assignments": 94,
+        "quizzes": 89,
+        "exam": 91
+      },
+      "feedback": "Excellent design work with strong attention to usability and accessibility.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S015",
+      "instructorId": "I004",
+      "name": "Adam Saeed",
+      "studentId": "ST015",
+      "course": "UI/UX Design",
+      "attendance": 86,
+      "grades": {
+        "assignments": 85,
+        "quizzes": 82,
+        "exam": 88
+      },
+      "feedback": "Good progress. Continue working on user research and design consistency.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S016",
+      "instructorId": "I004",
+      "name": "Mariam Saleh",
+      "studentId": "ST016",
+      "course": "UI/UX Design",
+      "attendance": 69,
+      "grades": {
+        "assignments": 64,
+        "quizzes": 71,
+        "exam": 67
+      },
+      "feedback": "Needs additional practice with wireframing and user experience principles.",
+      "status": "Inactive",
+      "deleted": false
+    },
+    {
+      "id": "S017",
+      "instructorId": "I005",
+      "name": "Fadi Omar",
+      "studentId": "ST017",
+      "course": "Backend Development",
+      "attendance": 93,
+      "grades": {
+        "assignments": 91,
+        "quizzes": 89,
+        "exam": 94
+      },
+      "feedback": "Excellent understanding of APIs and backend development concepts.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S018",
+      "instructorId": "I005",
+      "name": "Reem Khalil",
+      "studentId": "ST018",
+      "course": "Backend Development",
+      "attendance": 88,
+      "grades": {
+        "assignments": 86,
+        "quizzes": 84,
+        "exam": 87
+      },
+      "feedback": "Good performance. Continue practicing database queries and API design.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S019",
+      "instructorId": "I005",
+      "name": "Zaid Hassan",
+      "studentId": "ST019",
+      "course": "Backend Development",
+      "attendance": 79,
+      "grades": {
+        "assignments": 75,
+        "quizzes": 78,
+        "exam": 73
+      },
+      "feedback": "Making steady progress. More practice with databases will be beneficial.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S020",
+      "instructorId": "I005",
+      "name": "Salma Ahmad",
+      "studentId": "ST020",
+      "course": "Backend Development",
+      "attendance": 65,
+      "grades": {
+        "assignments": 61,
+        "quizzes": 68,
+        "exam": 64
+      },
+      "feedback": "Needs additional support with backend fundamentals and database concepts.",
+      "status": "Inactive",
+      "deleted": false
     }
   ],
   "courses": [
     {
       "id": "C001",
       "name": "JavaScript",
-      "description": "Learn JavaScript fundamentals, DOM manipulation, events, APIs and asynchronous programming.",
+      "description": "Learn JavaScript fundamentals, variables, functions, arrays, DOM manipulation, events, APIs, and asynchronous programming.",
       "instructor": "I003"
     },
     {
       "id": "C002",
       "name": "HTML & CSS",
-      "description": "Learn how to build modern, responsive and accessible web pages using HTML and CSS.",
-      "instructor": "I003"
+      "description": "Learn how to build modern, responsive, accessible, and well-structured websites using HTML and CSS.",
+      "instructor": "I001"
     },
     {
       "id": "C003",
       "name": "React",
-      "description": "Learn React fundamentals, components, props, state and building modern user interfaces.",
-      "instructor": "I003"
+      "description": "Learn React fundamentals, components, props, state, hooks, and how to build modern interactive user interfaces.",
+      "instructor": "I002"
     },
     {
-      "name": "any",
-      "description": "any",
-      "instructor": "G609wbVGNXg",
-      "id": "Ib_gc9v1ShQ"
+      "id": "C004",
+      "name": "UI/UX Design",
+      "description": "Learn user interface and user experience principles, wireframing, prototyping, accessibility, and design systems.",
+      "instructor": "I004"
+    },
+    {
+      "id": "C005",
+      "name": "Backend Development",
+      "description": "Learn server-side programming, REST APIs, databases, authentication, and fundamental backend architecture.",
+      "instructor": "I005"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

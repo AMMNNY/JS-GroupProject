@@ -19,7 +19,7 @@ if (!currentUser) {
     navLinks.innerHTML = `
         <a href="#about">About Oxford</a>
         <a href="#features">Features</a>
-        <a href="login.html" class="nav-login">Log In</a>
+        <a href="pages/login.html" class="nav-login">Log In</a>
     `;
 
 } else {
@@ -27,13 +27,13 @@ if (!currentUser) {
     // Logged in
     navLinks.innerHTML = `
         <a href="#about">About Oxford</a>
-        <a href="index.html">Dashboard</a>
-        <a href="profile.html">Profile</a>
+        <a href="pages/index.html">Dashboard</a>
+        <a href="pages/InstructorProfile.html">Profile</a>
         <a href="#" id="signOutBtn">Sign Out</a>
     `;
 
     heroPrimaryBtn.firstChild.textContent = "Go to Dashboard ";
-    heroPrimaryBtn.setAttribute("href", "index.html");
+    heroPrimaryBtn.setAttribute("href", "pages/index.html");
 
     document.getElementById("signOutBtn").addEventListener("click", function (event) {
         event.preventDefault();

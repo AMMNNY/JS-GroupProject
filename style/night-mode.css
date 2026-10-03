@@ -84,8 +84,16 @@ body.dark-mode .search-box i {
 }
 
 body.dark-mode .students-table th {
-    background-color: var(--bg-color);
+    background-color: var(--soft-bg);
     color: var(--text-main);
+}
+
+body.dark-mode .student-info a {
+    color: var(--text-main);
+}
+
+body.dark-mode .student-info a:hover {
+    color: var(--secondary-color);
 }
 
 body.dark-mode .grade {
@@ -115,6 +123,21 @@ body.dark-mode .close-modal:hover {
 body.dark-mode .cancel-btn:hover {
     color: var(--text-main);
 }
+
+body.dark-mode .students-table td:last-child button:hover {
+    background-color: var(--soft-bg);
+    color: var(--text-main);
+}
+
+body.dark-mode .students-table td:last-child .delete-btn:hover {
+    background-color: var(--danger-soft);
+    color: #FCA5A5;
+}
+
+body.dark-mode .students-table td:last-child .archive-btn:hover {
+    color: var(--secondary-color);
+}
+
 html:has(body.dark-mode),
 body.dark-mode .dashboard {
     background-color: var(--bg-color);

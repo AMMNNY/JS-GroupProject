@@ -775,6 +775,11 @@ body {
     transform: translateY(0);
 }
 
+.student-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
 /* =========================
    TABLET
 ========================= */
