@@ -1,6 +1,5 @@
 import { fetchStudentsData } from '../module/studentAPI.js';
 import { fetchCoursesData } from '../module/courseAPI.js';
-import { getInstructorById } from '../module/instructorAPI.js';
 
 import { getActiveUser } from '../script/auth.js';
 
@@ -46,19 +45,11 @@ export function initDashboard() {
     });
 
     let instructorNameElement = document.getElementById('instructorName');
-    let instructorData = getInstructorById(currentInstructor.id);
-    instructorData.then(data => {
-        if (data) {
-            instructorNameElement.textContent = data.name;
-        }
-    });
+
+    instructorNameElement.textContent = currentInstructor.name;    
 
     let avatarElement = document.querySelector('.avatar');
-    instructorData.then(data => {
-        if (data) {
-            avatarElement.textContent = data.name.split(' ').map(n => n.charAt(0).toUpperCase()).join('');
-        }
-    });
+    avatarElement.textContent = currentInstructor.name.split(' ').map(n => n.charAt(0).toUpperCase()).join('');
 
 
     function initDashboard() {
@@ -93,7 +84,7 @@ export function initDashboard() {
                     const grades = Object.values(student.grades || {});
 
                     const average = grades.length
-                        ? grades.reduce((sum, grade) => sum + grade, 0) / grades.length
+                        ? grades.reduce((sum, grade) => sum + parseFloat(grade), 0) / grades.length
                         : 0;
 
                     return {
@@ -111,13 +102,6 @@ export function initDashboard() {
                     datasets: [{
                         data: top5Students.map(student => student.average),
                         backgroundColor: '#ffb066',
-                        borderRadius: {
-                            topLeft: 6,
-                            topRight: 6,
-                            bottomLeft: 0,
-                            bottomRight: 0
-                        },
-                        borderSkipped: false,
                         barThickness: 22
                     }]
                 },
@@ -174,7 +158,7 @@ export function initDashboard() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '78%',
+                    cutout: '60%',
                     plugins: {
                         legend: { display: false },
                         tooltip: {
@@ -241,14 +225,8 @@ export function initDashboard() {
                         backgroundColor: (context) => {
                             return context.dataIndex === courseAttendance.length - 1 ? '#3b82f6' : '#93c5fd';
                         },
-                        borderRadius: {
-                            topLeft: 6,
-                            topRight: 6,
-                            bottomLeft: 0,
-                            bottomRight: 0
-                        },
                         borderSkipped: false,
-                        barThickness: 28
+                        barThickness: 30
                     }]
                 },
                 options: {
