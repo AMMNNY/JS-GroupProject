@@ -1,28 +1,30 @@
 :root {
-    --color-ink: #1e293b;
-    --color-heading: #0f172a;
-    --color-muted: #64748b;
+    --color-ink: #0F172A;
+    --color-heading: #0F172A;
+    --color-muted: #64748B;
     --color-subtle: #94a3b8;
-    --color-page: #f8fafc;
-    --color-surface: #fff;
-    --color-border: #f1f5f9;
-    --color-border-control: #e2e8f0;
-    --color-orange: #f97316;
-    --color-orange-dark: #ea580c;
-    --color-orange-soft: #fff7ed;
-    --color-orange-tint: #ffedd5;
+    --color-page: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-border: #E2E8F0;
+    --color-border-control: #E2E8F0;
+    --color-primary: #6B1D3A;
+    --color-primary-hover: #8A2A4D;
+    --color-primary-soft: #F6E8EE;
+    --color-accent: #A8802F;
+    --color-accent-light: #E5C98A;
+    --color-dark: #3D0F21;
     --color-green: #059669;
     --color-green-soft: #ecfdf5;
-    --color-blue: #3b82f6;
-    --color-blue-soft: #eff6ff;
-    --color-strong: #334155;
-    --color-amber: #92400e;
-    --color-amber-soft: #fef3c7;
-    --color-border-hover: #cbd5e1;
-    --color-focus-ring: #fb923c66;
+    --color-blue: var(--color-accent);
+    --color-blue-soft: var(--color-primary-soft);
+    --color-strong: #0F172A;
+    --color-amber: var(--color-accent);
+    --color-amber-soft: var(--color-accent-light);
+    --color-border-hover: #E2E8F0;
+    --color-focus-ring: #6B1D3A40;
     --color-green-icon: #10b981;
-    --color-slate-soft: #f1f5f9;
-    --color-white: #fff;
+    --color-slate-soft: #F6E8EE;
+    --color-white: #FFFFFF;
     --shadow-panel: 0 1px 2px #0f172a0a;
     --shadow-toggle: 0 1px 2px #0f172a12;
     --space-1: 4px;
@@ -42,25 +44,28 @@
 }
 
 body.dark-mode {
-    --color-ink: #e2e8f0;
-    --color-heading: #f8fafc;
-    --color-muted: #cbd5e1;
-    --color-subtle: #94a3b8;
-    --color-page: #0f172a;
-    --color-surface: #1e293b;
-    --color-border: #334155;
-    --color-border-control: #475569;
-    --color-orange-dark: #fdba74;
-    --color-orange-soft: #431f0d;
-    --color-orange-tint: #7c2d12;
+    --color-ink: #F3E8EC;
+    --color-heading: #F8FAFC;
+    --color-muted: #B8A3AC;
+    --color-subtle: #8F7983;
+    --color-page: #14080E;
+    --color-surface: #1E0E16;
+    --color-border: #3A2230;
+    --color-border-control: #3A2230;
+    --color-primary: #B8456F;
+    --color-primary-hover: #D05A85;
+    --color-primary-soft: #3A1A2A;
+    --color-accent-light: #E5C98A;
+    --color-dark: #0D0409;
     --color-green: #34d399;
     --color-green-soft: #064e3b;
-    --color-blue-soft: #172554;
-    --color-strong: #e2e8f0;
-    --color-amber: #fcd34d;
-    --color-amber-soft: #422006;
-    --color-border-hover: #64748b;
-    --color-slate-soft: #334155;
+    --color-blue-soft: #3A1A2A;
+    --color-strong: #F3E8EC;
+    --color-amber: #E5C98A;
+    --color-amber-soft: #3D0F21;
+    --color-border-hover: #3A2230;
+    --color-focus-ring: #D05A8566;
+    --color-slate-soft: #3A2230;
     --shadow-panel: 0 1px 2px #00000033;
     --shadow-toggle: 0 1px 2px #00000040;
 }
@@ -158,10 +163,12 @@ select {
     color: var(--color-muted);
     cursor: pointer;
     font-size: 18px;
+
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .night-mode:hover {
-    background: var(--color-page);
+    background: var(--color-primary-soft);
     color: var(--color-strong);
 }
 
@@ -181,7 +188,7 @@ select {
     height: 8px;
     border: 2px solid var(--color-white);
     border-radius: 50%;
-    background: var(--color-orange);
+    background: var(--color-primary);
 }
 
 .night-mode i {
@@ -193,16 +200,24 @@ body.dark-mode .night-mode:hover {
 }
 
 .avatar {
-    display: grid;
     width: 40px;
     height: 40px;
+
+    display: grid;
     place-items: center;
+
+    border: none;
     border-radius: 50%;
-    background: var(--color-amber-soft);
-    color: var(--color-amber);
+
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+
     cursor: pointer;
+
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
+
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .analytics-dashboard {
@@ -306,8 +321,8 @@ body.dark-mode .night-mode:hover {
 }
 
 .icon-orange {
-    background: var(--color-orange-soft);
-    color: var(--color-orange);
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
 }
 
 .icon-green {
@@ -408,8 +423,8 @@ body.dark-mode .night-mode:hover {
 }
 
 .cohort-toggle button.is-active {
-    background: var(--color-orange-tint);
-    color: var(--color-orange-dark);
+    background: var(--color-accent-light);
+    color: var(--color-dark);
     font-weight: 600;
     box-shadow: var(--shadow-toggle);
 }
@@ -491,7 +506,7 @@ body.dark-mode .night-mode:hover {
 }
 
 .swatch-orange {
-    background: var(--color-orange);
+    background: var(--color-primary);
 }
 
 .swatch-blue {

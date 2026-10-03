@@ -1,64 +1,147 @@
 {
   "instructors": [
     {
+      "id": "I003",
+      "name": "Abdullah Alqudah",
+      "fullName": "Abdullah Alqudah",
+      "email": "abdullah@email.com",
+      "password": "123456",
+      "specialization": "Web Development",
+      "role": "Instructor",
+      "phone": "+962 7 9000 0000",
+      "location": "Amman, Jordan",
+      "bio": "Web Development Instructor focused on practical learning, modern web technologies, and building real-world projects.",
+      "image": "../Assest/instructors/mine.png",
+      "status": "Active",
+      "experience": 3
+    },
+    {
       "id": "I001",
       "name": "Farah Elaydi",
+      "fullName": "Farah Elaydi",
       "email": "farah@example.com",
-      "password": "123456"
+      "password": "123456",
+      "specialization": "Web Development",
+      "role": "Instructor",
+      "phone": "+962 7 9000 0001",
+      "location": "Amman, Jordan",
+      "bio": "Web Development Instructor passionate about helping students develop practical programming skills.",
+      "image": "../Assest/instructors/farah.jpg",
+      "status": "Active",
+      "experience": 5
     },
     {
       "id": "I002",
       "name": "Ahmad Ali",
+      "fullName": "Ahmad Ali",
       "email": "ahmad@example.com",
-      "password": "123456"
+      "password": "123456",
+      "specialization": "Frontend Development",
+      "role": "Instructor",
+      "phone": "+962 7 9000 0002",
+      "location": "Amman, Jordan",
+      "bio": "Frontend Development Instructor focused on modern web technologies and interactive user interfaces.",
+      "image": "../Assest/instructors/ahmad.jpg",
+      "status": "Active",
+      "experience": 4
     },
     {
       "fullName": "roaa",
+      "name": "roaa",
       "email": "roaa@gmail.com",
       "specialization": "web development",
       "password": "12345",
       "role": "Instructor",
-      "id": "NZJc2KA3UO0"
+      "id": "NZJc2KA3UO0",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Web Development Instructor.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 2
     },
     {
       "fullName": "khaleel",
+      "name": "khaleel",
       "email": "khaleel@gmail.com",
       "specialization": "web-development",
       "password": "12345",
       "role": "Instructor",
-      "id": "g5XoXauboc8"
+      "id": "g5XoXauboc8",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Web Development Instructor.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 3
     },
     {
       "fullName": "ggrr",
+      "name": "ggrr",
       "email": "ggrr@gmail.com",
       "specialization": "fres",
       "password": "12345",
       "role": "Instructor",
-      "id": "gJWH-8YekYg"
+      "id": "gJWH-8YekYg",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Instructor profile.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 1
     },
     {
       "fullName": "tina",
+      "name": "tina",
       "email": "tina@gmail.com",
       "specialization": "tina",
       "password": "123",
       "role": "Instructor",
-      "id": "P9ODUHEKj7g"
+      "id": "P9ODUHEKj7g",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Instructor profile.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 1
     },
     {
       "fullName": "Amro",
+      "name": "Amro",
       "email": "amro@gmail.com",
       "specialization": "Any",
       "password": "1234",
       "role": "Instructor",
-      "id": "6A1ZTeDc-yk"
+      "id": "6A1ZTeDc-yk",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Instructor profile.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 1
     },
     {
       "fullName": "Amro Abdelgader",
+      "name": "Amro Abdelgader",
       "email": "amro@any.com",
       "specialization": "Any",
       "password": "12345",
       "role": "Instructor",
-      "id": "Pos_Wufu9zw"
+      "id": "Pos_Wufu9zw",
+      "phone": "",
+      "location": "Amman, Jordan",
+      "bio": "Instructor profile.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 1
+    },
+    {
+      "fullName": "any",
+      "email": "any@example.com",
+      "specialization": "any",
+      "password": "123456",
+      "role": "Instructor",
+      "id": "G609wbVGNXg"
     }
   ],
   "students": [
@@ -126,7 +209,7 @@
       "status": "Active"
     },
     {
-      "instructorId": "gJWH-8YekYg",
+      "instructorId": "I003",
       "studentId": "12ww",
       "name": "www",
       "course": "wsw",
@@ -156,58 +239,105 @@
       "id": "6pQwH1p4DSU"
     },
     {
-      "instructorId": "gJWH-8YekYg",
-      "studentId": "qusai123",
-      "name": "xxx",
-      "course": "java",
-      "attendance": null,
+      "id": "S006",
+      "instructorId": "I003",
+      "name": "Laith Ahmad",
+      "studentId": "ST006",
+      "course": "JavaScript",
+      "attendance": 94,
       "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
+        "assignments": 88,
+        "quizzes": 91,
+        "exam": 86
       },
-      "feedback": null,
-      "status": "Active",
-      "id": "u39-Uxxopak",
-      "deleted": true
+      "feedback": "Excellent progress and active participation.",
+      "status": "Active"
     },
     {
-      "instructorId": "gJWH-8YekYg",
-      "studentId": "S0055",
-      "name": "Sara Aliii",
-      "course": "xxx",
-      "attendance": null,
+      "id": "S007",
+      "instructorId": "I003",
+      "name": "Rama Khaled",
+      "studentId": "ST007",
+      "course": "HTML & CSS",
+      "attendance": 89,
       "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
+        "assignments": 92,
+        "quizzes": 87,
+        "exam": 90
       },
-      "feedback": "يبس",
-      "status": "Active",
-      "id": "q3V4QplIg4o"
+      "feedback": "Great performance. Keep practicing responsive design.",
+      "status": "Active"
     },
     {
-      "instructorId": "I001",
-      "studentId": "soso",
-      "name": "sss",
-      "course": "fgd",
-      "attendance": null,
+      "id": "S008",
+      "instructorId": "I003",
+      "name": "Yazan Mohammad",
+      "studentId": "ST008",
+      "course": "React",
+      "attendance": 82,
       "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
+        "assignments": 79,
+        "quizzes": 84,
+        "exam": 81
       },
-      "feedback": "hwyy",
+      "feedback": "Good progress. Focus more on React components and state.",
+      "status": "Active"
+    },
+    {
+      "id": "S009",
+      "instructorId": "I003",
+      "name": "Dana Ali",
+      "studentId": "ST009",
+      "course": "JavaScript",
+      "attendance": 71,
+      "grades": {
+        "assignments": 68,
+        "quizzes": 73,
+        "exam": 70
+      },
+      "feedback": "Needs more practice with JavaScript fundamentals.",
+      "status": "Inactive"
+    },
+    {
+      "instructorId": "G609wbVGNXg",
+      "studentId": "ST001",
+      "name": "any",
+      "course": "any",
+      "attendance": 30,
+      "grades": {
+        "assignments": 60,
+        "quizzes": 70,
+        "exam": 80
+      },
+      "feedback": "gdgdgf",
       "status": "Active",
-      "id": "PrToae353fE",
-      "deleted": true
+      "id": "QKmbAQRMx6E",
+      "email": "amroabd2003@gmail.com"
     }
   ],
   "courses": [
     {
+      "id": "C001",
+      "name": "JavaScript",
+      "description": "Learn JavaScript fundamentals, DOM manipulation, events, APIs and asynchronous programming.",
+      "instructor": "I003"
+    },
+    {
+      "id": "C002",
+      "name": "HTML & CSS",
+      "description": "Learn how to build modern, responsive and accessible web pages using HTML and CSS.",
+      "instructor": "I003"
+    },
+    {
+      "id": "C003",
+      "name": "React",
+      "description": "Learn React fundamentals, components, props, state and building modern user interfaces.",
+      "instructor": "I003"
+    },
+    {
       "name": "any",
       "description": "any",
-      "instructor": "Pos_Wufu9zw",
+      "instructor": "G609wbVGNXg",
       "id": "Ib_gc9v1ShQ"
     }
   ],

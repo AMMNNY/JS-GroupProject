@@ -9,22 +9,22 @@
 }
 
 :root {
-    --primary: #6c4cff;
-    --primary-dark: #5637e8;
-    --primary-light: #eeeaff;
+    --primary: #6B1D3A;
+    --primary-dark: #8A2A4D;
+    --primary-light: #F6E8EE;
 
-    --background: #f6f7fb;
-    --card: #ffffff;
+    --background: #F8FAFC;
+    --card: #FFFFFF;
 
-    --text: #172033;
-    --muted: #697386;
+    --text: #0F172A;
+    --muted: #64748B;
 
-    --border: #e4e7ec;
+    --border: #E2E8F0;
 
     --green: #18b7a5;
-    --blue: #4b4ded;
+    --blue: #A8802F;
     --pink: #ff6b7a;
-    --orange: #ff9800;
+    --orange: #A8802F;
 
     --shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
 
@@ -79,7 +79,7 @@ body {
 }
 
 .back-btn:hover {
-    background: #f9fafb;
+    background: var(--background);
     transform: translateX(-2px);
 }
 
@@ -300,7 +300,7 @@ body {
 }
 
 .circle.purple {
-    border: 6px solid #7c3aed;
+    border: 6px solid var(--primary);
 }
 
 .circle.green {
@@ -346,7 +346,7 @@ body {
     border: none;
     background: transparent;
 
-    color: #586174;
+    color: var(--muted);
 
     padding: 10px 18px;
 
@@ -364,7 +364,7 @@ body {
 
 .tab:hover {
     color: var(--primary);
-    background: #f8f7ff;
+    background: var(--primary-light);
 }
 
 .tab.active {
@@ -422,7 +422,7 @@ body {
 }
 
 .overview-item {
-    background: #f8f9fc;
+    background: var(--background);
 
     border-radius: 10px;
 
@@ -438,7 +438,7 @@ body {
 }
 
 .overview-item:hover {
-    background: #f3f1ff;
+    background: var(--primary-light);
 }
 
 .overview-item span {
@@ -469,7 +469,7 @@ body {
 
     padding: 17px 0;
 
-    border-bottom: 1px solid #edf0f4;
+    border-bottom: 1px solid var(--border);
 }
 
 .progress-row:last-child {
@@ -477,7 +477,7 @@ body {
 }
 
 .progress-row > span {
-    color: #4b5563;
+    color: var(--muted);
     font-size: 14px;
     font-weight: 600;
 }
@@ -492,7 +492,7 @@ body {
 
     width: 100%;
 
-    background: #eceef4;
+    background: var(--border);
 
     border-radius: 50px;
 
@@ -505,8 +505,8 @@ body {
     background:
         linear-gradient(
             90deg,
-            #7357ff,
-            #6040ee
+            var(--primary),
+            var(--primary-dark)
         );
 
     border-radius: 50px;
@@ -551,7 +551,7 @@ body {
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(108, 76, 255, 0.1);
+        0 0 0 3px rgba(107, 29, 58, 0.1);
 }
 
 .feedback-form button {
@@ -581,9 +581,9 @@ body {
 }
 
 .feedback-item {
-    background: #f8f9fc;
+    background: var(--background);
 
-    border: 1px solid #eceef3;
+    border: 1px solid var(--border);
     border-left: 4px solid var(--primary);
 
     border-radius: 8px;
@@ -605,7 +605,7 @@ body {
 .empty-feedback i {
     font-size: 32px;
 
-    color: #c8cdd8;
+    color: var(--muted);
 
     margin-bottom: 13px;
 }
@@ -725,7 +725,7 @@ body {
 }
 
 .form-group label {
-    color: #475467;
+    color: var(--muted);
 
     font-size: 13px;
     font-weight: 700;
@@ -757,7 +757,7 @@ body {
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(108, 76, 255, 0.1);
+        0 0 0 3px rgba(107, 29, 58, 0.1);
 }
 
 .modal-buttons {
@@ -770,7 +770,7 @@ body {
 
     padding-top: 20px;
 
-    border-top: 1px solid #edf0f4;
+    border-top: 1px solid var(--border);
 }
 
 .cancel-btn,
@@ -796,7 +796,7 @@ body {
 }
 
 .cancel-btn:hover {
-    background: #f7f7f8;
+    background: var(--background);
 }
 
 .save-btn {
@@ -823,7 +823,7 @@ body {
 
     background: white;
 
-    color: #1f2937;
+    color: var(--text);
 
     padding: 35px;
 }
@@ -847,7 +847,7 @@ body {
 }
 
 .report-header p {
-    color: #6b7280;
+    color: var(--muted);
 }
 
 .report-date {
@@ -860,7 +860,7 @@ body {
 }
 
 .report-date span {
-    color: #6b7280;
+    color: var(--muted);
 
     font-size: 12px;
 }
@@ -868,7 +868,7 @@ body {
 .student-report hr {
     border: none;
 
-    border-top: 2px solid #eee;
+    border-top: 2px solid var(--border);
 
     margin-bottom: 25px;
 }
@@ -882,7 +882,7 @@ body {
 
     margin-bottom: 15px;
 
-    color: #1f2937;
+    color: var(--text);
 }
 
 .report-student-grid {
@@ -896,7 +896,7 @@ body {
 
 .report-student-grid > div,
 .report-performance > div {
-    background: #f8f9fc;
+    background: var(--background);
 
     padding: 14px;
 
@@ -910,7 +910,7 @@ body {
 
 .report-student-grid span,
 .report-performance span {
-    color: #6b7280;
+    color: var(--muted);
 
     font-size: 11px;
 }
@@ -925,7 +925,7 @@ body {
 }
 
 #reportFeedback {
-    background: #f8f9fc;
+    background: var(--background);
 
     padding: 15px;
 
@@ -941,11 +941,11 @@ body {
 
     padding-top: 15px;
 
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--border);
 
     text-align: center;
 
-    color: #9ca3af;
+    color: var(--muted);
 
     font-size: 11px;
 }
