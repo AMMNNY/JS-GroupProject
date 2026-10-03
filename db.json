@@ -29,7 +29,6 @@
       "id": "g5XoXauboc8"
     },
     {
-<<<<<<< HEAD
       "fullName": "ggrr",
       "email": "ggrr@gmail.com",
       "specialization": "fres",
@@ -44,14 +43,22 @@
       "password": "123",
       "role": "Instructor",
       "id": "P9ODUHEKj7g"
-=======
-      "fullName": "aymzah",
-      "email": "aymzah@example.com",
-      "specialization": "IT Manager",
-      "password": "123456",
+    },
+    {
+      "fullName": "Amro",
+      "email": "amro@gmail.com",
+      "specialization": "Any",
+      "password": "1234",
       "role": "Instructor",
-      "id": "STsNTpsUorQ"
->>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
+      "id": "6A1ZTeDc-yk"
+    },
+    {
+      "fullName": "Amro Abdelgader",
+      "email": "amro@any.com",
+      "specialization": "Any",
+      "password": "12345",
+      "role": "Instructor",
+      "id": "Pos_Wufu9zw"
     }
   ],
   "students": [
@@ -146,40 +153,28 @@
       "id": "lbvyLf7EHT0"
     },
     {
-      "instructorId": "I001",
-      "studentId": "qusai123",
-      "name": "qusai",
-      "course": "java",
+      "instructorId": "Pos_Wufu9zw",
+      "studentId": "ST001",
+      "name": "any",
+      "course": "any",
       "attendance": null,
       "grades": {
         "assignments": null,
         "quizzes": null,
         "exam": null
       },
-      "feedback": "baaaaaddddd one",
+      "feedback": "gfthf",
       "status": "Active",
-<<<<<<< HEAD
-      "id": "yrCwOamqRvY"
-=======
-      "id": "GR7YvFjPRb8"
-    },
-    {
-      "instructorId": "I001",
-      "studentId": "aaaa",
-      "name": "aaaa",
-      "course": "aaaa",
-      "attendance": null,
-      "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
-      },
-      "feedback": "aaaa",
-      "status": "Active",
-      "id": "eD-f0-f13ws"
->>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
+      "id": "6pQwH1p4DSU"
     }
   ],
-  "courses": [],
+  "courses": [
+    {
+      "name": "any",
+      "description": "any",
+      "instructor": "Pos_Wufu9zw",
+      "id": "Ib_gc9v1ShQ"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
