@@ -29,6 +29,7 @@
       "id": "g5XoXauboc8"
     },
     {
+<<<<<<< HEAD
       "fullName": "ggrr",
       "email": "ggrr@gmail.com",
       "specialization": "fres",
@@ -43,6 +44,14 @@
       "password": "123",
       "role": "Instructor",
       "id": "P9ODUHEKj7g"
+=======
+      "fullName": "aymzah",
+      "email": "aymzah@example.com",
+      "specialization": "IT Manager",
+      "password": "123456",
+      "role": "Instructor",
+      "id": "STsNTpsUorQ"
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
     }
   ],
   "students": [
@@ -149,30 +158,28 @@
       },
       "feedback": "baaaaaddddd one",
       "status": "Active",
+<<<<<<< HEAD
       "id": "yrCwOamqRvY"
+=======
+      "id": "GR7YvFjPRb8"
+    },
+    {
+      "instructorId": "I001",
+      "studentId": "aaaa",
+      "name": "aaaa",
+      "course": "aaaa",
+      "attendance": null,
+      "grades": {
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
+      },
+      "feedback": "aaaa",
+      "status": "Active",
+      "id": "eD-f0-f13ws"
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
     }
   ],
-  "courses": [
-    {
-      "id": "C001",
-      "name": "JavaScript",
-      "description": "Learn JavaScript fundamentals and DOM manipulation."
-    },
-    {
-      "id": "C002",
-      "name": "HTML & CSS",
-      "description": "Learn how to build responsive web pages."
-    },
-    {
-      "id": "C003",
-      "name": "React",
-      "description": "Learn the basics of React and reusable components."
-    },
-    {
-      "id": "C004",
-      "name": "PHP Laravel",
-      "description": "Learn backend development using Laravel."
-    }
-  ],
+  "courses": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

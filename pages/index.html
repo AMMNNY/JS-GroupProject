@@ -34,13 +34,13 @@
                 </li>
 
                 <li>
-                    <a href="#">Courses</a>
+                    <a href="#/Courses">Courses</a>
                 </li>
 
             </ul>
         </nav>
 
-        <button id="logoutBtn">
+        <button id="logoutButton">
             Logout
         </button>
 
@@ -52,9 +52,10 @@
     </main>
 
 
-    <script>
-
+    <script type="module">
+        import coursesFunction from "../script/courses.js"
         const dynmic = document.getElementById("Dynmic");
+        import { initDashboard } from "../script/analytics_dashboard.js";
 
 
         function loadScript(scriptName) {
@@ -103,6 +104,7 @@
             } else if (page === "#/Dashboard") {
 
                 page = "analytics_dashboard.html";
+<<<<<<< HEAD
 
             }
 
@@ -126,6 +128,20 @@
 
                 .then(async (data) => {
 
+=======
+            }else if (page === "#/Courses") {
+                page = "Courses.html";
+            }
+
+            fetch(`./${page}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Unable to load ${page}: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then((data) => {
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                     dynmic.innerHTML = data;
 
 
@@ -134,9 +150,16 @@
 
 
                     if (requestedHash === "#/Dashboard") {
+<<<<<<< HEAD
 
                         await loadScript("analytics_dashboard.js");
 
+=======
+                        initDashboard();
+                    }
+                    else if(requestedHash === "#/Courses"){
+                        coursesFunction()
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                     }
 
 
@@ -156,9 +179,13 @@
 
 
                 .catch((error) => {
+<<<<<<< HEAD
 
                     console.error(error);
 
+=======
+                    console.errorٍ(error);
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                 });
 
         }
@@ -166,11 +193,22 @@
 
         window.addEventListener("hashchange", loadPage);
 
+<<<<<<< HEAD
 
         loadPage();
+=======
+        // Open Dashboard by default
+        if (!location.hash) {
+            location.hash = "#/Dashboard";
+        } else {
+            loadPage();
+        }
+
+
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
 
     </script>
-
+<script type="module" src="../script/main.js"></script>
 </body>
 
 </html>

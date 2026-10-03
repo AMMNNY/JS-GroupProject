@@ -2,7 +2,7 @@
 // Import authentication functions
 import {authenticateUser,registerInstructor,getActiveUser,logoutUser} from './auth.js';
 // Import UI feedback function
-import {renderFeedbackMessage,} from './ui.js';
+import {renderFeedbackMessage} from './ui.js';
 
 // Run the code after the HTML page has fully loaded
 document.addEventListener('DOMContentLoaded', () => {
