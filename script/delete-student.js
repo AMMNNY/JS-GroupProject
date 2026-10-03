@@ -1,23 +1,66 @@
-let confirmDelete = document.getElementById("confirmDelete");
+let deleteModal = document.getElementById("deleteStudentModal");
+
+let closeDeleteModal = document.getElementById("closeDeleteModal");
+
 let cancelDelete = document.getElementById("cancelDelete");
 
-
-// Student ID we want to delete
-let currentId = "8CLhlJ27d6E";
+let confirmDelete = document.getElementById("confirmDelete");
 
 
-// Delete student
+let currentStudentId = null;
+
+
+// Open Delete Modal
+
+document.addEventListener("click", function (e) {
+
+    let deleteButton = e.target.closest(".delete-btn");
+
+    if (!deleteButton) {
+        return;
+    }
+
+    currentStudentId = deleteButton.dataset.id;
+
+    deleteModal.classList.add("active");
+
+});
+
+
+// Close
+
+closeDeleteModal.addEventListener("click", function () {
+
+    deleteModal.classList.remove("active");
+
+});
+
+
+// Cancel
+
+cancelDelete.addEventListener("click", function () {
+
+    deleteModal.classList.remove("active");
+
+});
+
+
+// Delete
+
 confirmDelete.addEventListener("click", async function () {
 
-    let response = await fetch(
-        `http://localhost:3000/students/${currentId}`,
+    await fetch(
+        `http://localhost:3000/students/${currentStudentId}`,
         {
             method: "DELETE"
         }
     );
 
-    if (response.ok) {
-        console.log("Student deleted successfully");
-    }
+
+    console.log("Student deleted");
+
+    deleteModal.classList.remove("active");
+
+    window.location.reload();
 
 });

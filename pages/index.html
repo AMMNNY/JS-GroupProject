@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>EduTrack</title>
+
     <link rel="stylesheet" href="../style/sidebar.css">
     <link rel="stylesheet" href="../style/analytics_dashboard.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -42,6 +46,7 @@
 
     </aside>
 
+
     <main>
         <section id="Dynmic"></section>
     </main>
@@ -52,14 +57,78 @@
         const dynmic = document.getElementById("Dynmic");
         import { initDashboard } from "../script/analytics_dashboard.js";
 
+
+        function loadScript(scriptName) {
+
+            return new Promise(function (resolve, reject) {
+
+                const script = document.createElement("script");
+
+                script.type = "module";
+                script.src = `../script/${scriptName}`;
+
+                script.onload = function () {
+                    script.remove();
+                    resolve();
+                };
+
+                script.onerror = function () {
+
+                    console.error(
+                        `Unable to load ../script/${scriptName}`
+                    );
+
+                    script.remove();
+                    reject();
+
+                };
+
+                document.body.appendChild(script);
+
+            });
+
+        }
+
+
         function loadPage() {
+
             const requestedHash = location.hash;
+
             let page = requestedHash;
 
+
             if (page === "#/Students") {
+
                 page = "student.html";
+
             } else if (page === "#/Dashboard") {
+
                 page = "analytics_dashboard.html";
+<<<<<<< HEAD
+
+            }
+
+
+            fetch(`./${page}`)
+
+                .then((response) => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Unable to load ${page}: ${response.status}`
+                        );
+
+                    }
+
+                    return response.text();
+
+                })
+
+
+                .then(async (data) => {
+
+=======
             }else if (page === "#/Courses") {
                 page = "Courses.html";
             }
@@ -72,22 +141,62 @@
                     return response.text();
                 })
                 .then((data) => {
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                     dynmic.innerHTML = data;
 
+
+                    // Night Mode
+                    await loadScript("night-mode.js");
+
+
                     if (requestedHash === "#/Dashboard") {
+<<<<<<< HEAD
+
+                        await loadScript("analytics_dashboard.js");
+
+=======
                         initDashboard();
                     }
                     else if(requestedHash === "#/Courses"){
                         coursesFunction()
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                     }
+
+
+                    else if (requestedHash === "#/Students") {
+
+                        await loadScript("student-managment.js");
+
+                        await loadScript("add-student.js");
+
+                        await loadScript("edit-student.js");
+
+                        await loadScript("delete-student.js");
+
+                    }
+
                 })
+
+
                 .catch((error) => {
+<<<<<<< HEAD
+
+                    console.error(error);
+
+=======
                     console.errorٍ(error);
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
                 });
+
         }
+
 
         window.addEventListener("hashchange", loadPage);
 
+<<<<<<< HEAD
+
+        loadPage();
+=======
         // Open Dashboard by default
         if (!location.hash) {
             location.hash = "#/Dashboard";
@@ -96,6 +205,7 @@
         }
 
 
+>>>>>>> d613de178457e9dec6a3ce99276a46fd08bcf92a
 
     </script>
 <script type="module" src="../script/main.js"></script>
