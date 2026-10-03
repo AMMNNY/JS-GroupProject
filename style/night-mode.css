@@ -1,0 +1,132 @@
+
+/* =========================
+   1. VARIABLES
+========================= */
+
+body.dark-mode {
+
+    /* Landing page */
+    --primary: #B8456F;
+    --primary-hover: #D05A85;
+    --background: #14080E;
+    --white: #1E0E16;
+    --text-main: #F3E8EC;
+    --text-muted: #B8A3AC;
+    --border: #3A2230;
+    --soft-blue: #3A1A2A;
+    --dark: #0D0409;
+
+    /* Students page */
+    --primary-color: #B8456F;
+    --secondary-color: #E5C98A;
+    --bg-color: #14080E;
+    --card-bg: #1E0E16;
+    --input-bg: #14080E;
+    --placeholder: #8F7983;
+    --border-color: #3A2230;
+    --soft-bg: #3A1A2A;
+    --row-hover: #28121D;
+    --track: #3A2230;
+    --danger-soft: #451A1A;
+    --overlay: rgba(0, 0, 0, 0.55);
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   2. LANDING PAGE
+========================= */
+
+/* Elements that must stay white (--white is dark in night mode) */
+body.dark-mode .hero-content h1,
+body.dark-mode .secondary-btn,
+body.dark-mode .footer,
+body.dark-mode .footer-brand .logo,
+body.dark-mode .footer-links a:hover,
+body.dark-mode .nav-links .nav-login,
+body.dark-mode .nav-links .nav-login:hover {
+    color: #FFFFFF;
+}
+
+body.dark-mode .primary-btn,
+body.dark-mode .secondary-btn:hover,
+body.dark-mode .footer-social a:hover {
+    background-color: #FFFFFF;
+    color: #6B1D3A;
+}
+
+body.dark-mode .primary-btn:hover {
+    background-color: var(--accent-light);
+}
+
+body.dark-mode .navbar,
+body.dark-mode .about-box,
+body.dark-mode .feature-card,
+body.dark-mode .features-section {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+
+/* =========================
+   3. STUDENTS PAGE
+========================= */
+
+body.dark-mode .page-intro h2 {
+    color: var(--text-main);
+}
+
+body.dark-mode .icon-button {
+    color: var(--text-main);
+}
+
+body.dark-mode .search-box i {
+    color: var(--text-muted);
+}
+
+body.dark-mode .students-table th {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+body.dark-mode .grade {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .students-table td:last-child .edit-btn:hover {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .students-table td:last-child .delete-btn:hover {
+    color: #FCA5A5;
+}
+
+body.dark-mode .empty-icon {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .modal-header h3 {
+    color: var(--text-main);
+}
+
+body.dark-mode .close-modal:hover {
+    color: var(--text-main);
+}
+
+body.dark-mode .cancel-btn:hover {
+    color: var(--text-main);
+}
+html:has(body.dark-mode),
+body.dark-mode .dashboard {
+    background-color: var(--bg-color);
+}
+
+body.dark-mode #theme-toggle {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .sidebar {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
