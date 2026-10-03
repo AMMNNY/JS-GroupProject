@@ -214,7 +214,7 @@ async function loadInstructorProfile() {
         /* Fetch students */
 
         const studentsResponse =
-            await fetch(STUDENTS_URL);
+            await fetch(STUDENTS_URL+`?instructorId=${instructor.id}&deleted=false`);
 
 
         if (!studentsResponse.ok) {
@@ -235,7 +235,8 @@ async function loadInstructorProfile() {
 
                 return (
                     student.instructorId ===
-                    instructor.id
+                    instructor.id &&
+                    student.deleted === false
                 );
 
             });
