@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
            renderFeedbackMessage('loginFeedback','Signed in successfully!');
 
             // Redirect to the dashboard
-         window.location.href = 'index.html';
+         window.location.href = 'landing-page.html';
           } else {
              // Display invalid login message
             renderFeedbackMessage('loginFeedback',result.message, true);

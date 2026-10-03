@@ -1,8 +1,12 @@
 import { getActiveUser } from '../script/auth.js';
+export function initStudents() {
+
 let currentInstructor = getActiveUser();
 let studentsList = document.getElementById('students-list');
 let searchInput = document.getElementById('student-search');
 let students = [];
+
+
 
 async function getStudents() {
 
@@ -61,7 +65,9 @@ function displayStudents(students) {
 
                 <td>
                     <div class="student-info">
-                        <span>${student.name}</span>
+                        <a href="../pages/StudentProfile.html?id=${student.id}">
+                            <span>${student.name}</span>
+                        </a>
                     </div>
                 </td>
 
@@ -102,3 +108,4 @@ searchInput.addEventListener("input", function () {
 
     displayStudents(filteredStudents);
 });
+}
