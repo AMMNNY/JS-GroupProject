@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style/analytics_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
 </head>
 
 <body>
@@ -50,6 +50,7 @@
     <script type="module">
         import coursesFunction from "../script/courses.js"
         const dynmic = document.getElementById("Dynmic");
+        import { initDashboard } from "../script/analytics_dashboard.js";
 
         function loadPage() {
             const requestedHash = location.hash;
@@ -74,30 +75,27 @@
                     dynmic.innerHTML = data;
 
                     if (requestedHash === "#/Dashboard") {
-                        // const dashboardScript = document.createElement("script");
-                        // dashboardScript.type = "module";
-                        // dashboardScript.src = "../script/analytics_dashboard.js";
-                        // dashboardScript.onload = () => dashboardScript.remove();
-                        // dashboardScript.onerror = () => {
-                        //     console.error("Unable to load ../script/analytics_dashboard.js");
-                        //     dashboardScript.remove();
-                        // };
-                        // document.body.appendChild(dashboardScript);
+                        initDashboard();
                     }
                     else if(requestedHash === "#/Courses"){
                         coursesFunction()
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
+                    console.errorٍ(error);
                 });
         }
 
         window.addEventListener("hashchange", loadPage);
 
-        loadPage();
+        // Open Dashboard by default
+        if (!location.hash) {
+            location.hash = "#/Dashboard";
+        } else {
+            loadPage();
+        }
 
-        
+
 
     </script>
 
