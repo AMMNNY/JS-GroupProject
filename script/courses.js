@@ -1,5 +1,25 @@
 export default function coursesFunction(){
 let coursesContainer = document.getElementById("coursesContainer")
+let gridViewBtn = document.getElementById("gridViewBtn")
+let listViewBtn = document.getElementById("listViewBtn")
+
+gridViewBtn.addEventListener("click", () => {
+    coursesContainer.classList.add("courses-grid")
+    coursesContainer.classList.remove("courses-list")
+    gridViewBtn.classList.add("active")
+    gridViewBtn.setAttribute("aria-pressed", "true")
+    listViewBtn.classList.remove("active")
+    listViewBtn.setAttribute("aria-pressed", "false")
+})
+
+listViewBtn.addEventListener("click", () => {
+    coursesContainer.classList.add("courses-list")
+    coursesContainer.classList.remove("courses-grid")
+    listViewBtn.classList.add("active")
+    listViewBtn.setAttribute("aria-pressed", "true")
+    gridViewBtn.classList.remove("active")
+    gridViewBtn.setAttribute("aria-pressed", "false")
+})
 
 let courseName = document.getElementById("courseName")
 let courseDescription = document.getElementById("courseDescription")

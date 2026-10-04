@@ -74,6 +74,14 @@
       "image": "../Assest/instructors/default-profile.png",
       "status": "Active",
       "experience": 7
+    },
+    {
+      "fullName": "Ayman Zahran",
+      "email": "Ayman@gmail.com",
+      "specialization": "IT Manager",
+      "password": "123456",
+      "role": "Instructor",
+      "id": "_7P09WEsR6g"
     }
   ],
   "students": [
@@ -396,39 +404,24 @@
       "feedback": "Needs additional support with backend fundamentals and database concepts.",
       "status": "Inactive",
       "deleted": false
+    },
+    {
+      "instructorId": "_7P09WEsR6g",
+      "studentId": "11111",
+      "name": "Yousef Ali",
+      "course": "aaaa",
+      "attendance": null,
+      "grades": {
+        "assignments": null,
+        "quizzes": null,
+        "exam": null
+      },
+      "feedback": "asasa",
+      "status": "Active",
+      "id": "T1S691E1NqU",
+      "deleted": true
     }
   ],
-  "courses": [
-    {
-      "id": "C001",
-      "name": "JavaScript",
-      "description": "Learn JavaScript fundamentals, variables, functions, arrays, DOM manipulation, events, APIs, and asynchronous programming.",
-      "instructor": "I003"
-    },
-    {
-      "id": "C002",
-      "name": "HTML & CSS",
-      "description": "Learn how to build modern, responsive, accessible, and well-structured websites using HTML and CSS.",
-      "instructor": "I001"
-    },
-    {
-      "id": "C003",
-      "name": "React",
-      "description": "Learn React fundamentals, components, props, state, hooks, and how to build modern interactive user interfaces.",
-      "instructor": "I002"
-    },
-    {
-      "id": "C004",
-      "name": "UI/UX Design",
-      "description": "Learn user interface and user experience principles, wireframing, prototyping, accessibility, and design systems.",
-      "instructor": "I004"
-    },
-    {
-      "id": "C005",
-      "name": "Backend Development",
-      "description": "Learn server-side programming, REST APIs, databases, authentication, and fundamental backend architecture.",
-      "instructor": "I005"
-    }
-  ],
+  "courses": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
