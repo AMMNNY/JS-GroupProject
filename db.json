@@ -76,12 +76,19 @@
       "experience": 7
     },
     {
-      "fullName": "Ayman Zahran",
-      "email": "Ayman@gmail.com",
-      "specialization": "IT Manager",
+      "id": "I006",
+      "name": "Ali Hussien",
+      "fullName": "Ali Hussien",
+      "email": "ali@example.com",
       "password": "123456",
+      "specialization": "Frontend Development",
       "role": "Instructor",
-      "id": "_7P09WEsR6g"
+      "phone": "+962 7 9000 1006",
+      "location": "Amman, Jordan",
+      "bio": "Frontend instructor helping students build solid foundations in coding, design thinking, and practical team projects.",
+      "image": "../Assest/instructors/default-profile.png",
+      "status": "Active",
+      "experience": 5
     }
   ],
   "students": [
@@ -406,20 +413,166 @@
       "deleted": false
     },
     {
-      "instructorId": "_7P09WEsR6g",
-      "studentId": "11111",
-      "name": "Yousef Ali",
-      "course": "aaaa",
-      "attendance": null,
+      "id": "S021",
+      "instructorId": "I006",
+      "name": "Amina Hassan",
+      "studentId": "ST021",
+      "course": "Intro to JavaScript",
+      "attendance": 92,
       "grades": {
-        "assignments": null,
-        "quizzes": null,
-        "exam": null
+        "assignments": 90,
+        "quizzes": 88,
+        "exam": 94
       },
-      "feedback": "asasa",
+      "feedback": "Strong understanding of core JavaScript concepts and consistent participation.",
       "status": "Active",
-      "id": "T1S691E1NqU",
-      "deleted": true
+      "deleted": false
+    },
+    {
+      "id": "S022",
+      "instructorId": "I006",
+      "name": "Osama Nabil",
+      "studentId": "ST022",
+      "course": "Intro to JavaScript",
+      "attendance": 89,
+      "grades": {
+        "assignments": 87,
+        "quizzes": 85,
+        "exam": 90
+      },
+      "feedback": "Good progress in logic, functions, and DOM concepts.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S023",
+      "instructorId": "I006",
+      "name": "Leen Fares",
+      "studentId": "ST023",
+      "course": "Intro to JavaScript",
+      "attendance": 84,
+      "grades": {
+        "assignments": 82,
+        "quizzes": 80,
+        "exam": 86
+      },
+      "feedback": "Steady improvement with solid effort and good problem-solving habits.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S024",
+      "instructorId": "I006",
+      "name": "Tareq Younis",
+      "studentId": "ST024",
+      "course": "Responsive Web Design",
+      "attendance": 90,
+      "grades": {
+        "assignments": 88,
+        "quizzes": 87,
+        "exam": 91
+      },
+      "feedback": "Excellent layout and responsiveness skills with good design thinking.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S025",
+      "instructorId": "I006",
+      "name": "Nour Jaber",
+      "studentId": "ST025",
+      "course": "Responsive Web Design",
+      "attendance": 79,
+      "grades": {
+        "assignments": 75,
+        "quizzes": 78,
+        "exam": 80
+      },
+      "feedback": "Shows good progress and should continue improving accessibility practices.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S026",
+      "instructorId": "I006",
+      "name": "Hadi Salem",
+      "studentId": "ST026",
+      "course": "React Essentials",
+      "attendance": 93,
+      "grades": {
+        "assignments": 91,
+        "quizzes": 89,
+        "exam": 95
+      },
+      "feedback": "Excellent understanding of React fundamentals and component architecture.",
+      "status": "Active",
+      "deleted": false
+    },
+    {
+      "id": "S027",
+      "instructorId": "I006",
+      "name": "Mira Adnan",
+      "studentId": "ST027",
+      "course": "React Essentials",
+      "attendance": 86,
+      "grades": {
+        "assignments": 84,
+        "quizzes": 82,
+        "exam": 88
+      },
+      "feedback": "Great effort and clear improvement in React state and component usage.",
+      "status": "Active",
+      "deleted": false
+    }
+  ],
+  "courses": [
+    {
+      "id": "C001",
+      "name": "JavaScript",
+      "description": "Learn JavaScript fundamentals, variables, functions, arrays, DOM manipulation, events, APIs, and asynchronous programming.",
+      "instructor": "I003"
+    },
+    {
+      "id": "C002",
+      "name": "HTML & CSS",
+      "description": "Learn how to build modern, responsive, accessible, and well-structured websites using HTML and CSS.",
+      "instructor": "I001"
+    },
+    {
+      "id": "C003",
+      "name": "React",
+      "description": "Learn React fundamentals, components, props, state, hooks, and how to build modern interactive user interfaces.",
+      "instructor": "I002"
+    },
+    {
+      "id": "C004",
+      "name": "UI/UX Design",
+      "description": "Learn user interface and user experience principles, wireframing, prototyping, accessibility, and design systems.",
+      "instructor": "I004"
+    },
+    {
+      "id": "C005",
+      "name": "Backend Development",
+      "description": "Learn server-side programming, REST APIs, databases, authentication, and fundamental backend architecture.",
+      "instructor": "I005"
+    },
+    {
+      "id": "C006",
+      "name": "Intro to JavaScript",
+      "description": "Build a solid foundation in JavaScript, including variables, functions, arrays, objects, loops, and DOM interactions.",
+      "instructor": "I006"
+    },
+    {
+      "id": "C007",
+      "name": "Responsive Web Design",
+      "description": "Learn responsive layouts, CSS techniques, accessibility, and design best practices for mobile and desktop experiences.",
+      "instructor": "I006"
+    },
+    {
+      "id": "C008",
+      "name": "React Essentials",
+      "description": "Explore component-based UI development with React, props, state, hooks, and practical application building.",
+      "instructor": "I006"
     }
   ],
   "courses": [],
