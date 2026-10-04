@@ -92,40 +92,69 @@ export function initDashboard() {
         studentsData.then(data => {
             if (!Array.isArray(data) || data.length === 0) return;
 
-            const top5Students = data
+            const top3Students = data
                 .map(student => {
-                    const grades = Object.values(student.grades || {});
+                    const grades = student.grades || {};
+                    const scores = {
+                        Assignments: Number(grades.assignments),
+                        Quizzes: Number(grades.quizzes),
+                        Exams: Number(grades.exam)
+                    };
+                    const validScores = Object.values(scores).filter(Number.isFinite);
 
-                    const average = grades.length
-                        ? grades.reduce((sum, grade) => sum + parseFloat(grade), 0) / grades.length
+                    const average = validScores.length
+                        ? validScores.reduce((sum, score) => sum + score, 0) / validScores.length
                         : 0;
 
                     return {
                         name: student.name,
-                        average: average
+                        average,
+                        scores
                     };
                 })
                 .sort((a, b) => b.average - a.average)
-                .slice(0, 5);
+                .slice(0, 3);
 
             new Chart(perfCtx, {
                 type: 'bar',
                 data: {
-                    labels: top5Students.map(student => student.name),
-                    datasets: [{
-                        data: top5Students.map(student => student.average),
-                        backgroundColor: '#6B1D3A',
-                        barThickness: 22
-                    }]
+                    labels: top3Students.map(student => student.name),
+                    datasets: [
+                        {
+                            label: 'Assignments',
+                            data: top3Students.map(student => Number.isFinite(student.scores.Assignments) ? student.scores.Assignments : null),
+                            backgroundColor: '#A8802F',
+                            borderRadius: 4,
+                            maxBarThickness: 18
+                        },
+                        {
+                            label: 'Quizzes',
+                            data: top3Students.map(student => Number.isFinite(student.scores.Quizzes) ? student.scores.Quizzes : null),
+                            backgroundColor: '#8A2A4D',
+                            borderRadius: 4,
+                            maxBarThickness: 18
+                        },
+                        {
+                            label: 'Exams',
+                            data: top3Students.map(student => Number.isFinite(student.scores.Exams) ? student.scores.Exams : null),
+                            backgroundColor: '#3D0F21',
+                            borderRadius: 4,
+                            maxBarThickness: 18
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: false },
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            align: 'start'
+                        },
                         tooltip: {
                             callbacks: {
-                                label: (context) => ` Score: ${context.parsed.y}`
+                                label: (context) => ` ${context.dataset.label}: ${context.parsed.y}%`
                             }
                         }
                     },
@@ -133,12 +162,16 @@ export function initDashboard() {
                         x: {
                             grid: { display: false },
                             border: { display: false },
-                            ticks: { font: { size: 11 } }
+                            ticks: { font: { size: 11 } },
+                            stacked: false
                         },
                         y: {
-                            display: false,
+                            beginAtZero: true,
                             min: 0,
-                            max: 100
+                            max: 100,
+                            ticks: {
+                                callback: (value) => `${value}%`
+                            }
                         }
                     }
                 }
@@ -260,7 +293,7 @@ export function initDashboard() {
                             ticks: { font: { size: 11, weight: '500' } }
                         },
                         y: {
-                            display: false,
+                            beginAtZero: true,
                             min: 0,
                             max: 100
                         }
