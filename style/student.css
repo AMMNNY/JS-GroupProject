@@ -583,6 +583,11 @@ body {
     animation: modalAppear 0.2s ease;
 }
 
+#editStudentModal .add-student-modal {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
 @keyframes modalAppear {
     from {
         opacity: 0;
