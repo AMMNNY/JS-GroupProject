@@ -575,5 +575,6 @@
       "instructor": "I006"
     }
   ],
+  "courses": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
