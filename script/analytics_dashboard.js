@@ -122,21 +122,21 @@ export function initDashboard() {
                     datasets: [
                         {
                             label: 'Assignments',
-                            data: top3Students.map(student => Number.isFinite(student.scores.Assignments) ? student.scores.Assignments : null),
+                            data: top3Students.map(student => Float(student.scores.Assignments) || 0),
                             backgroundColor: '#A8802F',
                             borderRadius: 4,
                             maxBarThickness: 18
                         },
                         {
                             label: 'Quizzes',
-                            data: top3Students.map(student => Number.isFinite(student.scores.Quizzes) ? student.scores.Quizzes : null),
+                            data: top3Students.map(student => parseFloat(student.scores.Quizzes) || 0),
                             backgroundColor: '#8A2A4D',
                             borderRadius: 4,
                             maxBarThickness: 18
                         },
                         {
                             label: 'Exams',
-                            data: top3Students.map(student => Number.isFinite(student.scores.Exams) ? student.scores.Exams : null),
+                            data: top3Students.map(student => parseFloat(student.scores.Exams) || 0),
                             backgroundColor: '#3D0F21',
                             borderRadius: 4,
                             maxBarThickness: 18
