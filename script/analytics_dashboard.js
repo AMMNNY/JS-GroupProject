@@ -65,7 +65,7 @@ export function initDashboard() {
         console.error('Error setting avatar text:', error);
     }
 
-    function initDashboard() {
+    function initCharts() {
         if (typeof Chart === 'undefined') {
             console.error('Chart.js failed to load.');
             return;
@@ -304,9 +304,9 @@ export function initDashboard() {
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initDashboard, { once: true });
+        document.addEventListener('DOMContentLoaded', initCharts, { once: true });
     } else {
-        initDashboard();
+        initCharts();
     }
 
     const themeToggle = document.getElementById('theme-toggle');
