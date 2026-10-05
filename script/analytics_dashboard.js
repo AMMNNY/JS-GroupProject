@@ -122,7 +122,7 @@ export function initDashboard() {
                     datasets: [
                         {
                             label: 'Assignments',
-                            data: top3Students.map(student => Float(student.scores.Assignments) || 0),
+                            data: top3Students.map(student => parseFloat(student.scores.Assignments) || 0),
                             backgroundColor: '#A8802F',
                             borderRadius: 4,
                             maxBarThickness: 18
